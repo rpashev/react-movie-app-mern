@@ -1,13 +1,7 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  box-sizing: border-box;
+  margin-left: 2rem;
+  font-family: Helvetica, sans-sarif;
+  background: url("https://www.headdies.com/wp-content/uploads/2014/11/background-wallpaperwebsites-desktop-website-templates-web-1920x1080-wallpaper.jpg");
+  background-attachment: fixed;
 }
