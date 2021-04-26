@@ -1,0 +1,17 @@
+.header {
+    display: flex;
+}
+
+.link {
+    margin: 16px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.link:hover {
+    color: #45e237
+}
+
+.active {
+    color: #45e237
+}
