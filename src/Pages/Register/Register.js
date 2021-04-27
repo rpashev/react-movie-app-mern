@@ -1,61 +1,98 @@
 import React, { Fragment, useState } from "react";
 import styles from "./Register.module.css";
+import useInput from "../../Custom Hooks/use-input";
 
-const Register = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [repeatPassword, setRepeatPassword] = useState("");
-  const [emailError, setEmailError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
-  const [repeatPasswordError, setRepeatPasswordError] = useState("");
-
-  const submitHandler = async (e) => {
-    e.preventDefault();
-
-    if (!passwordError && !repeatPasswordError && !emailError) {
-      console.log(password, repeatPassword, email);
-    }
-  };
-
-  const validateEmail = () => {
+const Register = (props) => {
+  const validateEmail = (value) => {
     let regex = /\S+@\S+\.\S+/;
-    if (regex.test(email) === false || email === "") {
-      setEmailError("Please enter a valid email!");
+    if (regex.test(value) === false || value === "") {
+      return false;
     } else {
-      setEmailError("");
+      return true;
     }
   };
+  const {
+    value: username,
+    hasError: usernameError,
+    isValid: usernameIsValid,
+    valueChangeHandler: usernameChangeHandler,
+    inputBlurHandler: usernameBlurHandler,
+    reset: resetUsername
+  } = useInput(value=> value !== "");
 
-  const validatePassword = () => {
-    if (password.length < 6) {
-      setPasswordError("Password should be at least 6 symbols!");
-    } else {
-      setPasswordError("");
-    }
+  const {
+    value: email,
+    hasError: emailError,
+    isValid: emailIsValid,
+    valueChangeHandler: emailChangeHandler,
+    inputBlurHandler: emailBlurHandler,
+    reset: resetEmail
+  } = useInput(validateEmail);
+
+  const {
+    value: password,
+    hasError: passwordError,
+    isValid: passwordIsValid,
+    valueChangeHandler: passwordChangeHandler,
+    inputBlurHandler: passwordBlurHandler,
+    reset: resetPassword
+  } = useInput(value => (value.length < 6 ? false : true));
+
+  const [repeatPasswordIsTouched, setRepeatPasswordIsTouched] = useState(false);
+  const [repeatPassword, setRepeatPassword] = useState("");
+  const repeatPasswordIsValid = repeatPassword === password;
+  const repeatPasswordError = !repeatPasswordIsValid && repeatPasswordIsTouched;
+
+  const repeatPasswordChangeHandler = (event) => {
+    setRepeatPassword(event.target.value);
   };
 
-  const validateRePassword = () => {
-    if (password !== repeatPassword) {
-      setRepeatPasswordError("Passwords should match!");
-    } else {
-      setRepeatPasswordError("");
-    }
+  const repeatPasswordBlurHandler = () => {
+    setRepeatPasswordIsTouched(true);
+  };
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    
+    if(emailIsValid && passwordIsValid && repeatPasswordIsValid && usernameIsValid)
+      console.log(password, repeatPassword, email, username);
+      resetEmail();
+      resetPassword();
+      setRepeatPassword("");
+      resetUsername();
+    
   };
 
   return (
     <Fragment>
       <h1 className={styles.title}>REGISTER</h1>
-      <form className={styles.registerForm}>
+      <form onSubmit={submitHandler} className={styles.registerForm}>
+      <div className={styles.formcontrol}>
+          <label htmlFor="username">Username</label>
+          <input
+            className={styles.input}
+            type="text"
+            value={username}
+            onChange={usernameChangeHandler}
+            onBlur={usernameBlurHandler}
+          />
+          {usernameError ? (
+            <p className={styles.error}>Please enter a valid username!</p>
+          ) : null}
+        </div>
+
         <div className={styles.formcontrol}>
           <label htmlFor="email">Email</label>
           <input
             className={styles.input}
             type="email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            onBlur={validateEmail}
+            onChange={emailChangeHandler}
+            onBlur={emailBlurHandler}
           />
-          {emailError ? <p className={styles.error}>{emailError}</p> : null}
+          {emailError ? (
+            <p className={styles.error}>Please enter a valid email!</p>
+          ) : null}
         </div>
 
         <div className={styles.formcontrol}>
@@ -64,11 +101,13 @@ const Register = () => {
             className={styles.input}
             type="password"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            onBlur={validatePassword}
+            onChange={passwordChangeHandler}
+            onBlur={passwordBlurHandler}
           />
           {passwordError ? (
-            <p className={styles.error}>{passwordError}</p>
+            <p className={styles.error}>
+              Password should be at least 6 symbols!
+            </p>
           ) : null}
         </div>
 
@@ -78,19 +117,18 @@ const Register = () => {
             className={styles.input}
             type="password"
             value={repeatPassword}
-            onChange={(e) => setRepeatPassword(e.target.value)}
-            onBlur={validateRePassword}
+            onChange={repeatPasswordChangeHandler}
+            onBlur={repeatPasswordBlurHandler}
           />
-          {repeatPasswordError ? (
-            <p className={styles.error}>{repeatPasswordError}</p>
+          {repeatPasswordError && repeatPasswordIsTouched ? (
+            <p className={styles.error}>Passwords should match!</p>
           ) : null}
         </div>
 
         <div className={styles.formcontrol}>
           <button
             className={styles.button}
-            type="button"
-            onClick={submitHandler}
+            type="submit"
           >
             Register
           </button>
