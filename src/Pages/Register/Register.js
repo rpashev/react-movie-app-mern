@@ -3,6 +3,7 @@ import styles from "./Register.module.css";
 import useInput from "../../Custom Hooks/use-input";
 
 const Register = (props) => {
+
   const validateEmail = (value) => {
     let regex = /\S+@\S+\.\S+/;
     if (regex.test(value) === false || value === "") {
@@ -11,6 +12,7 @@ const Register = (props) => {
       return true;
     }
   };
+  
   const {
     value: username,
     hasError: usernameError,

@@ -1,72 +1,80 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
+import useInput from "../../Custom Hooks/use-input";
 import styles from "./Login.module.css";
 
 const Login = (props) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [emailError, setEmailError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
-
-  const validateEmail = () => {
+  const validateEmail = (value) => {
     let regex = /\S+@\S+\.\S+/;
-    if (regex.test(email) === false || email === "") {
-      setEmailError("Please enter a valid email!");
+    if (regex.test(value) === false || value === "") {
+      return false;
     } else {
-      setEmailError("");
+      return true;
     }
   };
 
-  const validatePassword = () => {
-    if (password.length < 6) {
-      setPasswordError("Password should be at least 6 symbols!");
-    } else {
-      setPasswordError("");
-    }
-  };
+  const {
+    value: email,
+    hasError: emailError,
+    isValid: emailIsValid,
+    valueChangeHandler: emailChangeHandler,
+    inputBlurHandler: emailBlurHandler,
+    reset: resetEmail,
+  } = useInput(validateEmail);
+
+  const {
+    value: password,
+    hasError: passwordError,
+    isValid: passwordIsValid,
+    valueChangeHandler: passwordChangeHandler,
+    inputBlurHandler: passwordBlurHandler,
+    reset: resetPassword,
+  } = useInput((value) => (value.length < 6 ? false : true));
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    if (!passwordError && !emailError) {
+    if (passwordIsValid && emailIsValid) {
       console.log(email, password);
     }
+    resetEmail();
+    resetPassword();
   };
 
   return (
     <Fragment>
       <h1 className={styles.title}>LOGIN</h1>
-      <form className={styles.loginForm}>
+      <form onSubmit={submitHandler} className={styles.loginForm}>
         <div className={styles.formcontrol}>
           <label htmlFor="email">Email</label>
           <input
             className={styles.input}
             value={email}
             type="email"
-            onChange={(e) => setEmail(e.target.value)}
-            onBlur={validateEmail}
+            onChange={emailChangeHandler}
+            onBlur={emailBlurHandler}
           />
-          {emailError ? <p className={styles.error}>{emailError}</p> : null}
+          {emailError ? (
+            <p className={styles.error}>Please enter a valid email!</p>
+          ) : null}
         </div>
 
         <div className={styles.formcontrol}>
           <label htmlFor="password">Password</label>
           <input
             className={styles.input}
-            onBlur={validatePassword}
+            onBlur={passwordBlurHandler}
             type="password"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={passwordChangeHandler}
           />
           {passwordError ? (
-            <p className={styles.error}>{passwordError}</p>
+            <p className={styles.error}>
+              Password should be at least 6 symbols!
+            </p>
           ) : null}
         </div>
 
         <div className={styles.formcontrol}>
-          <button
-            className={styles.button}
-            type="button"
-            onClick={submitHandler}
-          >
+          <button className={styles.button} type="submit">
             Login
           </button>
         </div>
