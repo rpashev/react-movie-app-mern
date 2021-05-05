@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
+import userContext from "./Context/user-context";
 import HomeUser from "./Pages/HomeUser/HomeUser";
 import HomeGuest from "./Pages/HomeGuest/HomeGuest";
 import Login from "./Pages/Login/Login";
@@ -12,8 +13,9 @@ import Details from "./Pages/Details/Details";
 import Layout from "./Components/Layout/Layout";
 
 const App = (props) => {
-  const user = false;
-
+  const context = useContext(userContext);
+  const { user } = context;
+  useEffect(()=>console.log(user))
   return (
     <BrowserRouter>
       <Layout>

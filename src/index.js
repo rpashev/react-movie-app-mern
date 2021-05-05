@@ -1,10 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import userContext from "./Context/user-context";
+import App from "./App";
 
-
-ReactDOM.render(<App />, document.getElementById('root'));
-
-
-
+const user = true;
+ReactDOM.render(
+  <userContext.Provider value={{ user }}>
+    <App />
+  </userContext.Provider>,
+  document.getElementById("root")
+);
