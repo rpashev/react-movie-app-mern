@@ -15,7 +15,7 @@ import Layout from "./Components/Layout/Layout";
 const App = (props) => {
   const context = useContext(userContext);
   const { user } = context;
-  useEffect(()=>console.log(user))
+  
   return (
     <BrowserRouter>
       <Layout>
