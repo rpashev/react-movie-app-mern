@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Home.module.scss";
-import MovieCard from "../../Components/MovieCard/MovieCard"
+import MovieCard from "../../Components/MovieCard/MovieCard";
+import axios from "axios";
 
 const DUMMY_DATA = [
   {
@@ -42,21 +43,50 @@ const DUMMY_DATA = [
 ];
 
 const HomePage = (props) => {
-  return (
-    <div className={styles["home-page"]}>
-      <h1 className={styles.title}>People are watching...</h1>
+  let [movies, setMovies] = useState([]);
+  let [error, setError] = useState(null);
+  let [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    setIsLoading(true);
+    setError(null);
+
+    axios
+      .get("http://localhost:5000/public-library")
+      .then((data) => {
+        setMovies(data.data);
+      })
+      .catch((error) => setError(error))
+      .finally(() => setIsLoading(false));
+    // setIsLoading(false);
+  }, []);
+
+  let content;
+  if (isLoading) {
+    content = <p>Loading...</p>;
+  } else if (!isLoading && movies.length > 0) {
+    content = (
       <div className={styles.list}>
-        {DUMMY_DATA.map((movie) => {
+        {movies.map((movie) => {
           return (
             <MovieCard
-              key={movie.movieID}
+              key={movie._id}
               title={movie.title}
-              imgLink={movie.imgLink}
-              movieID={movie.movieID}
+              imgLink={movie.poster}
+              movieID={movie.IMDBId}
             />
           );
         })}
       </div>
+    );
+  } else if (!isLoading && error) {
+    content = <p>{error.message}</p>;
+  }
+
+  return (
+    <div className={styles["home-page"]}>
+      <h1 className={styles.title}>People are watching...</h1>
+      {content}
     </div>
   );
 };

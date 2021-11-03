@@ -23,7 +23,8 @@
 
 .button:hover,
 .button:active {
-  background: $color-primary;
+  background: $gray-darkest;
+  color: $gray-light;
 }
 
 .button--danger {
