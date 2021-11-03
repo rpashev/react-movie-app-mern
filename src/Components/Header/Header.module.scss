@@ -1,16 +1,28 @@
 @import "../../Utils/_colors.scss";
 
 .header {
+  position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   background-color: $gray-darkest;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 5rem;
+  height: 6rem;
   z-index: 100;
+
+  .logo-container {
+    margin-left: 2rem;
+    height: 100%;
+    width: 12rem;
+    min-width: 6rem;
+    background: url("../../Assets//logo.png") center/cover no-repeat;
+  }
+  .nav__links {
+    margin-right: calc(50% - 10rem)
+  }
 
   .link {
     margin: 2rem;

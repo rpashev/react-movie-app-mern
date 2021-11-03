@@ -1,8 +1,8 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
 import userContext from "./Context/user-context";
-import Home from "./Pages/Home/HomeGuest";
+import Home from "./Pages/Home/Home";
 import Login from "./Pages/Login/Login";
 import Register from "./Pages/Register/Register";
 import NotFound from "./Pages/NotFound/NotFound";
