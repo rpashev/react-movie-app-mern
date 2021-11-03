@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Register.module.scss";
 import useInput from "../../Custom Hooks/use-input";
+import Button from "../../Components/UI/Button";
 
 const Register = (props) => {
   const validateEmail = (value) => {
@@ -131,9 +132,9 @@ const Register = (props) => {
         </div>
 
         <div className={styles.formcontrol}>
-          <button className={styles.button} type="submit">
-            Register
-          </button>
+          <Button type="submit" >
+            Sign Up
+          </Button>
         </div>
       </form>
     </div>

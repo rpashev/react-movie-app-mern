@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import useInput from "../../Custom Hooks/use-input";
 import styles from "./Login.module.scss";
+import Button from "../../Components/UI/Button";
 
 const Login = (props) => {
   const validateEmail = (value) => {
@@ -40,7 +41,7 @@ const Login = (props) => {
   };
 
   return (
-    <Fragment>
+    <div className={styles["login-page"]}>
       <h1 className={styles.title}>LOGIN</h1>
       <form onSubmit={submitHandler} className={styles.loginForm}>
         <div className={styles.formcontrol}>
@@ -74,12 +75,10 @@ const Login = (props) => {
         </div>
 
         <div className={styles.formcontrol}>
-          <button className={styles.button} type="submit">
-            Login
-          </button>
+          <Button type="submit">Login</Button>
         </div>
       </form>
-    </Fragment>
+    </div>
   );
 };
 

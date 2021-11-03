@@ -18,40 +18,27 @@
       border: none;
       display: flex;
       flex-flow: column;
+      min-width: 15rem;
 
       .input {
         display: block;
         margin: 0.5rem 0;
-        width: 100%;
+        // width: 100%;
         padding: 4px;
-        // border: 2px solid #ccc;
       }
       input:focus {
-          border: 3px solid $color-primary;
-          outline: none;
+        border: 3px solid $color-primary;
+        outline: none;
       }
 
       .error {
         margin: 0;
-        width: 220px;
+        width: auto;
         text-align: left;
-        background-color: #c21423;
+        background-color: $danger;
         padding: 4px;
         border-radius: 3px;
-        font-size: 12px;
-      }
-
-      .button {
-        border: none;
-        font: inherit;
-        font-size: 1.2rem;
-        text-align: center;
-        padding: 0.5rem 0.2rem;
-        border-radius: 5px;
-        background: $color-primary;
-        width: 50%;
-        height: auto;
-        cursor: pointer;
+        font-size: 0.8rem;
       }
     }
   }
@@ -63,9 +50,8 @@
   }
 }
 
-// .label {
-//   width: auto;
-//   display: block;
-//   width: 50%;
-//   text-align: left;
-// }
+@media (max-width: 40rem) {
+  .register-page {
+    width: 100%;
+  }
+}
