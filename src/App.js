@@ -2,8 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
 import userContext from "./Context/user-context";
-import HomeUser from "./Pages/HomeUser/HomeUser";
-import HomeGuest from "./Pages/HomeGuest/HomeGuest";
+import Home from "./Pages/Home/HomeGuest";
 import Login from "./Pages/Login/Login";
 import Register from "./Pages/Register/Register";
 import NotFound from "./Pages/NotFound/NotFound";
@@ -15,13 +14,13 @@ import Layout from "./Components/Layout/Layout";
 const App = (props) => {
   const context = useContext(userContext);
   const { user } = context;
-  
+
   return (
     <BrowserRouter>
       <Layout>
         <Switch>
           <Route path="/" exact>
-            {user ? <HomeUser /> : <HomeGuest />}
+            <Home />
           </Route>
 
           <Route path="/login" exact>

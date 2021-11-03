@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import styles from "./HomeGuest.module.css";
+import styles from "./HomeGuest.module.scss";
 import MovieCard from "../../Components/MovieCard/MovieCard"
 
 const DUMMY_DATA = [
@@ -41,7 +41,7 @@ const DUMMY_DATA = [
   },
 ];
 
-const HomeGuest = (props) => {
+const HomePage = (props) => {
   return (
     <Fragment>
       <h1 className={styles.title}>People are watching...</h1>
@@ -61,4 +61,4 @@ const HomeGuest = (props) => {
   );
 };
 
-export default HomeGuest;
+export default HomePage;

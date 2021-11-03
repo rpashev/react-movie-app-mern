@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import userContext from "../../Context/user-context";
 import getNavigation from "../../Utils/nav-links";
-import styles from "./Header.module.css";
+import styles from "./Header.module.scss";
 
 const Header = (props) => {
   const { user } = useContext(userContext);

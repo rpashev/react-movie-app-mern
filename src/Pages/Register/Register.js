@@ -1,9 +1,8 @@
-import React, { Fragment, useState } from "react";
-import styles from "./Register.module.css";
+import React, { useState } from "react";
+import styles from "./Register.module.scss";
 import useInput from "../../Custom Hooks/use-input";
 
 const Register = (props) => {
-
   const validateEmail = (value) => {
     let regex = /\S+@\S+\.\S+/;
     if (regex.test(value) === false || value === "") {
@@ -12,15 +11,15 @@ const Register = (props) => {
       return true;
     }
   };
-  
+
   const {
     value: username,
     hasError: usernameError,
     isValid: usernameIsValid,
     valueChangeHandler: usernameChangeHandler,
     inputBlurHandler: usernameBlurHandler,
-    reset: resetUsername
-  } = useInput(value=> value !== "");
+    reset: resetUsername,
+  } = useInput((value) => value !== "");
 
   const {
     value: email,
@@ -28,7 +27,7 @@ const Register = (props) => {
     isValid: emailIsValid,
     valueChangeHandler: emailChangeHandler,
     inputBlurHandler: emailBlurHandler,
-    reset: resetEmail
+    reset: resetEmail,
   } = useInput(validateEmail);
 
   const {
@@ -37,8 +36,8 @@ const Register = (props) => {
     isValid: passwordIsValid,
     valueChangeHandler: passwordChangeHandler,
     inputBlurHandler: passwordBlurHandler,
-    reset: resetPassword
-  } = useInput(value => (value.length < 6 ? false : true));
+    reset: resetPassword,
+  } = useInput((value) => (value.length < 6 ? false : true));
 
   const [repeatPasswordIsTouched, setRepeatPasswordIsTouched] = useState(false);
   const [repeatPassword, setRepeatPassword] = useState("");
@@ -55,21 +54,25 @@ const Register = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    
-    if(emailIsValid && passwordIsValid && repeatPasswordIsValid && usernameIsValid)
+
+    if (
+      emailIsValid &&
+      passwordIsValid &&
+      repeatPasswordIsValid &&
+      usernameIsValid
+    )
       console.log(password, repeatPassword, email, username);
-      resetEmail();
-      resetPassword();
-      setRepeatPassword("");
-      resetUsername();
-    
+    resetEmail();
+    resetPassword();
+    setRepeatPassword("");
+    resetUsername();
   };
 
   return (
-    <Fragment>
+    <div className={styles["register-page"]}>
       <h1 className={styles.title}>REGISTER</h1>
       <form onSubmit={submitHandler} className={styles.registerForm}>
-      <div className={styles.formcontrol}>
+        <div className={styles.formcontrol}>
           <label htmlFor="username">Username</label>
           <input
             className={styles.input}
@@ -128,15 +131,12 @@ const Register = (props) => {
         </div>
 
         <div className={styles.formcontrol}>
-          <button
-            className={styles.button}
-            type="submit"
-          >
+          <button className={styles.button} type="submit">
             Register
           </button>
         </div>
       </form>
-    </Fragment>
+    </div>
   );
 };
 

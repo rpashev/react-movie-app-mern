@@ -1,7 +1,8 @@
+@import "../../Utils//_colors.scss";
 
 .loginForm {
     width: 30%;
-    color: #ffffff;
+    // color: #ffffff;
     margin-left: 42%;
     display: flex;
     justify-content: center;
@@ -55,12 +56,12 @@
     width: 20%;
     height: 2rem;
     cursor: pointer;
-    color: white;
+    // color: white;
 }
 
 .title {
     margin-bottom: 3rem;
     margin-top: 4rem;
-    color: #ffffff;
+    // color: #ffffff;
     text-align: center;
 }

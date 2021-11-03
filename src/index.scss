@@ -1,0 +1,18 @@
+@import "./Utils//colors";
+
+body {
+  box-sizing: border-box;
+  margin: 0 6rem;
+  font-family: Helvetica, sans-sarif;
+  background: radial-gradient(
+    circle,
+    rgba(14, 42, 11, 1) 13%,
+    rgba(0, 0, 0, 0.9895308465182948) 100%
+  );
+  line-height: 1.4;
+  color: $gray-light;
+
+  main {
+    padding-top: 5rem;
+  }
+}

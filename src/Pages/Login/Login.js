@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import useInput from "../../Custom Hooks/use-input";
-import styles from "./Login.module.css";
+import styles from "./Login.module.scss";
 
 const Login = (props) => {
   const validateEmail = (value) => {

@@ -1,68 +1,40 @@
-a {
-    text-decoration: none;
-}
+@import "../../Utils/colors";
+
 .card {
+  display: block;
+  position: relative;
+  width: 200px;
+  height: 290px;
+//   color: #385502;
+  margin: 1.5rem;
+  padding-bottom: 18px;
+  transition: all 0.3s ease-out;
+
+  a {
+    text-decoration: none;
     display: block;
-    position: relative;
-    width: 200px;
-    height: 290px;
-    color: #385502;
-    margin: 1.5rem;
-    padding-bottom: 18px;
-    transition: all 0.3s ease-out;
-}
+    height: 100%;
+  }
 
-.card:hover {
-    transform: scale(1.04);
-    transition: 0.4s ease-out;
-}
-
-.image {
+  .image {
     width: 100%;
     height: 93%;
     padding: 0;
     margin: 0;
     border-radius: 4px;
     box-shadow: 0 0 10px rgb(0, 0, 0);
+  }
 
-}
-
-.title {
+  .title {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 40px;
-    color: #ffffff;
+    // height: 40px;
+    margin-top: 0;
+    color: $gray-light;
+  }
 }
 
-.watchlistIcon {
-    position: absolute;
-    display: none;
-    top: 0;
-    left: 0;
-    width: 65px;
-    height: 65px;
-    z-index: 1;
-    opacity: 90%;
-    cursor: pointer;
-}
-
-.card:hover .watchlistIcon {
-    display: block;
-}
-
-.card:hover .seenIcon {
-    display: block;
-}
-
-.seenIcon {
-    position: absolute;
-    display: none;
-    top: 0;
-    right: 0;
-    width: 65px;
-    height: 65px;
-    z-index: 1;
-    opacity: 90%;
-    cursor: pointer;
+.card:hover {
+  transform: scale(1.04);
 }

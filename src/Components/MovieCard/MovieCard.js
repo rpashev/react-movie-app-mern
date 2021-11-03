@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styles from './MovieCard.module.scss'
+import styles from "./MovieCard.module.scss";
 
 const MovieCard = (props) => {
   return (
@@ -11,11 +11,10 @@ const MovieCard = (props) => {
           className={styles.image}
           src={props.imgLink}
         ></img>
+        <div className={styles.title}>
+          <p>{props.title}</p>
+        </div>
       </Link>
-
-      <div className={styles.title}>
-        <p>{props.title}</p>
-      </div>
     </div>
   );
 };
