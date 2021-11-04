@@ -6,8 +6,8 @@ import styles from "./Header.module.scss";
 // import logo from "../../Assets/logo.png";
 
 const Header = (props) => {
-  const { user } = useContext(userContext);
-  const links = getNavigation(user);
+  const { isLoggedIn } = useContext(userContext);
+  const links = getNavigation(isLoggedIn);
 
   return (
     <header className={styles.header}>

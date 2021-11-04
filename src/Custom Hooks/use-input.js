@@ -12,6 +12,7 @@ const useInput = (validateValue) => {
   };
 
   const inputBlurHandler = (event) => {
+    event.relatedTarget?.click(); //fixes the conflict between blur and submit event
     setIsTouched(true);
   };
 

@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import useInput from "../../Custom Hooks/use-input";
 import styles from "./Login.module.scss";
 import Button from "../../Components/UI/Button";
 
 const Login = (props) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const validateEmail = (value) => {
     let regex = /\S+@\S+\.\S+/;
     if (regex.test(value) === false || value === "") {
@@ -31,13 +32,18 @@ const Login = (props) => {
     reset: resetPassword,
   } = useInput((value) => (value.length < 6 ? false : true));
 
-  const submitHandler = async (e) => {
-    e.preventDefault();
+  const showEmailError = emailError || (isSubmitting && !emailIsValid);
+  const showPasswordError = passwordError || (isSubmitting && !passwordIsValid);
+
+  const submitHandler = async (event) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+
     if (passwordIsValid && emailIsValid) {
       console.log(email, password);
+      resetEmail();
+      resetPassword();
     }
-    resetEmail();
-    resetPassword();
   };
 
   return (
@@ -47,31 +53,35 @@ const Login = (props) => {
         <div className={styles.formcontrol}>
           <label htmlFor="email">Email</label>
           <input
-            className={styles.input}
+            className={`${styles.input} ${
+              showEmailError ? styles["input-error"] : ""
+            }`}
             value={email}
             type="email"
             onChange={emailChangeHandler}
             onBlur={emailBlurHandler}
           />
-          {emailError ? (
+          {showEmailError && (
             <p className={styles.error}>Please enter a valid email!</p>
-          ) : null}
+          )}
         </div>
 
         <div className={styles.formcontrol}>
           <label htmlFor="password">Password</label>
           <input
-            className={styles.input}
+            className={`${styles.input} ${
+              showPasswordError ? styles["input-error"] : ""
+            }`}
             onBlur={passwordBlurHandler}
             type="password"
             value={password}
             onChange={passwordChangeHandler}
           />
-          {passwordError ? (
+          {showPasswordError && (
             <p className={styles.error}>
               Password should be at least 6 symbols!
             </p>
-          ) : null}
+          )}
         </div>
 
         <div className={styles.formcontrol}>

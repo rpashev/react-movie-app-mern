@@ -27,7 +27,12 @@
       }
       input:focus {
         border: 3px solid $color-primary;
+        background-color: $gray-light;
         outline: none;
+      }
+      .input-error,
+      .input-error:focus {
+        border: 3px solid $danger;
       }
 
       .error {

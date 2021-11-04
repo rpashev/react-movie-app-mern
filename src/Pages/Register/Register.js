@@ -4,6 +4,8 @@ import useInput from "../../Custom Hooks/use-input";
 import Button from "../../Components/UI/Button";
 
 const Register = (props) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const validateEmail = (value) => {
     let regex = /\S+@\S+\.\S+/;
     if (regex.test(value) === false || value === "") {
@@ -45,6 +47,12 @@ const Register = (props) => {
   const repeatPasswordIsValid = repeatPassword === password;
   const repeatPasswordError = !repeatPasswordIsValid && repeatPasswordIsTouched;
 
+  const showEmailError = emailError || (isSubmitting && !emailIsValid);
+  const showPasswordError = passwordError || (isSubmitting && !passwordIsValid);
+  const showRepeatPasswordError =
+    repeatPasswordError || (isSubmitting && !repeatPasswordIsValid);
+  const showUsernameError = usernameError || (isSubmitting && !usernameIsValid);
+
   const repeatPasswordChangeHandler = (event) => {
     setRepeatPassword(event.target.value);
   };
@@ -55,18 +63,20 @@ const Register = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
     if (
       emailIsValid &&
       passwordIsValid &&
       repeatPasswordIsValid &&
       usernameIsValid
-    )
+    ) {
       console.log(password, repeatPassword, email, username);
-    resetEmail();
-    resetPassword();
-    setRepeatPassword("");
-    resetUsername();
+      resetEmail();
+      resetPassword();
+      setRepeatPassword("");
+      resetUsername();
+    }
   };
 
   return (
@@ -76,65 +86,71 @@ const Register = (props) => {
         <div className={styles.formcontrol}>
           <label htmlFor="username">Username</label>
           <input
-            className={styles.input}
+            className={`${styles.input} ${
+              showUsernameError ? styles["input-error"] : ""
+            }`}
             type="text"
             value={username}
             onChange={usernameChangeHandler}
             onBlur={usernameBlurHandler}
           />
-          {usernameError ? (
+          {showUsernameError && (
             <p className={styles.error}>Please enter a valid username!</p>
-          ) : null}
+          )}
         </div>
 
         <div className={styles.formcontrol}>
           <label htmlFor="email">Email</label>
           <input
-            className={styles.input}
+            className={`${styles.input} ${
+              showEmailError ? styles["input-error"] : ""
+            }`}
             type="email"
             value={email}
             onChange={emailChangeHandler}
             onBlur={emailBlurHandler}
           />
-          {emailError ? (
+          {showEmailError && (
             <p className={styles.error}>Please enter a valid email!</p>
-          ) : null}
+          )}
         </div>
 
         <div className={styles.formcontrol}>
           <label htmlFor="password">Password</label>
           <input
-            className={styles.input}
+            className={`${styles.input} ${
+              showPasswordError ? styles["input-error"] : ""
+            }`}
             type="password"
             value={password}
             onChange={passwordChangeHandler}
             onBlur={passwordBlurHandler}
           />
-          {passwordError ? (
+          {showPasswordError && (
             <p className={styles.error}>
               Password should be at least 6 symbols!
             </p>
-          ) : null}
+          )}
         </div>
 
         <div className={styles.formcontrol}>
           <label htmlFor="repeatPassword">Repeat password</label>
           <input
-            className={styles.input}
+            className={`${styles.input} ${
+              showRepeatPasswordError ? styles["input-error"] : ""
+            }`}
             type="password"
             value={repeatPassword}
             onChange={repeatPasswordChangeHandler}
             onBlur={repeatPasswordBlurHandler}
           />
-          {repeatPasswordError && repeatPasswordIsTouched ? (
+          {showRepeatPasswordError && (
             <p className={styles.error}>Passwords should match!</p>
-          ) : null}
+          )}
         </div>
 
         <div className={styles.formcontrol}>
-          <Button type="submit" >
-            Sign Up
-          </Button>
+          <Button type="submit">Sign Up</Button>
         </div>
       </form>
     </div>
