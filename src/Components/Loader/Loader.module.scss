@@ -1,6 +1,8 @@
+@import "../../Utils//colors";
+
 .loader {
-    border: 16px solid #c0c7cf; /* Light grey */
-    border-top: 16px solid rgb(95, 147, 214); /* Blue */
+    border: 16px solid $color-primary; 
+    border-top: 16px solid $gray-darkest; 
     border-radius: 50%;
     width: 40px;
     height: 40px;

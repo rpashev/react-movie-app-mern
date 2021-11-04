@@ -5,9 +5,8 @@
   position: relative;
   width: 200px;
   min-width: 200px;
-  height: 290px;
-  margin: 1.5rem;
-  padding-bottom: 18px;
+  height: 320px;
+  margin: 2rem 1.5rem;
   transition: all 0.3s ease-out;
 
   a {
@@ -17,7 +16,7 @@
 
     .image {
       width: 100%;
-      height: 93%;
+      height: 85%;
       padding: 0;
       margin: 0;
       border-radius: 4px;
@@ -28,8 +27,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-top: 0;
       color: $gray-light;
+      text-align: center;
     }
   }
 }
@@ -39,5 +38,4 @@
 }
 
 @media (max-width: 40rem) {
-   
-  }
+}
