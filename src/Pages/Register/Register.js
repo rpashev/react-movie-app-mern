@@ -1,10 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styles from "./Register.module.scss";
 import useInput from "../../Custom Hooks/use-input";
 import Button from "../../Components/UI/Button";
+import { useAxios } from "../../Custom Hooks/use-axios";
+import { useHistory } from "react-router";
+import AuthContext from "../../Context/user-context";
+import Loader from "../../Components/Loader/Loader";
 
 const Register = (props) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const history = useHistory();
+  const auth = useContext(AuthContext);
 
   const validateEmail = (value) => {
     let regex = /\S+@\S+\.\S+/;
@@ -21,7 +27,6 @@ const Register = (props) => {
     isValid: usernameIsValid,
     valueChangeHandler: usernameChangeHandler,
     inputBlurHandler: usernameBlurHandler,
-    reset: resetUsername,
   } = useInput((value) => value !== "");
 
   const {
@@ -30,7 +35,6 @@ const Register = (props) => {
     isValid: emailIsValid,
     valueChangeHandler: emailChangeHandler,
     inputBlurHandler: emailBlurHandler,
-    reset: resetEmail,
   } = useInput(validateEmail);
 
   const {
@@ -39,7 +43,6 @@ const Register = (props) => {
     isValid: passwordIsValid,
     valueChangeHandler: passwordChangeHandler,
     inputBlurHandler: passwordBlurHandler,
-    reset: resetPassword,
   } = useInput((value) => (value.length < 6 ? false : true));
 
   const [repeatPasswordIsTouched, setRepeatPasswordIsTouched] = useState(false);
@@ -61,7 +64,9 @@ const Register = (props) => {
     setRepeatPasswordIsTouched(true);
   };
 
-  const submitHandler = (e) => {
+  let { isLoading, error, sendRequest: register } = useAxios();
+
+  const submitHandler = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
@@ -71,11 +76,22 @@ const Register = (props) => {
       repeatPasswordIsValid &&
       usernameIsValid
     ) {
-      console.log(password, repeatPassword, email, username);
-      resetEmail();
-      resetPassword();
-      setRepeatPassword("");
-      resetUsername();
+      const userData = await register({
+        url: "/auth/register",
+        method: "POST",
+        data: { username, email, password, repeatPassword },
+      });
+
+      if (!userData) {
+        return;
+      }
+      auth.login(
+        userData.token,
+        userData.username,
+        userData.userId,
+        userData.email
+      );
+      history.replace("/");
     }
   };
 
@@ -148,10 +164,14 @@ const Register = (props) => {
             <p className={styles.error}>Passwords should match!</p>
           )}
         </div>
+        {isLoading && <Loader />}
 
-        <div className={styles.formcontrol}>
-          <Button type="submit">Sign Up</Button>
-        </div>
+        {!isLoading && (
+          <div className={styles.formcontrol}>
+            <Button type="submit">Sign Up</Button>
+          </div>
+        )}
+        {error && !isLoading && <p className={styles["http-error"]}>{error}</p>}
       </form>
     </div>
   );
