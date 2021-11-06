@@ -1,13 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.scss";
-import userContext from "./Context/user-context";
+import { AuthContextProvider } from "./Context/user-context";
 import App from "./App";
 
-const user = false;
 ReactDOM.render(
-  <userContext.Provider value={{ user }}>
+  <AuthContextProvider>
     <App />
-  </userContext.Provider>,
+  </AuthContextProvider>,
   document.getElementById("root")
 );

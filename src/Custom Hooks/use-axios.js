@@ -4,14 +4,16 @@ import axios from "axios";
 axios.defaults.baseURL = "http://localhost:5000/";
 
 export const useAxios = () => {
-  const [response, setResponse] = useState();
   const [error, setError] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   const sendRequest = useCallback(async (params) => {
+    setError("");
+    setIsLoading(true);
     try {
       const result = await axios.request(params);
-      setResponse(result.data);
+      
+      return result.data;
     } catch (error) {
       setError(error.response?.data?.message || "Something went wrong");
     } finally {
@@ -19,5 +21,5 @@ export const useAxios = () => {
     }
   }, []);
 
-  return { response, error, isLoading, sendRequest };
+  return { error, isLoading, sendRequest };
 };

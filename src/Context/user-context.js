@@ -12,7 +12,7 @@ const AuthContext = React.createContext({
 
 export const AuthContextProvider = (props) => {
   const initialToken = localStorage.getItem("token");
-  const initialUsername = localStorage.getItemn("username");
+  const initialUsername = localStorage.getItem("username");
   const initialUserId = localStorage.getItem("userId");
   const initialEmail = localStorage.getItem("email");
 

@@ -1,10 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import useInput from "../../Custom Hooks/use-input";
 import styles from "./Login.module.scss";
 import Button from "../../Components/UI/Button";
+import { useAxios } from "../../Custom Hooks/use-axios";
+import { useHistory } from "react-router";
+import AuthContext from "../../Context/user-context";
+import Loader from "../../Components/Loader/Loader";
 
 const Login = (props) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const history = useHistory();
+  const auth = useContext(AuthContext);
+
   const validateEmail = (value) => {
     let regex = /\S+@\S+\.\S+/;
     if (regex.test(value) === false || value === "") {
@@ -20,7 +27,6 @@ const Login = (props) => {
     isValid: emailIsValid,
     valueChangeHandler: emailChangeHandler,
     inputBlurHandler: emailBlurHandler,
-    reset: resetEmail,
   } = useInput(validateEmail);
 
   const {
@@ -29,20 +35,34 @@ const Login = (props) => {
     isValid: passwordIsValid,
     valueChangeHandler: passwordChangeHandler,
     inputBlurHandler: passwordBlurHandler,
-    reset: resetPassword,
   } = useInput((value) => (value.length < 6 ? false : true));
 
   const showEmailError = emailError || (isSubmitting && !emailIsValid);
   const showPasswordError = passwordError || (isSubmitting && !passwordIsValid);
+
+  let { isLoading, error, sendRequest: login } = useAxios();
 
   const submitHandler = async (event) => {
     event.preventDefault();
     setIsSubmitting(true);
 
     if (passwordIsValid && emailIsValid) {
-      console.log(email, password);
-      resetEmail();
-      resetPassword();
+      const userData = await login({
+        url: "/auth/login",
+        method: "POST",
+        data: { email, password },
+      });
+
+      if (!userData) {
+        return;
+      }
+      auth.login(
+        userData.token,
+        userData.username,
+        userData.userId,
+        userData.email
+      );
+      history.replace("/");
     }
   };
 
@@ -83,10 +103,13 @@ const Login = (props) => {
             </p>
           )}
         </div>
-
-        <div className={styles.formcontrol}>
-          <Button type="submit">Login</Button>
-        </div>
+        {isLoading && <Loader />}
+        {!isLoading && (
+          <div className={styles.formcontrol}>
+            <Button type="submit">Login</Button>
+          </div>
+        )}
+        {error && !isLoading && <p className={styles["http-error"]}>{error}</p>}
       </form>
     </div>
   );

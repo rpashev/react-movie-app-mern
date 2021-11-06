@@ -1,19 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Home.module.scss";
 import MovieCard from "../../Components/MovieCard/MovieCard";
 import Loader from "../../Components/Loader/Loader";
-import { useAxios } from "../../Custom Hooks/use-http";
+import { useAxios } from "../../Custom Hooks/use-axios";
 
 const HomePage = (props) => {
-  const {
-    response: movies,
-    isLoading,
-    error,
-    sendRequest: loadPublicList,
-  } = useAxios();
+  const [movies, setMovies] = useState(null);
+  const { isLoading, error, sendRequest: loadPublicList } = useAxios();
 
   useEffect(() => {
-    loadPublicList("/public-library");
+    const loadMovies = async () => {
+      const response = await loadPublicList("/public-library");
+      setMovies(response);
+    };
+    loadMovies();
   }, [loadPublicList]);
 
   let content;
