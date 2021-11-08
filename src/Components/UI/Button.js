@@ -10,7 +10,7 @@ const Button = (props) => {
         to={props.to}
         className={`${styles.button} ${
           props.danger && styles["button--danger"]
-        } ${props.primary && styles["button--primary"]} ${
+        } ${props.yellow && styles["button--yellow"]} ${
           props.dark && styles["button--dark"]
         }`}
       >
@@ -22,7 +22,7 @@ const Button = (props) => {
     <button
       className={`${styles.button} ${
         props.danger && styles["button--danger"]
-      } ${props.primary && styles["button--primary"]} ${
+      } ${props.yellow && styles["button--yellow"]} ${
         props.dark && styles["button--dark"]
       }`}
       type={props.type}

@@ -38,13 +38,13 @@
   background: #f34343;
   border-color: #f34343;
 }
-.button--primary {
-  background: $color-primary-darker;
+.button--yellow {
+  background: yellow;
   border-color: none;
 }
-.button--primary:hover,
-.button--primary:active {
-  background: yellow;
+.button--yellow:hover,
+.button--yellow:active {
+  background: $color-primary;
   color: $gray-darkest;
   // border-color: #f34343;
 }

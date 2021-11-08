@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./Details.module.scss";
 import Loader from "../../Components/Loader/Loader";
 import { useAxios } from "../../Custom Hooks/use-axios";
+import AuthContext from "../../Context/user-context";
 import imdbIcon from "../../Assets/imdb2.png";
 import Button from "../../Components/UI/Button";
 import noPoster from "../../Assets/no-poster-available.jpg";
@@ -12,13 +13,13 @@ const Details = () => {
   const { movieID } = params;
   const [movie, setMovie] = useState();
   const { error, isLoading, sendRequest: getMovie } = useAxios();
+  const { isLoggedIn } = useContext(AuthContext);
 
   useEffect(() => {
     const loadMovie = async () => {
       let response = await getMovie(`movies/${movieID}`);
-      console.log(response);
+
       if (response) {
-        console.log(response)
         setMovie(response.movie);
       }
     };
@@ -33,6 +34,22 @@ const Details = () => {
   if (movie) {
     imgLink = movie.Poster === "N/A" ? noPoster : movie.Poster;
   }
+
+  const { errorAdding, isLoadingAdding, sendRequest: addToList } = useAxios();
+
+  const { token } = useContext(AuthContext);
+
+  const addToUserList = async (list) => {
+    let response = await addToList({
+      url: `/user/${list}`,
+      method: "POST",
+      data: { IMDBId: movieID },
+      headers: { Authorization: "Bearer " + token },
+    });
+    if (!response) {
+      return;
+    }
+  };
 
   if (isLoading) {
     return <Loader />;
@@ -82,15 +99,25 @@ const Details = () => {
           <p>Stars: {movie.Actors}</p>
           <p>Boxoffice: {movie.BoxOffice}</p>
           <p>Country: {movie.Country}</p>
-          <div className={styles.buttons}>
-            <Button primary type="button">
-              ADD TO WATCHLIST
-            </Button>
+          {isLoggedIn && (
+            <div className={styles.buttons}>
+              <Button
+                yellow
+                type="button"
+                onClick={addToUserList.bind(null, "watchlist")}
+              >
+                ADD TO WATCHLIST
+              </Button>
 
-            <Button dark type="button">
-              ADD TO ALREADY WATCHED
-            </Button>
-          </div>
+              <Button
+                dark
+                type="button"
+                onClick={addToUserList.bind(null, "seenlist")}
+              >
+                ADD TO ALREADY WATCHED
+              </Button>
+            </div>
+          )}
         </div>
       </div>
     );
