@@ -12,9 +12,10 @@ export const useAxios = () => {
     setIsLoading(true);
     try {
       const result = await axios.request(params);
-      
+      // console.log(result)
       return result.data;
     } catch (error) {
+      console.log(error.response)
       setError(error.response?.data?.message || "Something went wrong");
     } finally {
       setIsLoading(false);

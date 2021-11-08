@@ -1,0 +1,93 @@
+.details {
+    display: flex;
+    flex-wrap: no-wrap;
+    color: #ffffff;
+    font-size: 1.1rem;
+}
+
+.leftside {
+    margin: 100px;
+    margin-bottom: 0px;
+}
+
+.rightside {
+    margin: 100px;
+    margin-bottom: 0px;
+}
+
+.ratings {
+    display: flex;
+    height: 50px;
+    align-items: center;
+}
+
+.rating {
+    margin-left: 5rem;
+}
+
+.buttons {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: space-between;
+    width: 800px;
+}
+
+.addButtonWatch {
+    border: none;
+    font: inherit;
+    text-align: center;
+    font-size: 1.3rem;
+    padding: 2px 2px;
+    border-radius: 5%;
+    background: #228B22;
+    width: 49%;
+    height: 4rem;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.removeButton {
+    border: none;
+    font: inherit;
+    text-align: center;
+    font-size: 1.3rem;
+    padding: 2px 2px;
+    border-radius: 5%;
+    background: #DC143C;
+    width: 49%;
+    height: 4rem;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.addButtonSeen {
+    border: none;
+    font: inherit;
+    text-align: center;
+    font-size: 1.3rem;
+    padding: 2px 2px;
+    border-radius: 5%;
+    background: #0000FF;
+    width: 49%;
+    height: 4rem;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.notification {
+    padding: 2px;
+    width: 780px;
+    display: block;
+    background: rgb(79, 122, 13);
+}
+
+.img {
+    width: 80px;
+    height: 30px;
+    margin-right: 8px;
+}
+
+.imdb {
+    display: flex;
+    align-items: center;
+}

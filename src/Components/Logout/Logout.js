@@ -8,7 +8,7 @@ const Logout = () => {
   useEffect(() => {
     auth.logout();
     history.replace("/");
-  }, []);
+  }, [auth, history]);
 
   return null;
 };
