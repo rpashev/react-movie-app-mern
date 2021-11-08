@@ -44,7 +44,8 @@
 }
 .button--primary:hover,
 .button--primary:active {
-  background: $color-primary-darkest;
+  background: yellow;
+  color: $gray-darkest;
   // border-color: #f34343;
 }
 .button--dark {

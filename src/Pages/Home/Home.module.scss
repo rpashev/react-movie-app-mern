@@ -1,7 +1,7 @@
 @import "../../Utils//_colors.scss";
 
 .home-page {
-  margin: 0 auto;
+  margin: 2rem 6rem;
 
   .list {
     display: flex;
@@ -10,6 +10,7 @@
     flex-wrap: wrap;
     color: $gray-light;
   }
+
   .title {
     text-align: center;
     color: $gray-light;
@@ -18,10 +19,9 @@
 }
 
 @media (max-width: 40rem) {
-  .home-page .list {
-    justify-content: center;
-  }
-  .home-page .title {
-    font-size: 1.5rem;
+  .home-page {
+    .list {
+      justify-content: center;
+    }
   }
 }
