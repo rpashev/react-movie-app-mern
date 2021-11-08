@@ -2,13 +2,24 @@
 
 body {
   box-sizing: border-box;
-  margin: 0 8rem;
+  margin: 0 4rem;
   font-family: Helvetica, sans-sarif;
-  background: radial-gradient(circle, rgba(22,66,17,1) 13%, rgba(0,0,0,0.8802871490393032) 100%);
+  background: radial-gradient(
+    circle,
+    rgba(22, 66, 17, 1) 13%,
+    rgba(0, 0, 0, 0.8802871490393032) 100%
+  );
   line-height: 1.4;
   color: $gray-light;
 
   main {
     padding-top: 5rem;
+  }
+}
+
+@media (max-width: 52rem) {
+  body {
+    margin: 0;
+    padding: 0 0.5rem;
   }
 }

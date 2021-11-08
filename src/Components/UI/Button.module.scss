@@ -38,6 +38,26 @@
   background: #f34343;
   border-color: #f34343;
 }
+.button--primary {
+  background: $color-primary-darker;
+  border-color: none;
+}
+.button--primary:hover,
+.button--primary:active {
+  background: $color-primary-darkest;
+  // border-color: #f34343;
+}
+.button--dark {
+  background: $gray-darkest;
+  color: $gray-light;
+  border-color: none;
+}
+.button--dark:hover,
+.button--dark:active {
+  background: $gray-light;
+  color: $gray-darkest;
+  // border-color: #f34343;
+}
 
 .button:disabled,
 .button:hover:disabled,

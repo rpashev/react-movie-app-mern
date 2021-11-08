@@ -36,7 +36,7 @@ const App = (props) => {
           </Route>
 
           <Route path="/details/:movieID" exact>
-            {isLoggedIn ? <Details /> : <Redirect to="/" />}
+            <Details />
           </Route>
 
           <Route path="/watchlist" exact>

@@ -1,93 +1,74 @@
+@import "../../Utils/colors";
+
 .details {
-    display: flex;
-    flex-wrap: no-wrap;
-    color: #ffffff;
-    font-size: 1.1rem;
+  width: 100%;
+  display: flex;
+  color: $gray-light;
+  font-size: 1.05rem;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+
+  .leftside {
+    margin: 6rem 0;
+    margin-right: 2rem;
+  }
+  .rightside {
+    width: 55%;
+    margin: 6rem 0;
+    h1 {
+      margin-top: 0;
+    }
+    .ratings {
+      width: 100%;
+      display: flex;
+      height: 3rem;
+      align-items: center;
+      justify-content: space-between;
+
+      .rating {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        // margin-left: 5rem;
+      }
+      .imdb {
+        display: flex;
+        align-items: center;
+      }
+
+      .img {
+        width: 80px;
+        height: 30px;
+        margin-right: 8px;
+      }
+    }
+    .buttons {
+      // width: 80%;
+      height: 4.5rem;
+      margin-top: 4rem;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+  }
 }
 
-.leftside {
-    margin: 100px;
-    margin-bottom: 0px;
-}
-
-.rightside {
-    margin: 100px;
-    margin-bottom: 0px;
-}
-
-.ratings {
-    display: flex;
-    height: 50px;
-    align-items: center;
-}
-
-.rating {
-    margin-left: 5rem;
-}
-
-.buttons {
-    margin-top: 4rem;
-    display: flex;
-    justify-content: space-between;
-    width: 800px;
-}
-
-.addButtonWatch {
-    border: none;
-    font: inherit;
-    text-align: center;
-    font-size: 1.3rem;
-    padding: 2px 2px;
-    border-radius: 5%;
-    background: #228B22;
-    width: 49%;
-    height: 4rem;
-    cursor: pointer;
-    color: #ffffff;
-}
-
-.removeButton {
-    border: none;
-    font: inherit;
-    text-align: center;
-    font-size: 1.3rem;
-    padding: 2px 2px;
-    border-radius: 5%;
-    background: #DC143C;
-    width: 49%;
-    height: 4rem;
-    cursor: pointer;
-    color: #ffffff;
-}
-
-.addButtonSeen {
-    border: none;
-    font: inherit;
-    text-align: center;
-    font-size: 1.3rem;
-    padding: 2px 2px;
-    border-radius: 5%;
-    background: #0000FF;
-    width: 49%;
-    height: 4rem;
-    cursor: pointer;
-    color: #ffffff;
-}
-
-.notification {
-    padding: 2px;
-    width: 780px;
+@media (max-width: 40rem) {
+  .details {
     display: block;
-    background: rgb(79, 122, 13);
-}
+    font-size: 0.9rem;
+    margin: 0 auto;
+    // width: 100%;
+    .leftside,
+    .rightside {
+      // display: block;
+      width: 100%;
+      // margin: 0 auto;
 
-.img {
-    width: 80px;
-    height: 30px;
-    margin-right: 8px;
-}
-
-.imdb {
-    display: flex;
-    align-items: center;
+      .buttons button {
+        font-size: 0.9rem;
+      }
+    }
+  }
 }
