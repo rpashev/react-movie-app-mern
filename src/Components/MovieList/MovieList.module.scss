@@ -1,0 +1,14 @@
+@import "../../Utils/colors";
+.list {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  color: $gray-light;
+}
+
+@media (max-width: 40rem) {
+  .list {
+    justify-content: center;
+  }
+}

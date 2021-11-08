@@ -3,13 +3,13 @@
 .home-page {
   margin: 2rem 6rem;
 
-  .list {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-wrap: wrap;
-    color: $gray-light;
-  }
+  // .list {
+  //   display: flex;
+  //   justify-content: flex-start;
+  //   align-items: center;
+  //   flex-wrap: wrap;
+  //   color: $gray-light;
+  // }
 
   .title {
     text-align: center;
@@ -20,8 +20,8 @@
 
 @media (max-width: 40rem) {
   .home-page {
-    .list {
-      justify-content: center;
-    }
+    // .list {
+    //   justify-content: center;
+    // }
   }
 }

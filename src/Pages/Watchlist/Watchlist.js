@@ -1,7 +1,14 @@
 import React from "react";
+import MovieList from "../../Components/MovieList/MovieList";
+import styles from "./Watchlist.module.scss"
 
 const Watchlist = (props) => {
-  return <h1>Watchlist</h1>;
+  return (
+    <div>
+      <h1>Your watchlist</h1>
+      <MovieList url="user/watchlist" withAuth/>
+    </div>
+  );
 };
 
 export default Watchlist;
