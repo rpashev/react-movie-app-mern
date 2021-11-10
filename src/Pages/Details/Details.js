@@ -42,13 +42,13 @@ const Details = () => {
   }
 
   const {
-    error: errorAdding,
-    isLoading: isLoadingAdding,
-    sendRequest: addToList,
+    error: errorListOperation,
+    isLoading: isLoadingListOperation,
+    sendRequest: listOperation,
   } = useAxios();
 
   const addToUserList = async (list) => {
-    let response = await addToList({
+    let response = await listOperation({
       url: `/user/${list}`,
       method: "POST",
       data: { IMDBId: movieID },
@@ -57,9 +57,28 @@ const Details = () => {
     if (!response) {
       return;
     }
+    if (list === "watchlist") {
+      setMovie((prevState) => ({ ...prevState, isInWatchlist: true }));
+    } else if (list === "seenlist") {
+      setMovie((prevState) => ({ ...prevState, isInSeenList: true }));
+    }
   };
 
-  const removeFromUserList = async (list) => {};
+  const removeFromUserList = async (list) => {
+    let response = await listOperation({
+      url: `/user/${list}/${movieID}`,
+      method: "DELETE",
+      headers: { Authorization: "Bearer " + token },
+    });
+    if (!response) {
+      return;
+    }
+    if (list === "watchlist") {
+      setMovie((prevState) => ({ ...prevState, isInWatchlist: false }));
+    } else if (list === "seenlist") {
+      setMovie((prevState) => ({ ...prevState, isInSeenList: false }));
+    }
+  };
 
   if (isLoading) {
     return <Loader />;
@@ -150,6 +169,7 @@ const Details = () => {
               )}
             </div>
           )}
+          {errorListOperation && <p>{errorListOperation}</p>}
         </div>
       </div>
     );
