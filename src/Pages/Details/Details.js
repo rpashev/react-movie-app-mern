@@ -13,11 +13,16 @@ const Details = () => {
   const { movieID } = params;
   const [movie, setMovie] = useState();
   const { error, isLoading, sendRequest: getMovie } = useAxios();
-  const { isLoggedIn } = useContext(AuthContext);
+  const { isLoggedIn, token } = useContext(AuthContext);
 
   useEffect(() => {
     const loadMovie = async () => {
-      let response = await getMovie(`movies/${movieID}`);
+      let response = await getMovie({
+        url: `movies/${movieID}`,
+        headers: {
+          Authorization: token ? "Bearer " + token : null,
+        },
+      });
 
       if (response) {
         setMovie(response.movie);
@@ -25,6 +30,7 @@ const Details = () => {
     };
     loadMovie();
   }, [movieID, getMovie]);
+  console.log(movie);
 
   let ratings;
   if (movie && movie.Ratings) {
@@ -35,9 +41,11 @@ const Details = () => {
     imgLink = movie.Poster === "N/A" ? noPoster : movie.Poster;
   }
 
-  const { errorAdding, isLoadingAdding, sendRequest: addToList } = useAxios();
-
-  const { token } = useContext(AuthContext);
+  const {
+    error: errorAdding,
+    isLoading: isLoadingAdding,
+    sendRequest: addToList,
+  } = useAxios();
 
   const addToUserList = async (list) => {
     let response = await addToList({
@@ -50,6 +58,8 @@ const Details = () => {
       return;
     }
   };
+
+  const removeFromUserList = async (list) => {};
 
   if (isLoading) {
     return <Loader />;
@@ -101,21 +111,43 @@ const Details = () => {
           <p>Country: {movie.Country}</p>
           {isLoggedIn && (
             <div className={styles.buttons}>
-              <Button
-                yellow
-                type="button"
-                onClick={addToUserList.bind(null, "watchlist")}
-              >
-                ADD TO WATCHLIST
-              </Button>
+              {!movie.isInWatchlist && (
+                <Button
+                  yellow
+                  type="button"
+                  onClick={addToUserList.bind(null, "watchlist")}
+                >
+                  ADD TO WATCHLIST
+                </Button>
+              )}
+              {movie.isInWatchlist && (
+                <Button
+                  danger
+                  type="button"
+                  onClick={removeFromUserList.bind(null, "watchlist")}
+                >
+                  REMOVE FROM WATCHLIST
+                </Button>
+              )}
 
-              <Button
-                dark
-                type="button"
-                onClick={addToUserList.bind(null, "seenlist")}
-              >
-                ADD TO ALREADY WATCHED
-              </Button>
+              {!movie.isInSeenList && (
+                <Button
+                  dark
+                  type="button"
+                  onClick={addToUserList.bind(null, "seenlist")}
+                >
+                  ADD TO ALREADY WATCHED
+                </Button>
+              )}
+              {movie.isInSeenList && (
+                <Button
+                  danger
+                  type="button"
+                  onClick={removeFromUserList.bind(null, "seenlist")}
+                >
+                  REMOVE FROM WATCHED
+                </Button>
+              )}
             </div>
           )}
         </div>
