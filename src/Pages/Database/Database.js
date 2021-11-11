@@ -18,12 +18,12 @@ const Database = (props) => {
   const loadMovies = async () => {
     setError(null);
     const response = await getMovies({
-      url: `http://www.omdbapi.com/?apikey=6b7999b9&s=${searchQuery}&page=10`,
+      url: `http://www.omdbapi.com/?apikey=6b7999b9&s=${searchQuery}`,
     });
     if (!response) {
+      setError("Could not connect to database!");
       return;
     }
-    console.log(response.Error);
     if (response.Error === "Too many results.") {
       setError(response.Error + " Please enter a more specific keyword!");
       return;
@@ -42,7 +42,7 @@ const Database = (props) => {
 
   return (
     <div className={styles["database-page"]}>
-      <div>
+      <div className={styles["search-container"]}>
         <input
           onChange={searchQueryHandler}
           placeholder="Search movie database..."
