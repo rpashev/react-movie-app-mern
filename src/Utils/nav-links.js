@@ -6,6 +6,10 @@ const getNavigation = (user) => {
         link: '/'
       },
       {
+        title: "Database",
+        link: '/database'
+      },
+      {
         title: "Watchlist",
         link: "/watchlist"
       },

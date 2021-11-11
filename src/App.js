@@ -11,6 +11,7 @@ import Seenlist from "./Pages/Seenlist/Seenlist";
 import Details from "./Pages/Details/Details";
 import Layout from "./Components/Layout/Layout";
 import Logout from "./Components/Logout/Logout";
+import Database from "./Pages/Database/Database";
 
 const App = (props) => {
   const context = useContext(AuthContext);
@@ -48,6 +49,9 @@ const App = (props) => {
           </Route>
           <Route path="/seenlist" exact>
             {isLoggedIn ? <Seenlist /> : <Redirect to="/" />}
+          </Route>
+          <Route path="/database" exact>
+            {isLoggedIn ? <Database /> : <Redirect to="/" />}
           </Route>
 
           <Route component={NotFound} />
