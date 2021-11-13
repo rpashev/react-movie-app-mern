@@ -6,6 +6,9 @@
   flex-wrap: wrap;
   color: $gray-light;
 }
+.watchlist {
+  justify-content: center;
+}
 
 @media (max-width: 40rem) {
   .list {

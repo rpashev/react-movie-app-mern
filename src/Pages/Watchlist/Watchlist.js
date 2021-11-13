@@ -4,9 +4,9 @@ import styles from "./Watchlist.module.scss"
 
 const Watchlist = (props) => {
   return (
-    <div>
+    <div className={styles["watchlist-page"]}>
       <h1>Your watchlist</h1>
-      <MovieList url="user/watchlist" withAuth/>
+      <MovieList url="user/watchlist" withAuth watchlist/>
     </div>
   );
 };

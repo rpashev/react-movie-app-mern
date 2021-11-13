@@ -1,9 +1,10 @@
-import React, { useEffect, useState, useCallback, useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import styles from "./MovieList.module.scss";
 import MovieCard from "../MovieCard/MovieCard";
 import Loader from "../Loader/Loader";
 import { useAxios } from "../../Custom Hooks/use-axios";
 import AuthContext from "../../Context/user-context";
+import MovieCardWatchlist from "../MovieCardWatchlist/MovieCardWatchlist";
 
 const MovieList = (props) => {
   const [movies, setMovies] = useState();
@@ -22,14 +23,47 @@ const MovieList = (props) => {
       setMovies(response);
     };
     loadMovies();
-  }, [props.url]);
+  }, [props.url, token, props.withAuth, loadList]);
+
+  let movieList;
+  if (props.watchlist && movies && movies.length > 0 && !error) {
+    movieList = movies.map((movie) => {
+      return (
+        <MovieCardWatchlist
+          key={movie._id}
+          title={movie.title}
+          imgLink={movie.poster}
+          movieID={movie.IMDBId}
+          year={movie.year}
+          runtime={movie.runtime}
+          genre={movie.genre}
+          actors={movie.actors}
+          plot={movie.plot}
+        />
+      );
+    });
+  } else if (!props.watchlist && movies && movies.length > 0 && !error) {
+    movieList = movies.map((movie) => {
+      return (
+        <MovieCard
+          key={movie._id}
+          title={movie.title}
+          imgLink={movie.poster}
+          movieID={movie.IMDBId}
+        />
+      );
+    });
+  }
 
   if (isLoading) {
     return <Loader />;
   } else if (movies && movies.length > 0 && !error) {
     return (
-      <div className={styles.list}>
-        {movies.map((movie) => {
+      <div
+        className={`${styles.list} ${props.watchlist ? styles.watchlist : ""}`}
+      >
+        {movieList}
+        {/* {movies.map((movie) => {
           return (
             <MovieCard
               key={movie._id}
@@ -38,7 +72,7 @@ const MovieList = (props) => {
               movieID={movie.IMDBId}
             />
           );
-        })}
+        })} */}
       </div>
     );
   } else if (error && !movies) {
