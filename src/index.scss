@@ -2,7 +2,7 @@
 
 body {
   box-sizing: border-box;
-  margin: 0 4rem;
+  margin: 0;
   font-family: Helvetica, sans-sarif;
   background: radial-gradient(
     circle,
@@ -11,9 +11,13 @@ body {
   );
   line-height: 1.4;
   color: $gray-light;
-
-  main {
-    padding-top: 5rem;
+  #root {
+    position: relative;
+    min-height: 100vh;
+    main {
+      padding: 6rem 0 4rem 0;
+      margin: 0 4rem;
+    }
   }
 }
 

@@ -17,6 +17,7 @@ const Database = (props) => {
 
   const loadMovies = async () => {
     setError(null);
+    
     const response = await getMovies({
       url: `http://www.omdbapi.com/?apikey=6b7999b9&s=${searchQuery}`,
     });
@@ -32,11 +33,12 @@ const Database = (props) => {
     } else if (!response.Error) {
       setError(null);
     }
-    let resultMovies = response.Search;
+    let resultMovies = await response.Search;
     setMovies(resultMovies);
   };
 
   useEffect(() => {
+   
     loadMovies();
   }, [searchQuery]);
 

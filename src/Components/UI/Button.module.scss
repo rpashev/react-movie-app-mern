@@ -7,7 +7,7 @@
   font-size: 1.2rem;
   text-align: center;
   padding: 0.5rem 0.2rem;
-  border-radius: 5px;
+  border-radius: 8px;
   background: $gray-light;
   min-width: 6rem;
   width: 50%;
@@ -44,7 +44,7 @@
 }
 .button--yellow:hover,
 .button--yellow:active {
-  background: $color-primary;
+  background: $gray-light;
   color: $gray-darkest;
   // border-color: #f34343;
 }
