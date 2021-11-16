@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Home.module.scss";
 
 import MovieList from "../../Components/MovieList/MovieList";
+import MobileNav from "../../Components/MobileNav/MobileNav";
 
 const HomePage = () => {
   return (

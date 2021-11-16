@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import userContext from "../../Context/user-context";
 import getNavigation from "../../Utils/nav-links";
+import MobileNav from "../MobileNav/MobileNav";
 import styles from "./Header.module.scss";
 // import logo from "../../Assets/logo.png";
 
@@ -11,8 +12,13 @@ const Header = (props) => {
 
   return (
     <header className={styles.header}>
+      <button className={styles["toggle-button"]}>
+        <span className={styles["toggle-button__bar"]}></span>
+        <span className={styles["toggle-button__bar"]}></span>
+        <span className={styles["toggle-button__bar"]}></span>
+      </button>
       <div className={styles["logo-container"]}></div>
-      <div className={styles["nav__links"]}>
+      <nav className={styles["nav__links"]}>
         {links.map((el) => {
           return (
             <NavLink
@@ -26,7 +32,7 @@ const Header = (props) => {
             </NavLink>
           );
         })}
-      </div>
+      </nav>
     </header>
   );
 };

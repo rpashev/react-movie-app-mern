@@ -1,0 +1,36 @@
+@import "../../Utils/colors";
+
+.mobile-nav {
+  //   transform: translateX(-100%);
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 150;
+  background: $gray-darkest;
+  height: 100vh;
+  width: 80%;
+  transition: transform 300ms ease-out;
+  .mobile-nav__items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    height: 100%;
+    width: 90%;
+    margin: 0 auto;
+    padding: 0;
+
+    .mobile-nav__item {
+      margin: 1rem 0;
+      font-size: 1.5rem;
+      color: $gray-light;
+      text-decoration: none;
+    }
+    .mobile-nav__item:hover, .active {
+        color: $color-primary;
+        cursor: pointer;
+    }
+  }
+}
