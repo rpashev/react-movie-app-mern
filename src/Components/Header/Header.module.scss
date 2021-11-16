@@ -14,6 +14,7 @@
   z-index: 100;
 
   .toggle-button {
+    display: none;
     width: 3rem;
     background: transparent;
     border: none;
@@ -41,12 +42,9 @@
     min-width: 6rem;
     background: url("../../Assets//logo.png") center/cover no-repeat;
   }
-  .nav__links {
-    // margin-right: calc(50% - 10rem)
-  }
 
   .link {
-    margin: 2rem;
+    margin: 1rem;
     color: $gray-light;
     text-decoration: none;
   }
@@ -57,5 +55,20 @@
 
   .active {
     color: $color-primary;
+  }
+}
+
+@media (max-width: 47rem) {
+  .header {
+    justify-content: inline-block;
+    .logo-container {
+      margin: 0 auto;
+    }
+    .toggle-button {
+      display: block;
+    }
+    .nav__links {
+      display: none;
+    }
   }
 }

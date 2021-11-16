@@ -1,27 +1,49 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { useLocation } from "react-router";
 import userContext from "../../Context/user-context";
 import getNavigation from "../../Utils/nav-links";
 import MobileNav from "../MobileNav/MobileNav";
+import Backdrop from "../UI/Backdrop";
 import styles from "./Header.module.scss";
-// import logo from "../../Assets/logo.png";
 
 const Header = (props) => {
   const { isLoggedIn } = useContext(userContext);
+  const [showMobileNav, setShowMobileNav] = useState(false);
   const links = getNavigation(isLoggedIn);
+  const location = useLocation();
+
+  useEffect(() => {
+    console.log(location.key);
+    setShowMobileNav(false);
+  }, [location.key]);
+
+  const toggleShowMobileNav = (e) => {
+    // e.preventDefault();
+    setShowMobileNav((prevState) => !prevState);
+    console.log("haha");
+  };
 
   return (
     <header className={styles.header}>
-      <button className={styles["toggle-button"]}>
-        <span className={styles["toggle-button__bar"]}></span>
-        <span className={styles["toggle-button__bar"]}></span>
-        <span className={styles["toggle-button__bar"]}></span>
-      </button>
+      {!showMobileNav && (
+        <button
+          className={styles["toggle-button"]}
+          onClick={toggleShowMobileNav}
+        >
+          <span className={styles["toggle-button__bar"]}></span>
+          <span className={styles["toggle-button__bar"]}></span>
+          <span className={styles["toggle-button__bar"]}></span>
+        </button>
+      )}
       <div className={styles["logo-container"]}></div>
+      <MobileNav opened={showMobileNav} />
+      {showMobileNav && <Backdrop onClose={toggleShowMobileNav} />}
       <nav className={styles["nav__links"]}>
         {links.map((el) => {
           return (
             <NavLink
+              onClick={() => toggleShowMobileNav}
               exact
               activeClassName={styles.active}
               className={styles.link}
