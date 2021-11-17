@@ -17,7 +17,7 @@ const MovieList = (props) => {
       const response = await loadList({
         url: `/${props.url}`,
         headers: {
-          Authorization: props.withAuth ? `Bearer ${token}` : null,
+          Authorization: props.withAuth && token ? `Bearer ${token}` : null,
         },
       });
       setMovies(response);

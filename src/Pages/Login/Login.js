@@ -60,7 +60,9 @@ const Login = (props) => {
         userData.token,
         userData.username,
         userData.userId,
-        userData.email
+        userData.email,
+        userData.watchlist,
+        userData.seenlist
       );
       history.replace("/");
     }
