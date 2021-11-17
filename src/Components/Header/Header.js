@@ -14,14 +14,15 @@ const Header = (props) => {
   const location = useLocation();
 
   useEffect(() => {
-    console.log(location.key);
+    if (!showMobileNav) {
+      return;
+    }
     setShowMobileNav(false);
+    // console.log(location.key);
   }, [location.key]);
 
   const toggleShowMobileNav = (e) => {
-    // e.preventDefault();
     setShowMobileNav((prevState) => !prevState);
-    console.log("haha");
   };
 
   return (

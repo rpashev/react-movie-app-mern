@@ -14,7 +14,7 @@ const MobileNav = (props) => {
       mountOnEnter
       unmountOnExit
       in={props.opened}
-      timeout={200}
+      timeout={300}
       classNames={{
         enter: styles["slide-enter"],
         enterActive: styles["slide-enter-active"],
