@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styles from "./MovieCard.module.scss";
 import noPoster from "../../Assets/no-poster-available.jpg";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import AuthContext from "../../Context/user-context";
 import { CSSTransition } from "react-transition-group";
 
@@ -10,8 +10,21 @@ const MovieCard = (props) => {
   if (imgLink === "N/A") {
     imgLink = noPoster;
   }
-  const { isLoggedIn } = useContext(AuthContext);
+  const { isLoggedIn, watchlist, seenlist } = useContext(AuthContext);
   const [showActions, setShowActions] = useState(false);
+  const [isInWatchlist, setIsInWatchlist] = useState(false);
+  const [isInSeenlist, setIsInSeenlist] = useState(false);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      if (watchlist.includes(props.movieID)) {
+        setIsInWatchlist(true);
+      }
+      if (seenlist.includes(props.movieID)) {
+        setIsInSeenlist(true);
+      }
+    }
+  }, [watchlist, seenlist, props.movieID, isLoggedIn]);
 
   return (
     <div
@@ -32,13 +45,20 @@ const MovieCard = (props) => {
         }}
       >
         <div className={styles.actions}>
-          <div className={styles["watchlist-icon"]} title="Add to watchlist">
-            <span>+</span>
-          </div>
-          <div
-            className={styles["seenlist-icon"]}
-            title="Mark as watched"
-          ></div>
+          {!isInWatchlist && (
+            <div className={styles["watchlist-icon"]} title="Add to watchlist">
+              <span>+</span>
+            </div>
+          )}
+          {!isInSeenlist && (
+            <div
+              className={styles["seenlist-icon"]}
+              title="Mark as watched"
+            ></div>
+          )}
+          {isInWatchlist && <div className={styles["watchlist-icon-checked"]} title="This movie is in your watchlist!">✓</div>}
+          {isInSeenlist && <div className={styles["seenlist-icon-checked"]} title="This movie is marked as watched!"></div>}
+
         </div>
       </CSSTransition>
 

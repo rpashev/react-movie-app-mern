@@ -10,7 +10,9 @@
   transition: all 0.3s ease-out;
 
   .watchlist-icon,
-  .seenlist-icon {
+  .seenlist-icon,
+  .watchlist-icon-checked,
+  .seenlist-icon-checked {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,9 +28,16 @@
   .watchlist-icon {
     left: 0;
   }
+
   .seenlist-icon {
-    background: url("../../Assets//eye-icon.png") center/contain no-repeat;
+    background: url("../../Assets//eye2.png") center/contain no-repeat;
     background-color: $gray-darkest;
+    right: 0;
+  }
+  .seenlist-icon-checked {
+    background: url("../../Assets//eye-check.png") center/contain no-repeat;
+    background-color: $gray-darkest;
+    color: $gray-light !important;
     right: 0;
   }
   .watchlist-icon:hover,
@@ -36,6 +45,10 @@
     opacity: 1;
     background-color: black;
     cursor: pointer;
+  }
+  .watchlist-icon-checked {
+    left: 0;
+    cursor: default;
   }
 
   a {
