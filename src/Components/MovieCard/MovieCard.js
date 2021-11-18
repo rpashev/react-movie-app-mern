@@ -4,13 +4,15 @@ import noPoster from "../../Assets/no-poster-available.jpg";
 import { useContext, useState, useEffect } from "react";
 import AuthContext from "../../Context/user-context";
 import { CSSTransition } from "react-transition-group";
+import { useAxios } from "../../Custom Hooks/use-axios";
 
 const MovieCard = (props) => {
   let imgLink = props.imgLink;
   if (imgLink === "N/A") {
     imgLink = noPoster;
   }
-  const { isLoggedIn, watchlist, seenlist } = useContext(AuthContext);
+  const { isLoggedIn, watchlist, seenlist, addToList, token } =
+    useContext(AuthContext);
   const [showActions, setShowActions] = useState(false);
   const [isInWatchlist, setIsInWatchlist] = useState(false);
   const [isInSeenlist, setIsInSeenlist] = useState(false);
@@ -25,6 +27,30 @@ const MovieCard = (props) => {
       }
     }
   }, [watchlist, seenlist, props.movieID, isLoggedIn]);
+
+  const {
+    error: errorListOperation,
+    isLoading: isLoadingListOperation,
+    sendRequest: add,
+  } = useAxios();
+
+  const addToUserList = async (list) => {
+    let response = await add({
+      url: `/user/${list}`,
+      method: "POST",
+      data: { IMDBId: props.movieID },
+      headers: { Authorization: "Bearer " + token },
+    });
+    if (!response) {
+      return;
+    }
+    if (list === "watchlist") {
+      setIsInWatchlist(true);
+    } else if (list === "seenlist") {
+      setIsInSeenlist(true);
+    }
+    addToList(props.movieID, list);
+  };
 
   return (
     <div
@@ -46,7 +72,11 @@ const MovieCard = (props) => {
       >
         <div className={styles.actions}>
           {!isInWatchlist && (
-            <div className={styles["watchlist-icon"]} title="Add to watchlist">
+            <div
+              className={styles["watchlist-icon"]}
+              title="Add to watchlist"
+              onClick={addToUserList.bind(null, "watchlist")}
+            >
               <span>+</span>
             </div>
           )}
@@ -54,11 +84,23 @@ const MovieCard = (props) => {
             <div
               className={styles["seenlist-icon"]}
               title="Mark as watched"
+              onClick={addToUserList.bind(null, "seenlist")}
             ></div>
           )}
-          {isInWatchlist && <div className={styles["watchlist-icon-checked"]} title="This movie is in your watchlist!">✓</div>}
-          {isInSeenlist && <div className={styles["seenlist-icon-checked"]} title="This movie is marked as watched!"></div>}
-
+          {isInWatchlist && (
+            <div
+              className={styles["watchlist-icon-checked"]}
+              title="This movie is in your watchlist!"
+            >
+              ✓
+            </div>
+          )}
+          {isInSeenlist && (
+            <div
+              className={styles["seenlist-icon-checked"]}
+              title="This movie is marked as watched!"
+            ></div>
+          )}
         </div>
       </CSSTransition>
 
