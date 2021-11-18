@@ -11,6 +11,7 @@ const MovieList = (props) => {
   const { isLoading, error, sendRequest: loadList } = useAxios();
 
   const { token } = useContext(AuthContext);
+  const [deletedMovieId, setDeletedMovieId] = useState(null);
 
   useEffect(() => {
     const loadMovies = async () => {
@@ -24,6 +25,19 @@ const MovieList = (props) => {
     };
     loadMovies();
   }, [props.url, token, props.withAuth, loadList]);
+
+  useEffect(() => {
+    if (props.watchlist && movies && deletedMovieId !== null) {
+      const updateMovies = movies.filter(
+        (movie) => movie.IMDBId !== deletedMovieId
+      );
+      setMovies(updateMovies);
+    }
+  }, [deletedMovieId]);
+
+  const onDeletedMovie = (movieId) => {
+    setDeletedMovieId(movieId);
+  };
 
   let movieList;
   if (props.watchlist && movies && movies.length > 0 && !error) {
@@ -39,6 +53,7 @@ const MovieList = (props) => {
           genre={movie.genre}
           actors={movie.actors}
           plot={movie.plot}
+          onDeleted={onDeletedMovie}
         />
       );
     });

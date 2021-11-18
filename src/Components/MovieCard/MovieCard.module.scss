@@ -9,6 +9,19 @@
   margin: 2rem 1.5rem;
   transition: all 0.3s ease-out;
 
+  .error {
+    margin: 0;
+    position: absolute;
+    top: -3.5rem;
+    height: 1rem;
+    width: 100%;
+    text-align: center;
+    background-color: $danger;
+    padding: 0.25rem 0;
+    border-radius: 3px;
+    font-size: 0.8rem;
+  }
+
   .watchlist-icon,
   .seenlist-icon,
   .watchlist-icon-checked,

@@ -58,6 +58,9 @@ const MovieCard = (props) => {
       onMouseEnter={() => setShowActions(true)}
       onMouseLeave={() => setShowActions(false)}
     >
+      {errorListOperation && showActions && (
+        <p className={styles.error}>{errorListOperation}</p>
+      )}
       <CSSTransition
         in={isLoggedIn && showActions}
         mountOnEnter
