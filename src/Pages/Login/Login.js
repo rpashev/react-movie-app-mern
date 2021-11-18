@@ -56,6 +56,7 @@ const Login = (props) => {
       if (!userData) {
         return;
       }
+      console.log(typeof userData.watchlist)
       auth.login(
         userData.token,
         userData.username,

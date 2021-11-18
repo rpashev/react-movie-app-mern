@@ -18,7 +18,6 @@ const Header = (props) => {
       return;
     }
     setShowMobileNav(false);
-    // console.log(location.key);
   }, [location.key]);
 
   const toggleShowMobileNav = (e) => {

@@ -13,7 +13,8 @@ const Details = () => {
   const { movieID } = params;
   const [movie, setMovie] = useState();
   const { error, isLoading, sendRequest: getMovie } = useAxios();
-  const { isLoggedIn, token } = useContext(AuthContext);
+  const { isLoggedIn, token, addToList, removeFromList } =
+    useContext(AuthContext);
 
   useEffect(() => {
     const loadMovie = async () => {
@@ -29,7 +30,7 @@ const Details = () => {
       }
     };
     loadMovie();
-  }, [movieID, getMovie]);
+  }, [movieID, getMovie, token]);
   console.log(movie);
 
   let ratings;
@@ -62,6 +63,7 @@ const Details = () => {
     } else if (list === "seenlist") {
       setMovie((prevState) => ({ ...prevState, isInSeenList: true }));
     }
+    addToList(movieID, list);
   };
 
   const removeFromUserList = async (list) => {
@@ -78,6 +80,7 @@ const Details = () => {
     } else if (list === "seenlist") {
       setMovie((prevState) => ({ ...prevState, isInSeenList: false }));
     }
+    removeFromList(movieID, list);
   };
 
   if (isLoading) {

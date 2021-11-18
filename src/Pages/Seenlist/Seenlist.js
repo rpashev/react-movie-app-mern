@@ -1,6 +1,6 @@
 import React from "react";
 import MovieList from "../../Components/MovieList/MovieList";
-import styles from "./Seenlist.module.scss"
+// import styles from "./Seenlist.module.scss"
 
 const Seenlist = (props) => {
   return (

@@ -10,6 +10,8 @@ const AuthContext = React.createContext({
   seenlist: null,
   login: (token, username, userId, email) => {},
   logout: () => {},
+  addToUserList: (movieId, list) => {},
+  removeFromUserList: (movieId, list) => {},
 });
 
 export const AuthContextProvider = (props) => {
@@ -17,8 +19,8 @@ export const AuthContextProvider = (props) => {
   const initialUsername = localStorage.getItem("username");
   const initialUserId = localStorage.getItem("userId");
   const initialEmail = localStorage.getItem("email");
-  const initialWatchlist = localStorage.getItem("watchlist");
-  const initialSeenlist = localStorage.getItem("seenlist");
+  const initialWatchlist = JSON.parse(localStorage.getItem("watchlist"));
+  const initialSeenlist = JSON.parse(localStorage.getItem("seenlist"));
 
   const [token, setToken] = useState(initialToken);
   const [username, setUsername] = useState(initialUsername);
@@ -48,8 +50,8 @@ export const AuthContextProvider = (props) => {
     localStorage.setItem("username", username);
     localStorage.setItem("userId", userId);
     localStorage.setItem("email", email);
-    localStorage.setItem("watchlist", watchlist);
-    localStorage.setItem("seenlist", seenlist);
+    localStorage.setItem("watchlist", JSON.stringify(watchlist));
+    localStorage.setItem("seenlist", JSON.stringify(seenlist));
   };
 
   const logoutHandler = () => {
@@ -66,7 +68,39 @@ export const AuthContextProvider = (props) => {
     localStorage.removeItem("email");
     localStorage.removeItem("watchlist");
     localStorage.removeItem("seenlist");
+  };
 
+  const addToUserListHandler = (movieId, list) => {
+    let updatedList;
+
+    if (list === "watchlist") {
+      updatedList = watchlist.slice();
+      // console.log(typeof updatedList)
+      // console.log(typeof watchlist)
+      updatedList.push(movieId);
+      setWatchlist(updatedList);
+    } else if (list === "seenlist") {
+      updatedList = seenlist.slice();
+      updatedList.push(movieId);
+      setSeenlist(updatedList);
+    }
+
+    localStorage.setItem([list], JSON.stringify(updatedList));
+  };
+
+  const removeFromUserListHandler = (movieId, list) => {
+    let updatedList;
+
+    if (list === "watchlist") {
+      updatedList = watchlist.filter((id) => movieId !== id);
+      console.log(updatedList);
+      setWatchlist(updatedList);
+    } else if (list === "seenlist") {
+      updatedList = seenlist.filter((id) => movieId !== id);
+      setSeenlist(updatedList);
+    }
+
+    localStorage.setItem([list], JSON.stringify(updatedList));
   };
 
   const contextValue = {
@@ -79,6 +113,8 @@ export const AuthContextProvider = (props) => {
     seenlist,
     login: loginHandler,
     logout: logoutHandler,
+    addToList: addToUserListHandler,
+    removeFromList: removeFromUserListHandler,
   };
 
   return (
