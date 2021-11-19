@@ -23,6 +23,7 @@
 
   .list {
     display: flex;
+    width: 85%;
     justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
@@ -30,8 +31,9 @@
   }
 }
 
-@media (max-width: 40rem) {
+@media (max-width: 1024px) {
   .database-page .list {
+    widtH: 100%;
     justify-content: center;
   }
 }

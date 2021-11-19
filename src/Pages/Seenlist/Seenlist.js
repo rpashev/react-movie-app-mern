@@ -1,12 +1,14 @@
 import React from "react";
 import MovieList from "../../Components/MovieList/MovieList";
-// import styles from "./Seenlist.module.scss"
+import styles from "./Seenlist.module.scss"
 
 const Seenlist = (props) => {
   return (
-    <div>
+    <div className={styles["seenlist-page"]}>
       <h1>Movies you've watched</h1>
-      <MovieList url="user/seenlist" withAuth/>
+      <div className={styles.list}>
+        <MovieList url="user/seenlist" withAuth />
+      </div>
     </div>
   );
 };
