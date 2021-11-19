@@ -21,6 +21,18 @@
     border-radius: 3px;
     font-size: 0.8rem;
   }
+  .success {
+    margin: 0;
+    position: absolute;
+    top: -3.5rem;
+    height: 1rem;
+    width: 100%;
+    text-align: center;
+    background-color: green;
+    padding: 0.25rem 0;
+    border-radius: 3px;
+    font-size: 0.8rem;
+  }
 
   .watchlist-icon,
   .seenlist-icon,
@@ -86,6 +98,10 @@
       text-align: center;
     }
   }
+  .fade-exit-active {
+    opacity: 0;
+    transition: opacity 0.4s ease-out;
+  }
   .slide-enter {
     opacity: 0;
   }
@@ -106,5 +122,8 @@
   transform: scale(1.04);
 }
 
-@media (max-width: 40rem) {
+@media (max-width: 1024px) {
+  .actions {
+    display: block !important;
+  }
 }

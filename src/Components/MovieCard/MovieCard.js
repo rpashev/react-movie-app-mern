@@ -14,6 +14,7 @@ const MovieCard = (props) => {
   const { isLoggedIn, watchlist, seenlist, addToList, token } =
     useContext(AuthContext);
   const [showActions, setShowActions] = useState(false);
+  const [movieWasAdded, setMovieWasAdded] = useState(false);
   const [isInWatchlist, setIsInWatchlist] = useState(false);
   const [isInSeenlist, setIsInSeenlist] = useState(false);
 
@@ -50,6 +51,8 @@ const MovieCard = (props) => {
       setIsInSeenlist(true);
     }
     addToList(props.movieID, list);
+    setMovieWasAdded(true);
+    setTimeout(() => setMovieWasAdded(false), 1200);
   };
 
   return (
@@ -61,6 +64,18 @@ const MovieCard = (props) => {
       {errorListOperation && showActions && (
         <p className={styles.error}>{errorListOperation}</p>
       )}
+      <CSSTransition
+        in={movieWasAdded}
+        mountOnEnter
+        unmountOnExit
+        timeout={400}
+        classNames={{
+          exitActive: styles["fade-exit-active"],
+        }}
+      >
+        <p className={styles.success}>The movie was added!</p>
+      </CSSTransition>
+
       <CSSTransition
         in={isLoggedIn && showActions}
         mountOnEnter

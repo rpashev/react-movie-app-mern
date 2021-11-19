@@ -56,7 +56,7 @@
     right: 0;
     width: 12%;
     min-width: 12%;
-    background-color: $danger;
+    background: $gray-light;
     color: $gray-darkest;
     font-weight: bold;
     padding: 0.25rem 0.15rem;
@@ -70,7 +70,7 @@
   }
 
   .remove-button:hover {
-    background-color: #f34343;
+    background-color: $danger;
     cursor: pointer;
   }
   .remove-button-mobile {
