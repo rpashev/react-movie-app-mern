@@ -22,6 +22,7 @@ const MovieCardWatchlist = (props) => {
   } = useAxios();
 
   const removeFromUserList = async () => {
+    console.log("here");
     let response = await removeFromWatchlist({
       url: `/user/watchlist/${props.movieID}`,
       method: "DELETE",
@@ -43,15 +44,15 @@ const MovieCardWatchlist = (props) => {
       {errorRemoving && showButton && (
         <p className={styles.error}>{errorRemoving}</p>
       )}
-      {!showButton && (
-        <button
-          className={styles["remove-button-mobile"]}
-          title="Remove from watchlist"
-          onClick={removeFromUserList}
-        >
-          Remove from watchlist
-        </button>
-      )}
+
+      <button
+        className={styles["remove-button-mobile"]}
+        title="Remove from watchlist"
+        onClick={removeFromUserList}
+      >
+        Remove from watchlist
+      </button>
+
       <CSSTransition
         in={showButton}
         mountOnEnter
