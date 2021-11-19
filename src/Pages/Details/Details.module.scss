@@ -27,23 +27,27 @@
       display: flex;
       height: 3rem;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-start;
 
       .rating {
         display: flex;
         align-items: center;
         text-align: center;
+        margin: 0 2rem;
         // margin-left: 5rem;
       }
-      .imdb {
-        display: flex;
-        align-items: center;
-      }
+      .imdb-container {
+        margin-left: 0;
+        .imdb {
+          display: flex;
+          align-items: center;
+        }
 
-      .img {
-        width: 80px;
-        height: 30px;
-        margin-right: 8px;
+        .img {
+          width: 80px;
+          height: 30px;
+          margin-right: 8px;
+        }
       }
     }
     .buttons {
@@ -88,6 +92,12 @@
     }
     .rightside {
       margin-top: 2rem;
+      .ratings {
+        justify-content: space-between;
+        .rating {
+          margin: 0;
+        }
+      }
     }
   }
 }

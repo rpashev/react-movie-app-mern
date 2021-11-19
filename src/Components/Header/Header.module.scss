@@ -13,6 +13,23 @@
   height: 6rem;
   z-index: 100;
 
+  .nav__links {
+    margin-right: 2rem;
+    .link {
+      margin: 1rem;
+      color: $gray-light;
+      text-decoration: none;
+    }
+
+    .link:hover {
+      color: $color-primary;
+    }
+
+    .active {
+      color: $color-primary;
+    }
+  }
+
   .toggle-button {
     display: none;
     width: 3rem;
@@ -41,20 +58,6 @@
     width: 12rem;
     min-width: 6rem;
     background: url("../../Assets//logo.png") center/cover no-repeat;
-  }
-
-  .link {
-    margin: 1rem;
-    color: $gray-light;
-    text-decoration: none;
-  }
-
-  .link:hover {
-    color: $color-primary;
-  }
-
-  .active {
-    color: $color-primary;
   }
 }
 

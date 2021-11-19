@@ -5,6 +5,13 @@
   align-items: center;
   flex-wrap: wrap;
   color: $gray-light;
+  .slide-exit {
+    transform: scale(0) !important;
+  }
+  .slide-exit-active {
+    transform: scale(0) !important;
+    transition: all 200ms ease-out;
+  }
 }
 .watchlist {
   justify-content: center;

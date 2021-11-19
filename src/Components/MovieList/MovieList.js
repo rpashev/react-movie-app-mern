@@ -5,6 +5,7 @@ import Loader from "../Loader/Loader";
 import { useAxios } from "../../Custom Hooks/use-axios";
 import AuthContext from "../../Context/user-context";
 import MovieCardWatchlist from "../MovieCardWatchlist/MovieCardWatchlist";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 const MovieList = (props) => {
   const [movies, setMovies] = useState();
@@ -31,9 +32,10 @@ const MovieList = (props) => {
       const updateMovies = movies.filter(
         (movie) => movie.IMDBId !== deletedMovieId
       );
+
       setMovies(updateMovies);
     }
-  }, [deletedMovieId]);
+  }, [deletedMovieId, props.watchlist]);
 
   const onDeletedMovie = (movieId) => {
     setDeletedMovieId(movieId);
@@ -41,22 +43,37 @@ const MovieList = (props) => {
 
   let movieList;
   if (props.watchlist && movies && movies.length > 0 && !error) {
-    movieList = movies.map((movie) => {
-      return (
-        <MovieCardWatchlist
-          key={movie._id}
-          title={movie.title}
-          imgLink={movie.poster}
-          movieID={movie.IMDBId}
-          year={movie.year}
-          runtime={movie.runtime}
-          genre={movie.genre}
-          actors={movie.actors}
-          plot={movie.plot}
-          onDeleted={onDeletedMovie}
-        />
-      );
-    });
+    movieList = (
+      <TransitionGroup component={null}>
+        {movies.map((movie) => {
+          return (
+            <CSSTransition
+              key={movie._id}
+              timeout={200}
+              classNames={{
+                enter: styles["slide-enter"],
+                enterActive: styles["slide-enter-active"],
+                exit: styles["slide-exit"],
+                exitActive: styles["slide-exit-active"],
+              }}
+            >
+              <MovieCardWatchlist
+                // key={movie._id}
+                title={movie.title}
+                imgLink={movie.poster}
+                movieID={movie.IMDBId}
+                year={movie.year}
+                runtime={movie.runtime}
+                genre={movie.genre}
+                actors={movie.actors}
+                plot={movie.plot}
+                onDeleted={onDeletedMovie}
+              />
+            </CSSTransition>
+          );
+        })}
+      </TransitionGroup>
+    );
   } else if (!props.watchlist && movies && movies.length > 0 && !error) {
     movieList = movies.map((movie) => {
       return (
@@ -75,19 +92,10 @@ const MovieList = (props) => {
   } else if (movies && movies.length > 0 && !error) {
     return (
       <div
+        component="div"
         className={`${styles.list} ${props.watchlist ? styles.watchlist : ""}`}
       >
         {movieList}
-        {/* {movies.map((movie) => {
-          return (
-            <MovieCard
-              key={movie._id}
-              title={movie.title}
-              imgLink={movie.poster}
-              movieID={movie.IMDBId}
-            />
-          );
-        })} */}
       </div>
     );
   } else if (error && !movies) {

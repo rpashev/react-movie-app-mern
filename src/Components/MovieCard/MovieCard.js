@@ -18,7 +18,7 @@ const MovieCard = (props) => {
   const [isInSeenlist, setIsInSeenlist] = useState(false);
 
   useEffect(() => {
-    if (isLoggedIn) {
+    if (isLoggedIn && watchlist) {
       if (watchlist.includes(props.movieID)) {
         setIsInWatchlist(true);
       }
@@ -55,7 +55,7 @@ const MovieCard = (props) => {
   return (
     <div
       className={styles.card}
-      onMouseEnter={() => setShowActions(true)}
+      onMouseOver={() => setShowActions(true)}
       onMouseLeave={() => setShowActions(false)}
     >
       {errorListOperation && showActions && (

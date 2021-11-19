@@ -101,7 +101,7 @@ const Details = () => {
           <h1>{movie.Title}</h1>
           {ratings ? (
             <div className={styles.ratings}>
-              <div className={styles.rating}>
+              <div className={`${styles.rating} ${styles["imdb-container"]}`}>
                 <a
                   href={`https://www.imdb.com/title/${movie.imdbID}`}
                   target="_blank"

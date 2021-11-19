@@ -39,13 +39,18 @@
       color: $gray-light;
       font-size: 0.85rem;
       width: 80%;
+      padding-right: 0.25rem;
       .title {
         margin-top: 0.5rem;
         font-size: 1rem;
       }
+      .plot {
+        margin-top: 0;
+      }
     }
   }
-  .remove-button {
+  .remove-button,
+  .remove-button-mobile {
     position: absolute;
     top: 0;
     right: 0;
@@ -60,9 +65,16 @@
     font-family: inherit;
     transition: all 0.3s ease-out;
   }
+  .remove-button-mobile {
+    display: none;
+  }
+
   .remove-button:hover {
     background-color: #f34343;
     cursor: pointer;
+  }
+  .remove-button-mobile {
+    display: none;
   }
   .slide-enter {
     opacity: 0;
@@ -105,6 +117,7 @@
     width: 100%;
     margin: 1rem 0;
     height: 280px;
+
     a .img-container {
       height: 100%;
       width: 250px;
@@ -112,6 +125,20 @@
     }
     a .movie-info {
       font-size: 0.75rem;
+    }
+  }
+}
+@media (max-width: 1024px) {
+  .card {
+    margin-bottom: 3rem;
+
+    .remove-button-mobile {
+      display: block;
+      width: 100%;
+      top: 100%;
+      font-size: 1.2rem;
+      height: 2rem;
+      right: 0;
     }
   }
 }
