@@ -76,6 +76,22 @@
     cursor: default;
   }
 
+  .actions-mobile {
+    display: none;
+
+    button {
+      width: 100%;
+      font-size: 0.8rem;
+      height: 2rem;
+      padding: 0.2rem 0.5rem;
+      font: inherit;
+      background-color: $gray-darkest;
+      border: none;
+      outline: none;
+      color: $gray-light;
+    }
+  }
+
   a {
     text-decoration: none;
     display: block;
@@ -123,7 +139,18 @@
 }
 
 @media (max-width: 1024px) {
-  .actions {
-    display: block !important;
+  .card {
+    margin-bottom: 5rem;
+    .actions-mobile {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+    .actions {
+      display: none;
+    }
+    .success {
+      top: -1.5rem;
+    }
   }
 }

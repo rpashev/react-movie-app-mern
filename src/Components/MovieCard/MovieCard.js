@@ -64,6 +64,22 @@ const MovieCard = (props) => {
       {errorListOperation && showActions && (
         <p className={styles.error}>{errorListOperation}</p>
       )}
+      {isLoggedIn && (
+        <div className={styles["actions-mobile"]}>
+          {!isInWatchlist && (
+            <button onClick={addToUserList.bind(null, "watchlist")}>
+              + Watchlist
+            </button>
+          )}
+          {isInWatchlist && <button>Already in watchlist</button>}
+          {!isInSeenlist && (
+            <button onClick={addToUserList.bind(null, "seenlist")}>
+              Mark as watched
+            </button>
+          )}
+          {isInSeenlist && <button>Already watched</button>}
+        </div>
+      )}
       <CSSTransition
         in={movieWasAdded}
         mountOnEnter
