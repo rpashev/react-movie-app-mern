@@ -67,11 +67,18 @@ const MovieCard = (props) => {
       {isLoggedIn && (
         <div className={styles["actions-mobile"]}>
           {!isInWatchlist && (
-            <button onClick={addToUserList.bind(null, "watchlist")}>
+            <button
+              onClick={addToUserList.bind(null, "watchlist")}
+              className={styles["mobile-watchlist--btn"]}
+            >
               + Watchlist
             </button>
           )}
-          {isInWatchlist && <button>Already in watchlist</button>}
+          {isInWatchlist && (
+            <button className={styles["mobile-watchlist--btn"]}>
+              Already in watchlist
+            </button>
+          )}
           {!isInSeenlist && (
             <button onClick={addToUserList.bind(null, "seenlist")}>
               Mark as watched
