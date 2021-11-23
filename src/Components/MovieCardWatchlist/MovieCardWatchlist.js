@@ -13,7 +13,8 @@ const MovieCardWatchlist = (props) => {
     imgLink = noPoster;
   }
   const [showButton, setShowButton] = useState(false);
-  const { token, removeFromList, seenlist } = useContext(AuthContext);
+  const { token, removeFromList, seenlist, addToList } =
+    useContext(AuthContext);
   const [isInSeenlist, setIsInSeenlist] = useState(false);
 
   useEffect(() => {
@@ -29,6 +30,28 @@ const MovieCardWatchlist = (props) => {
     isLoading: isLoadingRemoving,
     sendRequest: removeFromWatchlist,
   } = useAxios();
+
+  const {
+    error: errorAdding,
+    isLoading: isLoadingAdding,
+    sendRequest: addToUserlist,
+  } = useAxios();
+
+  const addToSeenList = async () => {
+    console.log("here");
+    let response = await addToUserlist({
+      url: `/user/seenlist`,
+      method: "POST",
+      data: { IMDBId: props.movieID },
+      headers: { Authorization: "Bearer " + token },
+    });
+    if (!response) {
+      return;
+    }
+
+    setIsInSeenlist(true);
+    addToList(props.movieID, "seenlist");
+  };
 
   const removeFromUserList = async () => {
     console.log("here");
@@ -50,9 +73,8 @@ const MovieCardWatchlist = (props) => {
       onMouseOver={() => setShowButton(true)}
       onMouseLeave={() => setShowButton(false)}
     >
-      {errorRemoving && showButton && (
-        <p className={styles.error}>{errorRemoving}</p>
-      )}
+      {errorRemoving && <p className={styles.error}>{errorRemoving}</p>}
+      {errorAdding && <p className={styles.error}>{errorAdding}</p>}
       <div className={styles["actions-mobile"]}>
         <button
           className={styles["remove-button-mobile"]}
@@ -65,7 +87,7 @@ const MovieCardWatchlist = (props) => {
           <button
             className={styles["seenlist-button-mobile"]}
             title="Mark as watched"
-            onClick={removeFromUserList}
+            onClick={addToSeenList}
           >
             Mark as watched
           </button>
@@ -74,9 +96,8 @@ const MovieCardWatchlist = (props) => {
           <button
             className={styles["seenlist-button-mobile-checked"]}
             title="Movie is marked as watched"
-          
           >
-            Movie already marked as watched!
+            Movie is marked as watched!
           </button>
         )}
       </div>
@@ -109,6 +130,7 @@ const MovieCardWatchlist = (props) => {
             <div
               className={styles["seenlist-icon"]}
               title="Mark as watched"
+              onClick={addToSeenList}
             ></div>
           )}
         </div>
