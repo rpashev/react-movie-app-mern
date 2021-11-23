@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState, useContext } from "react";
+import { useState, useContext, Fragment } from "react";
 
 import styles from "./MovieCardWatchlist.module.scss";
 import noPoster from "../../Assets/no-poster-available.jpg";
@@ -44,14 +44,22 @@ const MovieCardWatchlist = (props) => {
       {errorRemoving && showButton && (
         <p className={styles.error}>{errorRemoving}</p>
       )}
-
-      <button
-        className={styles["remove-button-mobile"]}
-        title="Remove from watchlist"
-        onClick={removeFromUserList}
-      >
-        Remove from watchlist
-      </button>
+      <div className={styles["actions-mobile"]}>
+        <button
+          className={styles["remove-button-mobile"]}
+          title="Remove from watchlist"
+          onClick={removeFromUserList}
+        >
+          Remove from watchlist
+        </button>
+        <button
+          className={styles["seenlist-button-mobile"]}
+          title="Mark as watched"
+          onClick={removeFromUserList}
+        >
+          Mark as watched
+        </button>
+      </div>
 
       <CSSTransition
         in={showButton}
@@ -65,13 +73,17 @@ const MovieCardWatchlist = (props) => {
           exitActive: styles["slide-exit-active"],
         }}
       >
-        <button
-          className={styles["remove-button"]}
-          title="Remove from watchlist"
-          onClick={removeFromUserList}
-        >
-          Remove
-        </button>
+        <div className={styles["action-icons"]}>
+          <div
+            className={styles["remove-icon"]}
+            title="Remove from watchlist"
+            onClick={removeFromUserList}
+          ></div>
+          <div
+            className={styles["seenlist-icon"]}
+            title="Mark as watched"
+          ></div>
+        </div>
       </CSSTransition>
       <Link to={`/details/${props.movieID}`}>
         <div className={styles["img-container"]}>

@@ -49,33 +49,80 @@
       }
     }
   }
-  .remove-button,
-  .remove-button-mobile {
+  .action-icons {
     position: absolute;
+    display: flex;
+    flex-direction: column;
     top: 0;
     right: 0;
-    width: 12%;
-    min-width: 12%;
-    background: $gray-light;
-    color: $gray-darkest;
-    font-weight: bold;
-    padding: 0.25rem 0.15rem;
-    outline: none;
-    border: none;
-    font-family: inherit;
-    transition: all 0.3s ease-out;
-  }
-  .remove-button-mobile {
-    display: none;
+    width: 6%;
+
+    .seenlist-icon,
+    .seenlist-icon-checked {
+      background-color: $gray-light;
+      width: 100%;
+      height: 2rem;
+      font-size: 1.5rem;
+      text-align: center;
+      transition: all 0.3s ease-out;
+    }
+
+    .seenlist-icon {
+      background: url("../../Assets//eye2.png") center/contain no-repeat;
+      // background-color: rgba(100, 99, 99, 0.233);
+      background-color: $gray-darkest;
+    }
+    .seenlist-icon-checked {
+      background: url("../../Assets//eye-check.png") center/contain no-repeat;
+      background-color: $gray-darkest;
+      color: $gray-light !important;
+      right: 0;
+    }
+
+    .seenlist-icon:hover {
+      opacity: 1;
+      background-color: $color-primary-darker;
+      cursor: pointer;
+    }
+    .remove-icon {
+      width: 100%;
+      height: 2rem;
+      background: url("../../Assets//delete.png") center/contain no-repeat;
+      cursor: pointer;
+      transition: background-color 0.3s ease-out;
+    }
+    .remove-icon:hover {
+      background-color: rgb(243, 140, 140);
+    }
   }
 
-  .remove-button:hover {
-    background-color: $danger;
-    cursor: pointer;
-  }
-  .remove-button-mobile {
+  .actions-mobile {
+    width: 100%;
     display: none;
+
+    .remove-button-mobile,
+    .seenlist-button-mobile {
+      width: 100%;
+      min-width: 12%;
+      background: $gray-light;
+      color: $gray-darkest;
+      font-weight: bold;
+      padding: 0.25rem 0.15rem;
+      outline: none;
+      border: none;
+      font-family: inherit;
+      transition: all 0.3s ease-out;
+    }
+    .remove-button-mobile {
+      display: none;
+    }
+
+    .seenlist-button-mobile {
+      display: none;
+      background: #413a3a;
+    }
   }
+
   .slide-enter {
     opacity: 0;
     transform: scale(0.6);
@@ -132,15 +179,17 @@
   .card {
     margin-bottom: 3rem;
 
-    .remove-button-mobile {
-      display: block;
+    .actions-mobile {
+      display: flex !important;
+      position: absolute;
+      flex-direction: column;
       width: 100%;
       top: 100%;
       font-size: 1.2rem;
-      height: 2rem;
+      height: 4rem;
       right: 0;
     }
-    .remove-button {
+    .action-icons {
       display: none;
     }
   }
