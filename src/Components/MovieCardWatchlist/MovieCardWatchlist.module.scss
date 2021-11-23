@@ -98,28 +98,33 @@
 
   .actions-mobile {
     width: 100%;
+    margin-bottom: 3rem;
     display: none;
 
     .remove-button-mobile,
-    .seenlist-button-mobile {
+    .seenlist-button-mobile,
+    .seenlist-button-mobile-checked {
+      font-family: inherit;
       width: 100%;
       min-width: 12%;
       background: $gray-light;
       color: $gray-darkest;
+      cursor: pointer;
       font-weight: bold;
-      padding: 0.25rem 0.15rem;
+      padding: 0.5rem;
       outline: none;
       border: none;
-      font-family: inherit;
+      font-size: 1.1rem;
       transition: all 0.3s ease-out;
     }
-    .remove-button-mobile {
-      display: none;
-    }
 
+    .seenlist-button-mobile-checked {
+      background-color: $color-primary-darker;
+      cursor: default;
+    }
     .seenlist-button-mobile {
-      display: none;
       background: #413a3a;
+      color: $gray-light;
     }
   }
 
@@ -177,7 +182,7 @@
 }
 @media (max-width: 1024px) {
   .card {
-    margin-bottom: 3rem;
+    margin-bottom: 6rem;
 
     .actions-mobile {
       display: flex !important;
@@ -185,9 +190,6 @@
       flex-direction: column;
       width: 100%;
       top: 100%;
-      font-size: 1.2rem;
-      height: 4rem;
-      right: 0;
     }
     .action-icons {
       display: none;

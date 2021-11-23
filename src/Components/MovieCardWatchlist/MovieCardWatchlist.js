@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState, useContext, Fragment } from "react";
+import { useState, useContext, useEffect } from "react";
 
 import styles from "./MovieCardWatchlist.module.scss";
 import noPoster from "../../Assets/no-poster-available.jpg";
@@ -13,7 +13,16 @@ const MovieCardWatchlist = (props) => {
     imgLink = noPoster;
   }
   const [showButton, setShowButton] = useState(false);
-  const { token, removeFromList } = useContext(AuthContext);
+  const { token, removeFromList, seenlist } = useContext(AuthContext);
+  const [isInSeenlist, setIsInSeenlist] = useState(false);
+
+  useEffect(() => {
+    if (props.movieID) {
+      if (seenlist.includes(props.movieID)) {
+        setIsInSeenlist(true);
+      }
+    }
+  }, [seenlist, props.movieID]);
 
   const {
     error: errorRemoving,
@@ -52,13 +61,24 @@ const MovieCardWatchlist = (props) => {
         >
           Remove from watchlist
         </button>
-        <button
-          className={styles["seenlist-button-mobile"]}
-          title="Mark as watched"
-          onClick={removeFromUserList}
-        >
-          Mark as watched
-        </button>
+        {!isInSeenlist && (
+          <button
+            className={styles["seenlist-button-mobile"]}
+            title="Mark as watched"
+            onClick={removeFromUserList}
+          >
+            Mark as watched
+          </button>
+        )}
+        {isInSeenlist && (
+          <button
+            className={styles["seenlist-button-mobile-checked"]}
+            title="Movie is marked as watched"
+          
+          >
+            Movie already marked as watched!
+          </button>
+        )}
       </div>
 
       <CSSTransition
@@ -79,10 +99,18 @@ const MovieCardWatchlist = (props) => {
             title="Remove from watchlist"
             onClick={removeFromUserList}
           ></div>
-          <div
-            className={styles["seenlist-icon"]}
-            title="Mark as watched"
-          ></div>
+          {isInSeenlist && (
+            <div
+              className={styles["seenlist-icon-checked"]}
+              title="This movie is marked as watched!"
+            ></div>
+          )}
+          {!isInSeenlist && (
+            <div
+              className={styles["seenlist-icon"]}
+              title="Mark as watched"
+            ></div>
+          )}
         </div>
       </CSSTransition>
       <Link to={`/details/${props.movieID}`}>
