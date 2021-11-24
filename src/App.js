@@ -9,7 +9,7 @@ import NotFound from "./pages/NotFound/NotFound";
 import Watchlist from "./pages/Watchlist/Watchlist";
 import Seenlist from "./pages/Seenlist/Seenlist";
 import Details from "./pages/Details/Details";
-import Layout from "./components/Layout/Layout";
+import Layout from "./components/layout/Layout";
 import Logout from "./components/Logout/Logout";
 import Database from "./pages/Database/Database";
 
