@@ -1,7 +1,7 @@
 import styles from "./MobileNav.module.scss";
-import getNavLinks from "../../Utils/nav-links";
+import getNavLinks from "../../utils/nav-links";
 import { useContext } from "react";
-import AuthContext from "../../Context/user-context";
+import AuthContext from "../../context/user-context";
 import { NavLink } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 

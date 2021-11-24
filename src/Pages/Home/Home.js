@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Home.module.scss";
 
-import MovieList from "../../Components/MovieList/MovieList";
+import MovieList from "../../components/movie-components/MovieList/MovieList";
 
 const HomePage = () => {
   return (

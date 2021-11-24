@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import styles from "./MovieCard.module.scss";
-import noPoster from "../../Assets/no-poster-available.jpg";
+import noPoster from "../../../assets/no-poster-available.jpg";
 import { useContext, useState, useEffect } from "react";
-import AuthContext from "../../Context/user-context";
+import AuthContext from "../../../context/user-context";
 import { CSSTransition } from "react-transition-group";
-import { useAxios } from "../../Custom Hooks/use-axios";
+import { useAxios } from "../../../custom-hooks/use-axios";
 
 const MovieCard = (props) => {
   let imgLink = props.imgLink;
@@ -31,7 +31,7 @@ const MovieCard = (props) => {
 
   const {
     error: errorListOperation,
-    isLoading: isLoadingListOperation,
+    // isLoading: isLoadingListOperation,
     sendRequest: add,
   } = useAxios();
 

@@ -1,11 +1,11 @@
 import React, { useState, useContext } from "react";
 import styles from "./Register.module.scss";
-import useInput from "../../Custom Hooks/use-input";
-import Button from "../../Components/UI/Button";
-import { useAxios } from "../../Custom Hooks/use-axios";
+import useInput from "../../custom-hooks/use-input";
+import Button from "../../components/UI/Button";
+import { useAxios } from "../../custom-hooks/use-axios";
 import { useHistory } from "react-router";
-import AuthContext from "../../Context/user-context";
-import Loader from "../../Components/Loader/Loader";
+import AuthContext from "../../context/user-context";
+import Loader from "../../components/UI/Loader";
 
 const Register = (props) => {
   const [isSubmitting, setIsSubmitting] = useState(false);

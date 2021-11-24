@@ -1,4 +1,4 @@
-@import "../../Utils/_colors.scss";
+@import "../../../utils/_colors.scss";
 
 .header {
   position: relative;
@@ -59,7 +59,7 @@
     height: 100%;
     width: 12rem;
     min-width: 6rem;
-    background: url("../../Assets//logo.png") center/cover no-repeat;
+    background: url("../../../assets//logo.png") center/cover no-repeat;
   }
 }
 

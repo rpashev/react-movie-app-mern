@@ -1,4 +1,4 @@
-@import "../../Utils/colors";
+@import "../../../utils/colors";
 
 .card {
   display: block;
@@ -55,12 +55,12 @@
   }
 
   .seenlist-icon {
-    background: url("../../Assets//eye2.png") center/contain no-repeat;
+    background: url("../../../assets//eye2.png") center/contain no-repeat;
     background-color: $gray-darkest;
     right: 0;
   }
   .seenlist-icon-checked {
-    background: url("../../Assets//eye-check.png") center/contain no-repeat;
+    background: url("../../../assets//eye-check.png") center/contain no-repeat;
     background-color: $gray-darkest;
     color: $gray-light !important;
     right: 0;

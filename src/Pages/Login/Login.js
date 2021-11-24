@@ -1,11 +1,11 @@
 import React, { useState, useContext } from "react";
-import useInput from "../../Custom Hooks/use-input";
+import useInput from "../../custom-hooks/use-input";
 import styles from "./Login.module.scss";
-import Button from "../../Components/UI/Button";
-import { useAxios } from "../../Custom Hooks/use-axios";
+import Button from "../../components/UI/Button";
+import { useAxios } from "../../custom-hooks/use-axios";
 import { useHistory } from "react-router";
-import AuthContext from "../../Context/user-context";
-import Loader from "../../Components/Loader/Loader";
+import AuthContext from "../../context/user-context";
+import Loader from "../../components/UI/Loader";
 
 const Login = (props) => {
   const [isSubmitting, setIsSubmitting] = useState(false);

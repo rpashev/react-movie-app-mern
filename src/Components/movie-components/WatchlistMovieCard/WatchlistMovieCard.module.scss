@@ -1,4 +1,4 @@
-@import "../../Utils/colors";
+@import "../../../utils/colors";
 
 .card {
   display: flex;
@@ -68,12 +68,12 @@
     }
 
     .seenlist-icon {
-      background: url("../../Assets//eye2.png") center/contain no-repeat;
+      background: url("../../../assets//eye2.png") center/contain no-repeat;
       // background-color: rgba(100, 99, 99, 0.233);
       background-color: $gray-darkest;
     }
     .seenlist-icon-checked {
-      background: url("../../Assets//eye-check.png") center/contain no-repeat;
+      background: url("../../../assets//eye-check.png") center/contain no-repeat;
       background-color: $gray-darkest;
       color: $gray-light !important;
       right: 0;
@@ -87,7 +87,7 @@
     .remove-icon {
       width: 100%;
       height: 2rem;
-      background: url("../../Assets//delete.png") center/contain no-repeat;
+      background: url("../../../assets//delete.png") center/contain no-repeat;
       cursor: pointer;
       transition: background-color 0.3s ease-out;
     }

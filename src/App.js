@@ -1,17 +1,17 @@
 import React, { useContext } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
-import AuthContext from "./Context/user-context";
-import Home from "./Pages/Home/Home";
-import Login from "./Pages/Login/Login";
-import Register from "./Pages/Register/Register";
-import NotFound from "./Pages/NotFound/NotFound";
-import Watchlist from "./Pages/Watchlist/Watchlist";
-import Seenlist from "./Pages/Seenlist/Seenlist";
-import Details from "./Pages/Details/Details";
-import Layout from "./Components/Layout/Layout";
-import Logout from "./Components/Logout/Logout";
-import Database from "./Pages/Database/Database";
+import AuthContext from "./context/user-context";
+import Home from "./pages/Home/Home";
+import Login from "./pages/Login/Login";
+import Register from "./pages/Register/Register";
+import NotFound from "./pages/NotFound/NotFound";
+import Watchlist from "./pages/Watchlist/Watchlist";
+import Seenlist from "./pages/Seenlist/Seenlist";
+import Details from "./pages/Details/Details";
+import Layout from "./components/Layout/Layout";
+import Logout from "./components/Logout/Logout";
+import Database from "./pages/Database/Database";
 
 const App = (props) => {
   const context = useContext(AuthContext);

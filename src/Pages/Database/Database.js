@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import Loader from "../../Components/Loader/Loader";
-import MovieCard from "../../Components/MovieCard/MovieCard";
-import { useAxios } from "../../Custom Hooks/use-axios";
+import Loader from "../../components/UI/Loader";
+import MovieCard from "../../components/movie-components/MovieCard/MovieCard";
+import { useAxios } from "../../custom-hooks/use-axios";
 import styles from "./Database.module.scss";
 
 const Database = (props) => {

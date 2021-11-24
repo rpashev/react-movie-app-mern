@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import styles from "../Pages/Home/Home.module.scss";
-import MovieCard from "../Components/MovieCard/MovieCard";
-import Loader from "../Components/Loader/Loader";
+import styles from "../pages/Home/Home.module.scss";
+import MovieCard from "../components/movie-components/MovieCard/MovieCard";
+import Loader from "../components/UI/Loader";
 import { useAxios } from "./use-axios";
 
 

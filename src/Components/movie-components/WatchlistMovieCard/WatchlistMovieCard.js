@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import { useState, useContext, useEffect } from "react";
 
-import styles from "./MovieCardWatchlist.module.scss";
-import noPoster from "../../Assets/no-poster-available.jpg";
+import styles from "./WatchlistMovieCard.module.scss";
+import noPoster from "../../../assets/no-poster-available.jpg";
 import { CSSTransition } from "react-transition-group";
-import { useAxios } from "../../Custom Hooks/use-axios";
-import AuthContext from "../../Context/user-context";
+import { useAxios } from "../../../custom-hooks/use-axios";
+import AuthContext from "../../../context/user-context";
 
-const MovieCardWatchlist = (props) => {
+const WatchlistMovieCard = (props) => {
   let imgLink = props.imgLink;
   if (imgLink === "N/A") {
     imgLink = noPoster;
@@ -27,13 +27,13 @@ const MovieCardWatchlist = (props) => {
 
   const {
     error: errorRemoving,
-    isLoading: isLoadingRemoving,
+    // isLoading: isLoadingRemoving,
     sendRequest: removeFromWatchlist,
   } = useAxios();
 
   const {
     error: errorAdding,
-    isLoading: isLoadingAdding,
+    // isLoading: isLoadingAdding,
     sendRequest: addToUserlist,
   } = useAxios();
 
@@ -158,4 +158,4 @@ const MovieCardWatchlist = (props) => {
   );
 };
 
-export default MovieCardWatchlist;
+export default WatchlistMovieCard;

@@ -1,10 +1,10 @@
 import React, { useContext, useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useLocation } from "react-router";
-import userContext from "../../Context/user-context";
-import getNavigation from "../../Utils/nav-links";
-import MobileNav from "../MobileNav/MobileNav";
-import Backdrop from "../UI/Backdrop";
+import userContext from "../../../context/user-context";
+import getNavigation from "../../../utils/nav-links";
+import MobileNav from "../../MobileNav/MobileNav";
+import Backdrop from "../../UI/Backdrop";
 import styles from "./Header.module.scss";
 
 const Header = (props) => {

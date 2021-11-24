@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useContext } from "react";
 import styles from "./MovieList.module.scss";
-import MovieCard from "../MovieCard/MovieCard";
-import Loader from "../Loader/Loader";
-import { useAxios } from "../../Custom Hooks/use-axios";
-import AuthContext from "../../Context/user-context";
-import MovieCardWatchlist from "../MovieCardWatchlist/MovieCardWatchlist";
+import MovieCard from "../../movie-components/MovieCard/MovieCard";
+import Loader from "../../UI/Loader";
+import { useAxios } from "../../../custom-hooks/use-axios";
+import AuthContext from "../../../context/user-context";
+import WatchlistMovieCard from "../../movie-components/WatchlistMovieCard/WatchlistMovieCard";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 const MovieList = (props) => {
@@ -57,7 +57,7 @@ const MovieList = (props) => {
                 exitActive: styles["slide-exit-active"],
               }}
             >
-              <MovieCardWatchlist
+              <WatchlistMovieCard
                 // key={movie._id}
                 title={movie.title}
                 imgLink={movie.poster}

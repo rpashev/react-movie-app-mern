@@ -1,12 +1,12 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./Details.module.scss";
-import Loader from "../../Components/Loader/Loader";
-import { useAxios } from "../../Custom Hooks/use-axios";
-import AuthContext from "../../Context/user-context";
-import imdbIcon from "../../Assets/imdb2.png";
-import Button from "../../Components/UI/Button";
-import noPoster from "../../Assets/no-poster-available.jpg";
+import Loader from "../../components/UI/Loader";
+import { useAxios } from "../../custom-hooks/use-axios";
+import AuthContext from "../../context/user-context";
+import imdbIcon from "../../assets/imdb2.png";
+import Button from "../../components/UI/Button";
+import noPoster from "../../assets/no-poster-available.jpg";
 
 const Details = () => {
   const params = useParams();
@@ -44,7 +44,7 @@ const Details = () => {
 
   const {
     error: errorListOperation,
-    isLoading: isLoadingListOperation,
+    // isLoading: isLoadingListOperation,
     sendRequest: listOperation,
   } = useAxios();
 

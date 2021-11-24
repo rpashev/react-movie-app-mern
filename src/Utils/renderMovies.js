@@ -1,5 +1,5 @@
-import Loader from "../Components/Loader/Loader"
-import MovieCard from "../Components/MovieCard/SingleMovie"
+import Loader from "../components/UI/Loader"
+import MovieCard from "../components/movie-components/MovieCard/MovieCard"
 import React from 'react'
 
 export const renderMovies = (isLoading, list) => {
