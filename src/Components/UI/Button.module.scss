@@ -50,6 +50,16 @@
   color: $gray-darkest;
   // border-color: #f34343;
 }
+.button--primary {
+  background: $color-primary;
+  border-color: none;
+}
+.button--primary:hover,
+.button--primary:active {
+  background: yellow;
+  color: $gray-darkest;
+  // border-color: #f34343;
+}
 .button--dark {
   background: $gray-darkest;
   color: $gray-light;
@@ -72,6 +82,6 @@
 }
 @media (max-width: 40rem) {
   .button {
-    width: 100%;
+    width: 95%;
   }
 }

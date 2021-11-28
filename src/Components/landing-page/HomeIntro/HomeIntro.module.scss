@@ -6,20 +6,37 @@
   width: 600px;
   margin: 0 auto;
   background: $gray-darkest;
-  opacity: 0.8;
-  border-radius: 8px;
+  opacity: 0.85;
+  border-radius: 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  h1 {
-    margin: 0.5rem 0 1rem 0;
-  }
+  h1,
   h3 {
     margin: 0.5rem 0 1rem 0;
+    text-align: center;
+
+    span {
+      color: $color-primary;
+    }
+  }
+  
+  h3 {
+    opacity: 0.7;
+    margin-top: 0;
   }
   p {
     margin: 1rem 0 0.5rem 0;
+  }
+}
+
+@media (max-width: 40rem) {
+  .prompt {
+    width: 98%;
+    border-radius: 8px;
+    opacity: 0.9;
+    // justify-content: center;
   }
 }

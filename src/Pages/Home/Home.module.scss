@@ -11,3 +11,12 @@
     padding-top: 3rem;
   }
 }
+
+@media (max-width: 40rem) {
+  .home-page {
+    .img {
+      background: none;
+    }
+    // padding: 0 0.5rem;
+  }
+}

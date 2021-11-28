@@ -12,7 +12,7 @@ const Button = (props) => {
           props.danger && styles["button--danger"]
         } ${props.yellow && styles["button--yellow"]} ${
           props.dark && styles["button--dark"]
-        }`}
+        } ${props.primary && styles["button--primary"]}`}
       >
         {props.children}
       </Link>
@@ -24,7 +24,7 @@ const Button = (props) => {
         props.danger && styles["button--danger"]
       } ${props.yellow && styles["button--yellow"]} ${
         props.dark && styles["button--dark"]
-      }`}
+      } ${props.primary && styles["button--primary"]}`}
       type={props.type}
       onClick={props.onClick}
       disabled={props.disabled}
