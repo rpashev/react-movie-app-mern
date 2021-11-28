@@ -150,7 +150,7 @@ const WatchlistMovieCard = (props) => {
             <span>{props.runtime} | </span>
             <span>{props.genre}</span>
           </div>
-          <p>{props.actors}</p>
+          <p>Stars: {props.actors}</p>
           <p className={styles.plot}>{props.plot}</p>
         </div>
       </Link>

@@ -4,9 +4,9 @@
   display: flex;
   position: relative;
   flex-direction: row;
-  width: 600px;
+  width: 620px;
   min-width: 300px;
-  height: 210px;
+  height: 230px;
   margin: 1rem 1.5rem;
   transition: all 0.3s ease-out;
   background-color: $gray-darkest;
@@ -19,7 +19,7 @@
     height: 100%;
 
     .img-container {
-      width: 150px;
+      width: 170px;
       height: 100%;
       margin-right: 2rem;
       .image {

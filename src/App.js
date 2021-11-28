@@ -12,6 +12,7 @@ import Details from "./pages/Details/Details";
 import Layout from "./components/layout/Layout";
 import Logout from "./components/Logout/Logout";
 import Database from "./pages/Database/Database";
+import ExplorePage from "./pages/Explore/Explore";
 
 const App = (props) => {
   const context = useContext(AuthContext);
@@ -52,6 +53,9 @@ const App = (props) => {
           </Route>
           <Route path="/database" exact>
             {isLoggedIn ? <Database /> : <Redirect to="/" />}
+          </Route>
+          <Route path="/explore" exact>
+            {isLoggedIn ? <ExplorePage /> : <Redirect to="/" />}
           </Route>
 
           <Route component={NotFound} />
