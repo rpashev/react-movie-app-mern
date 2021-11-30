@@ -42,10 +42,11 @@ const Header = (props) => {
       {showMobileNav && <Backdrop onClose={toggleShowMobileNav} />}
       <nav className={styles["nav__links"]}>
         {links.map((el) => {
+          
           const watchlistContent = (
             <Fragment>
               {el.title}
-              <Badge count={watchlist.length}/>
+              {watchlist ? <Badge count={watchlist.length} /> : null}
             </Fragment>
           );
           return (

@@ -6,8 +6,8 @@ const AuthContext = React.createContext({
   username: "",
   userId: "",
   email: "",
-  watchlist: null,
-  seenlist: null,
+  watchlist: [],
+  seenlist: [],
   login: (token, username, userId, email) => {},
   logout: () => {},
   addToUserList: (movieId, list) => {},
@@ -75,8 +75,6 @@ export const AuthContextProvider = (props) => {
 
     if (list === "watchlist") {
       updatedList = watchlist.slice();
-      // console.log(typeof updatedList)
-      // console.log(typeof watchlist)
       updatedList.push(movieId);
       setWatchlist(updatedList);
     } else if (list === "seenlist") {

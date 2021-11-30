@@ -3,7 +3,6 @@
 .badge {
   display: inline-block;
   width: 28px;
-  height: 20px;
   background-color: yellow;
   color: $gray-darkest;
   padding: 0.2rem 0.25rem;
@@ -13,19 +12,6 @@
 }
 
 .mobile {
-    height: 2rem;
-    width: 2.2rem;
-    // margin-left: 1rem;
-}
-
-.bump-enter {
-  transform: translateX(-100%);
-  opacity: 0.5;
-  color: black;
-}
-.bump-enter-active {
-  transform: translateY(0);
-  color: yellow;
-  opacity: 1;
-  transition: all 300ms ease-out;
+  height: 2rem;
+  width: 2.2rem;
 }

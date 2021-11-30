@@ -83,8 +83,11 @@ const Register = (props) => {
       });
 
       if (!userData) {
+        
         return;
       }
+      
+
       auth.login(
         userData.token,
         userData.username,
