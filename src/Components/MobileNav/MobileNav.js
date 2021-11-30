@@ -4,9 +4,11 @@ import { useContext } from "react";
 import AuthContext from "../../context/user-context";
 import { NavLink } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
+import { Fragment } from "react";
+import Badge from "../UI/Badge";
 
 const MobileNav = (props) => {
-  const { isLoggedIn } = useContext(AuthContext);
+  const { isLoggedIn, watchlist } = useContext(AuthContext);
   const navLinks = getNavLinks(isLoggedIn);
 
   return (
@@ -25,6 +27,13 @@ const MobileNav = (props) => {
       <nav className={styles["mobile-nav"]}>
         <div className={styles["mobile-nav__items"]}>
           {navLinks.map((link) => {
+            const watchlistContent = (
+              <Fragment>
+                {link.title}
+                <Badge count={watchlist.length} mobile/>
+              </Fragment>
+            );
+
             return (
               <NavLink
                 exact
@@ -33,7 +42,7 @@ const MobileNav = (props) => {
                 key={link.title}
                 to={link.link}
               >
-                {link.title}
+                {link.title === "Watchlist" ? watchlistContent : link.title}
               </NavLink>
             );
           })}
