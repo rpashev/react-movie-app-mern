@@ -1,14 +1,15 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect, Fragment } from "react";
 import { NavLink } from "react-router-dom";
 import { useLocation } from "react-router";
 import userContext from "../../../context/user-context";
 import getNavigation from "../../../utils/nav-links";
 import MobileNav from "../../MobileNav/MobileNav";
 import Backdrop from "../../UI/Backdrop";
+import Badge from "../../UI/Badge";
 import styles from "./Header.module.scss";
 
 const Header = (props) => {
-  const { isLoggedIn } = useContext(userContext);
+  const { isLoggedIn, watchlist } = useContext(userContext);
   const [showMobileNav, setShowMobileNav] = useState(false);
   const links = getNavigation(isLoggedIn);
   const location = useLocation();
@@ -41,6 +42,12 @@ const Header = (props) => {
       {showMobileNav && <Backdrop onClose={toggleShowMobileNav} />}
       <nav className={styles["nav__links"]}>
         {links.map((el) => {
+          const watchlistContent = (
+            <Fragment>
+              {el.title}
+              <Badge count={watchlist.length}/>
+            </Fragment>
+          );
           return (
             <NavLink
               onClick={() => toggleShowMobileNav}
@@ -50,7 +57,7 @@ const Header = (props) => {
               key={el.title}
               to={el.link}
             >
-              {el.title}
+              {el.title === "Watchlist" ? watchlistContent : el.title}
             </NavLink>
           );
         })}

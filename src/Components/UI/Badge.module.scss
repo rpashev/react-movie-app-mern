@@ -1,0 +1,13 @@
+@import "../../utils//colors";
+
+.badge {
+  display: inline-block;
+  width: 28px;
+  height: 20px;
+  background-color: yellow;
+  color: $gray-darkest;
+  padding: 0.2rem 0.25rem;
+  border-radius: 40%;
+  text-align: center;
+  margin-left: 0.3rem;
+}
