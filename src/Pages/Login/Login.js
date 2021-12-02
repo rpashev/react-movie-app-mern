@@ -3,13 +3,13 @@ import useInput from "../../custom-hooks/use-input";
 import styles from "./Login.module.scss";
 import Button from "../../components/UI/Button";
 import { useAxios } from "../../custom-hooks/use-axios";
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router";
 import AuthContext from "../../context/user-context";
 import Loader from "../../components/UI/Loader";
 
 const Login = (props) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const history = useHistory();
+  const navigate = useNavigate();
   const auth = useContext(AuthContext);
 
   const validateEmail = (value) => {
@@ -56,7 +56,7 @@ const Login = (props) => {
       if (!userData) {
         return;
       }
-      console.log(typeof userData.watchlist)
+      console.log(typeof userData.watchlist);
       auth.login(
         userData.token,
         userData.username,
@@ -65,7 +65,7 @@ const Login = (props) => {
         userData.watchlist,
         userData.seenlist
       );
-      history.replace("/");
+      navigate("/", { replace: true });
     }
   };
 

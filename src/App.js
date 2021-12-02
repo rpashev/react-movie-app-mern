@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import AuthContext from "./context/user-context";
 import Home from "./pages/Home/Home";
@@ -21,45 +21,53 @@ const App = (props) => {
   return (
     <BrowserRouter>
       <Layout>
-        <Switch>
-          <Route path="/" exact>
-            <Home />
-          </Route>
+        <Routes>
+          <Route path="/" element={<Home />} />
 
-          <Route path="/login" exact>
-            {!isLoggedIn ? <Login /> : <Redirect to="/" />}
-          </Route>
+          <Route
+            path="/login"
+            element={!isLoggedIn ? <Login /> : <Navigate replace to="/" />}
+          />
 
-          <Route path="/register" exact>
-            {!isLoggedIn ? <Register /> : <Redirect to="/" />}
-          </Route>
-          <Route path="/logout" exact>
-            {isLoggedIn ? <Logout /> : <Redirect to="/" />}
-          </Route>
+          <Route
+            path="/register"
+            element={!isLoggedIn ? <Register /> : <Navigate replace to="/" />}
+          />
 
-          <Route path="/details/:movieID" exact>
-            <Details />
-          </Route>
+          <Route
+            path="/logout"
+            element={isLoggedIn ? <Logout /> : <Navigate replace to="/" />}
+          />
 
-          <Route path="/watchlist" exact>
-            {isLoggedIn ? <Watchlist /> : <Redirect to="/" />}
-          </Route>
+          <Route path="/details/:movieID" element={<Details />} />
 
-          <Route path="/seenlist" exact>
-            {isLoggedIn ? <Seenlist /> : <Redirect to="/" />}
-          </Route>
-          <Route path="/seenlist" exact>
-            {isLoggedIn ? <Seenlist /> : <Redirect to="/" />}
-          </Route>
-          <Route path="/database" exact>
-            {isLoggedIn ? <Database /> : <Redirect to="/" />}
-          </Route>
-          <Route path="/explore" exact>
-            {isLoggedIn ? <ExplorePage /> : <Redirect to="/" />}
-          </Route>
+          <Route
+            path="/watchlist"
+            element={isLoggedIn ? <Watchlist /> : <Navigate replace to="/" />}
+          />
 
-          <Route component={NotFound} />
-        </Switch>
+          <Route
+            path="/seenlist"
+            element={isLoggedIn ? <Seenlist /> : <Navigate replace to="/" />}
+          />
+
+          <Route
+            path="/seenlist"
+            element={isLoggedIn ? <Seenlist /> : <Navigate replace to="/" />}
+          />
+
+          <Route
+            path="/database"
+            element={isLoggedIn ? <Database /> : <Navigate replace to="/" />}
+          />
+
+          <Route
+            path="/explore"
+            element={isLoggedIn ? <ExplorePage /> : <Navigate replace to="/" />}
+          ></Route>
+
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </Layout>
     </BrowserRouter>
   );

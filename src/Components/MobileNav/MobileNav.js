@@ -36,9 +36,11 @@ const MobileNav = (props) => {
 
             return (
               <NavLink
-                exact
-                activeClassName={styles.active}
-                className={styles["mobile-nav__item"]}
+                className={(navData) =>
+                  navData.isActive
+                    ? `${styles.active} ${styles["mobile-nav__item"]}`
+                    : styles["mobile-nav__item"]
+                }
                 key={link.title}
                 to={link.link}
               >

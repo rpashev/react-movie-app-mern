@@ -1,14 +1,14 @@
 import { useContext, useEffect } from "react";
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router";
 import AuthContext from "../../context/user-context";
 const Logout = () => {
   const auth = useContext(AuthContext);
-  const history = useHistory();
+  const navigate = useNavigate();
 
   useEffect(() => {
     auth.logout();
-    history.replace("/");
-  }, [auth, history]);
+    navigate("/", { replace: true });
+  }, [auth, navigate]);
 
   return null;
 };

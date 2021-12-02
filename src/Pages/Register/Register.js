@@ -3,13 +3,13 @@ import styles from "./Register.module.scss";
 import useInput from "../../custom-hooks/use-input";
 import Button from "../../components/UI/Button";
 import { useAxios } from "../../custom-hooks/use-axios";
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router";
 import AuthContext from "../../context/user-context";
 import Loader from "../../components/UI/Loader";
 
 const Register = (props) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const history = useHistory();
+  const navigate = useNavigate();
   const auth = useContext(AuthContext);
 
   const validateEmail = (value) => {
@@ -83,10 +83,8 @@ const Register = (props) => {
       });
 
       if (!userData) {
-        
         return;
       }
-      
 
       auth.login(
         userData.token,
@@ -96,7 +94,7 @@ const Register = (props) => {
         userData.watchlist,
         userData.seenlist
       );
-      history.replace("/");
+      navigate("/", { replace: true });
     }
   };
 

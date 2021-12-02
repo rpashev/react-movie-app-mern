@@ -52,9 +52,8 @@ const Header = (props) => {
           return (
             <NavLink
               onClick={() => toggleShowMobileNav}
-              exact
-              activeClassName={styles.active}
-              className={styles.link}
+              className={(navData) => navData.isActive ? `${styles.active} ${styles.link}` : styles.link}
+              
               key={el.title}
               to={el.link}
             >
