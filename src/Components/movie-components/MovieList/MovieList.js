@@ -6,6 +6,7 @@ import { useAxios } from "../../../custom-hooks/use-axios";
 import AuthContext from "../../../context/user-context";
 import WatchlistMovieCard from "../../movie-components/WatchlistMovieCard/WatchlistMovieCard";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
+import WatchedMovieCard from "../WatchedMovieCard/WatchedMovieCard";
 
 const MovieList = (props) => {
   const [movies, setMovies] = useState();
@@ -74,7 +75,28 @@ const MovieList = (props) => {
         })}
       </TransitionGroup>
     );
-  } else if (!props.watchlist && movies && movies.length > 0 && !error) {
+  } else if (props.watched && movies && movies.length > 0 && !error) {
+    movieList = movies.map((movie) => {
+      return (
+        <WatchedMovieCard
+          key={movie._id}
+          title={movie.title}
+          imgLink={movie.poster}
+          movieID={movie.IMDBId}
+          year={movie.year}
+          runtime={movie.runtime}
+          genre={movie.genre}
+          actors={movie.actors}
+        />
+      );
+    });
+  } else if (
+    !props.watchlist &&
+    !props.watched &&
+    movies &&
+    movies.length > 0 &&
+    !error
+  ) {
     movieList = movies.map((movie) => {
       return (
         <MovieCard
@@ -93,7 +115,7 @@ const MovieList = (props) => {
     return (
       <div
         component="div"
-        className={`${styles.list} ${props.watchlist ? styles.watchlist : ""}`}
+        className={`${styles.list} ${props.watchlist ? styles.watchlist : ""} ${props.watched ? styles.seenlist : ""}`}
       >
         {movieList}
       </div>

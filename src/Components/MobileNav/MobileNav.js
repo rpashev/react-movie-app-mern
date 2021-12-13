@@ -41,7 +41,7 @@ const MobileNav = (props) => {
                     ? `${styles.active} ${styles["mobile-nav__item"]}`
                     : styles["mobile-nav__item"]
                 }
-                key={link.title}
+                key={link.link}
                 to={link.link}
               >
                 {link.title === "Watchlist" ? watchlistContent : link.title}

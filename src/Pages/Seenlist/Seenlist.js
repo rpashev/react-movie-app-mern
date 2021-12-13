@@ -7,7 +7,7 @@ const Seenlist = (props) => {
     <div className={styles["seenlist-page"]}>
       <h1>Movies you've watched</h1>
       <div className={styles.list}>
-        <MovieList url="user/seenlist" withAuth />
+        <MovieList url="user/seenlist" withAuth watched />
       </div>
     </div>
   );
