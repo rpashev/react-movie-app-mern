@@ -1,4 +1,4 @@
-const getNavigation = (user) => {
+const getNavigation = (isLoggedIn, username) => {
   const userLinks = [
     
     {
@@ -19,7 +19,7 @@ const getNavigation = (user) => {
     },
 
     {
-      title: "Profile",
+      title: username,
       link: "/profile",
     },
     {
@@ -43,7 +43,7 @@ const getNavigation = (user) => {
     },
   ];
 
-  return user ? userLinks : guestLinks;
+  return isLoggedIn ? userLinks : guestLinks;
 };
 
 export default getNavigation;

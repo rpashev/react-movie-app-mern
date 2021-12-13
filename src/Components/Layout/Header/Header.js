@@ -9,9 +9,9 @@ import Badge from "../../UI/Badge";
 import styles from "./Header.module.scss";
 
 const Header = (props) => {
-  const { isLoggedIn, watchlist } = useContext(userContext);
+  const { isLoggedIn, watchlist, username } = useContext(userContext);
   const [showMobileNav, setShowMobileNav] = useState(false);
-  const links = getNavigation(isLoggedIn);
+  const links = getNavigation(isLoggedIn, username);
   const location = useLocation();
 
   useEffect(() => {
