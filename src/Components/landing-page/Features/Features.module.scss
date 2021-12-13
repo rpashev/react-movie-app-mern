@@ -1,0 +1,48 @@
+@import "../../../utils//colors";
+
+.title {
+  color: $gray-light;
+  opacity: 0.9;
+  text-align: center;
+  width: 40%;
+  margin: 5rem auto 1rem auto;
+}
+
+.features {
+  margin: 2rem auto;
+  list-style: none;
+  padding: 0;
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+
+  .feature {
+    background: $gray-darkest;
+    padding: 1rem;
+    min-width: 280px;
+    max-width: 400px;
+    border-radius: 30px;
+    height: 10rem;
+    width: 25%;
+    margin: 1rem 2rem;
+    text-align: center;
+    font-size: 1.1rem;
+
+    ion-icon {
+      font-size: 4rem;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .features {
+    width: 100%;
+  }
+}
+@media (max-width: 40rem) {
+  .title {
+    width: 90%;
+  }
+}

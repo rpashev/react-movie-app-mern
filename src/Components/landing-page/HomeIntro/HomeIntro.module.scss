@@ -7,11 +7,11 @@
   margin: 0 auto;
   background: $gray-darkest;
   opacity: 0.85;
-  border-radius: 25px;
+  border-radius: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 
   h1,
   h3 {
@@ -37,6 +37,12 @@
     width: 98%;
     border-radius: 8px;
     opacity: 0.9;
+    // justify-content: center;
+  }
+}
+@media (max-width: 22rem) {
+  .prompt {
+    height: 400px;
     // justify-content: center;
   }
 }
