@@ -1,9 +1,6 @@
 const getNavigation = (user) => {
   const userLinks = [
-    {
-      title: "Home",
-      link: "/",
-    },
+    
     {
       title: "Database",
       link: "/database",
@@ -21,6 +18,10 @@ const getNavigation = (user) => {
       link: "/seenlist",
     },
 
+    {
+      title: "Profile",
+      link: "/profile",
+    },
     {
       title: "Logout",
       link: "/logout",

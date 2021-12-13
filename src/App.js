@@ -13,6 +13,7 @@ import Layout from "./components/layout/Layout";
 import Logout from "./components/Logout/Logout";
 import Database from "./pages/Database/Database";
 import ExplorePage from "./pages/Explore/Explore";
+import UserProfile from "./pages/Profile/UserProfile";
 
 const App = (props) => {
   const context = useContext(AuthContext);
@@ -64,6 +65,10 @@ const App = (props) => {
           <Route
             path="/explore"
             element={isLoggedIn ? <ExplorePage /> : <Navigate replace to="/" />}
+          ></Route>
+          <Route
+            path="/profile"
+            element={isLoggedIn ? <UserProfile /> : <Navigate replace to="/" />}
           ></Route>
 
           <Route path="*" element={<NotFound />} />
