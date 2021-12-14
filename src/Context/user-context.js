@@ -112,6 +112,7 @@ export const AuthContextProvider = (props) => {
 
   const updateImageHandler = (imageUrl) => {
     setImage(imageUrl);
+    localStorage.setItem("image", imageUrl);
   };
 
   const contextValue = {
