@@ -8,8 +8,8 @@ import { Fragment } from "react";
 import Badge from "../UI/Badge";
 
 const MobileNav = (props) => {
-  const { isLoggedIn, watchlist } = useContext(AuthContext);
-  const navLinks = getNavLinks(isLoggedIn);
+  const { isLoggedIn, watchlist, username } = useContext(AuthContext);
+  const navLinks = getNavLinks(isLoggedIn, username);
 
   return (
     <CSSTransition

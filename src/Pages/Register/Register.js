@@ -92,7 +92,8 @@ const Register = (props) => {
         userData.userId,
         userData.email,
         userData.watchlist,
-        userData.seenlist
+        userData.seenlist,
+        userData.image
       );
       navigate("/", { replace: true });
     }

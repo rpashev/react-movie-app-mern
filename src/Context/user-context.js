@@ -8,10 +8,12 @@ const AuthContext = React.createContext({
   email: "",
   watchlist: [],
   seenlist: [],
+  image: "",
   login: (token, username, userId, email) => {},
   logout: () => {},
   addToUserList: (movieId, list) => {},
   removeFromUserList: (movieId, list) => {},
+  updateImage: (imageUrl) => {},
 });
 
 export const AuthContextProvider = (props) => {
@@ -21,6 +23,7 @@ export const AuthContextProvider = (props) => {
   const initialEmail = localStorage.getItem("email");
   const initialWatchlist = JSON.parse(localStorage.getItem("watchlist"));
   const initialSeenlist = JSON.parse(localStorage.getItem("seenlist"));
+  const initialImage = localStorage.getItem("image");
 
   const [token, setToken] = useState(initialToken);
   const [username, setUsername] = useState(initialUsername);
@@ -28,6 +31,7 @@ export const AuthContextProvider = (props) => {
   const [email, setEmail] = useState(initialEmail);
   const [watchlist, setWatchlist] = useState(initialWatchlist);
   const [seenlist, setSeenlist] = useState(initialSeenlist);
+  const [image, setImage] = useState(initialImage);
 
   const userIsLoggedIn = !!token;
 
@@ -37,7 +41,8 @@ export const AuthContextProvider = (props) => {
     userId,
     email,
     watchlist,
-    seenlist
+    seenlist,
+    image
   ) => {
     setToken(token);
     setUsername(username);
@@ -45,6 +50,7 @@ export const AuthContextProvider = (props) => {
     setEmail(email);
     setWatchlist(watchlist);
     setSeenlist(seenlist);
+    setImage(image);
 
     localStorage.setItem("token", token);
     localStorage.setItem("username", username);
@@ -52,6 +58,7 @@ export const AuthContextProvider = (props) => {
     localStorage.setItem("email", email);
     localStorage.setItem("watchlist", JSON.stringify(watchlist));
     localStorage.setItem("seenlist", JSON.stringify(seenlist));
+    localStorage.setItem("image", image);
   };
 
   const logoutHandler = () => {
@@ -61,6 +68,7 @@ export const AuthContextProvider = (props) => {
     setEmail("");
     setWatchlist(null);
     setSeenlist(null);
+    setImage(null);
 
     localStorage.removeItem("token");
     localStorage.removeItem("username");
@@ -68,6 +76,7 @@ export const AuthContextProvider = (props) => {
     localStorage.removeItem("email");
     localStorage.removeItem("watchlist");
     localStorage.removeItem("seenlist");
+    localStorage.removeItem("image");
   };
 
   const addToUserListHandler = (movieId, list) => {
@@ -101,6 +110,10 @@ export const AuthContextProvider = (props) => {
     localStorage.setItem([list], JSON.stringify(updatedList));
   };
 
+  const updateImageHandler = (imageUrl) => {
+    setImage(imageUrl);
+  };
+
   const contextValue = {
     token,
     isLoggedIn: userIsLoggedIn,
@@ -109,10 +122,12 @@ export const AuthContextProvider = (props) => {
     userId,
     watchlist,
     seenlist,
+    image,
     login: loginHandler,
     logout: logoutHandler,
     addToList: addToUserListHandler,
     removeFromList: removeFromUserListHandler,
+    updateImage: updateImageHandler,
   };
 
   return (

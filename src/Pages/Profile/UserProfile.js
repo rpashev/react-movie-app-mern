@@ -3,9 +3,13 @@ import Button from "../../components/UI/Button";
 import styles from "./UserProfile.module.scss";
 
 import axios from "axios";
+import { useContext } from "react/cjs/react.development";
+import AuthContext from "../../context/user-context";
 
 const UserProfile = (props) => {
   const [selectedImage, setSelectedImage] = useState();
+  const ctx = useContext(AuthContext);
+  console.log(ctx.image)
 
   const uploadAvatar = async () => {
     const formData = new FormData();
@@ -26,6 +30,9 @@ const UserProfile = (props) => {
   return (
     <div className={styles["profile-page"]}>
       <h1>User Profile</h1>
+      <div className={styles.avatar}>
+        <img src={ctx.image} alt="avatar"></img>
+      </div>
       <div>
         <input
           type="file"
