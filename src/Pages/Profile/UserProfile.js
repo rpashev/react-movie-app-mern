@@ -12,6 +12,7 @@ const UserProfile = (props) => {
   const { image, token, updateImage } = useContext(AuthContext);
 
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
   const [preview, setPreview] = useState(null);
 
   const { sendRequest: updateProfile } = useAxios();
@@ -29,27 +30,33 @@ const UserProfile = (props) => {
     let response;
 
     const url = "https://api.cloudinary.com/v1_1/rpashev/image/upload";
-
+    let updatedImage;
     try {
       response = await axios.post(url, formData);
 
-      let updatedImage = await updateProfile({
-        url: "/user-profile",
+      updatedImage = await updateProfile({
+        url: "/user-profiles",
         method: "POST",
         data: { image: response.data.url },
         headers: { Authorization: "Bearer " + token },
       });
 
-      console.log(updatedImage);
-      updateImage(updatedImage.image);
-    } catch (err) {
-      console.log(err);
+      if (updatedImage?.image) {
+        updateImage(updatedImage.image);
+      } else {
+        throw new Error("Could not update profile!");
+      }
+    } catch (error) {
+      setError(error.message || "Could not update profile!");
     }
+
     setPreview(null);
     setIsLoading(false);
   };
 
   const imageChangeHandler = (event) => {
+    setError(null);
+
     if (!event.target.files[0]) {
       return;
     }
@@ -61,17 +68,13 @@ const UserProfile = (props) => {
     <div className={styles["profile-page"]}>
       <h1>User Profile</h1>
       <div className={styles.avatar}>
-        <img src={image} alt="avatar"></img>
+        <img src={preview || image} alt="avatar"></img>
       </div>
       <div className={styles.controls}>
         <input type="file" onChange={imageChangeHandler}></input>
         <Button onClick={uploadAvatar}>Save changes</Button>
       </div>
-      {preview && (
-        <div className={styles.avatar}>
-          <img src={preview} alt="avatar"></img>
-        </div>
-      )}
+      {error && !isLoading && <p className={styles.error}>{error}</p>}
       {isLoading && <p>Saving...</p>}
     </div>
   );
