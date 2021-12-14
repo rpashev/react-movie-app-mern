@@ -12,10 +12,14 @@ const UserProfile = (props) => {
   const { image, token, updateImage } = useContext(AuthContext);
 
   const [isLoading, setIsLoading] = useState(false);
+  const [preview, setPreview] = useState(null);
 
   const { sendRequest: updateProfile } = useAxios();
 
   const uploadAvatar = async () => {
+    if (!selectedImage) {
+      return;
+    }
 
     setIsLoading(true);
     const formData = new FormData();
@@ -41,7 +45,17 @@ const UserProfile = (props) => {
     } catch (err) {
       console.log(err);
     }
+    setPreview(null);
     setIsLoading(false);
+  };
+
+  const imageChangeHandler = (event) => {
+    if (!event.target.files[0]) {
+      return;
+    }
+    setSelectedImage(event.target.files[0]);
+    const previewUrl = URL.createObjectURL(event.target.files[0]);
+    setPreview(previewUrl);
   };
   return (
     <div className={styles["profile-page"]}>
@@ -49,14 +63,16 @@ const UserProfile = (props) => {
       <div className={styles.avatar}>
         <img src={image} alt="avatar"></img>
       </div>
-      <div>
-        <input
-          type="file"
-          onChange={(event) => setSelectedImage(event.target.files[0])}
-        ></input>
-        <Button onClick={uploadAvatar}>Upload</Button>
-        {isLoading && <p>Saving...</p>}
+      <div className={styles.controls}>
+        <input type="file" onChange={imageChangeHandler}></input>
+        <Button onClick={uploadAvatar}>Save changes</Button>
       </div>
+      {preview && (
+        <div className={styles.avatar}>
+          <img src={preview} alt="avatar"></img>
+        </div>
+      )}
+      {isLoading && <p>Saving...</p>}
     </div>
   );
 };
