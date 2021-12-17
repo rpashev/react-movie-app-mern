@@ -1,0 +1,16 @@
+@import "../../utils//colors";
+
+.search-container {
+  width: 60%;
+  margin: 1.5rem auto;
+  input {
+    font-size: 1.2rem;
+    width: 100%;
+    padding: 0.5rem;
+  }
+  input:focus {
+    outline: none;
+    border: 3px solid $color-primary;
+    background-color: $gray-light;
+  }
+}

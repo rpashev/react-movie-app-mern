@@ -10,6 +10,7 @@ import WatchedMovieCard from "../WatchedMovieCard/WatchedMovieCard";
 
 const MovieList = (props) => {
   const [movies, setMovies] = useState();
+  const [filteredMovies, setFilteredMovies] = useState([]);
   const { isLoading, error, sendRequest: loadList } = useAxios();
 
   const { token } = useContext(AuthContext);
@@ -24,6 +25,7 @@ const MovieList = (props) => {
         },
       });
       setMovies(response);
+      setFilteredMovies(response);
     };
     loadMovies();
   }, [props.url, token, props.withAuth, loadList]);
@@ -37,6 +39,25 @@ const MovieList = (props) => {
       setMovies(updateMovies);
     }
   }, [deletedMovieId, props.watchlist]);
+
+  useEffect(() => {
+    console.log(props.query)
+    if (!movies) {
+      return;
+    }
+    if (props.query === "") {
+      setFilteredMovies(movies);
+      console.log(movies)
+      return;
+    }
+
+    const updatedMovies = movies.filter((movie) =>
+      movie.title.toLowerCase().includes(props.query.toLowerCase())
+    );
+    // console.log(updatedMovies);
+
+    setFilteredMovies(updatedMovies);
+  }, [props.query]);
 
   const onDeletedMovie = (movieId) => {
     setDeletedMovieId(movieId);
@@ -97,7 +118,7 @@ const MovieList = (props) => {
     movies.length > 0 &&
     !error
   ) {
-    movieList = movies.map((movie) => {
+    movieList = filteredMovies.map((movie) => {
       return (
         <MovieCard
           key={movie._id}
@@ -115,7 +136,9 @@ const MovieList = (props) => {
     return (
       <div
         component="div"
-        className={`${styles.list} ${props.watchlist ? styles.watchlist : ""} ${props.watched ? styles.seenlist : ""}`}
+        className={`${styles.list} ${props.watchlist ? styles.watchlist : ""} ${
+          props.watched ? styles.seenlist : ""
+        }`}
       >
         {movieList}
       </div>
