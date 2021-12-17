@@ -9,13 +9,14 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 import WatchedMovieCard from "../WatchedMovieCard/WatchedMovieCard";
 
 const MovieList = (props) => {
-  const [movies, setMovies] = useState();
+  const [movies, setMovies] = useState([]);
   const [filteredMovies, setFilteredMovies] = useState([]);
   const { isLoading, error, sendRequest: loadList } = useAxios();
 
   const { token } = useContext(AuthContext);
   const [deletedMovieId, setDeletedMovieId] = useState(null);
 
+  // initial load of movies
   useEffect(() => {
     const loadMovies = async () => {
       const response = await loadList({
@@ -30,6 +31,7 @@ const MovieList = (props) => {
     loadMovies();
   }, [props.url, token, props.withAuth, loadList]);
 
+  //updating lists locally on deleted movie
   useEffect(() => {
     if (props.watchlist && movies && deletedMovieId !== null) {
       const updateMovies = movies.filter(
@@ -37,17 +39,21 @@ const MovieList = (props) => {
       );
 
       setMovies(updateMovies);
+      const updatedFilteredMovies = filteredMovies.filter(
+        (movie) => movie.IMDBId !== deletedMovieId
+      );
+      setFilteredMovies(updatedFilteredMovies);
     }
   }, [deletedMovieId, props.watchlist]);
 
+  //filtering movies by title on search input
   useEffect(() => {
-    console.log(props.query)
-    if (!movies) {
+    if (movies.length === 0) {
       return;
     }
-    if (props.query === "") {
+    if (props.query === "" && movies) {
       setFilteredMovies(movies);
-      console.log(movies)
+      console.log(filteredMovies);
       return;
     }
 
@@ -56,18 +62,19 @@ const MovieList = (props) => {
     );
     // console.log(updatedMovies);
 
-    setFilteredMovies(updatedMovies);
+    setFilteredMovies(updatedMovies || []);
   }, [props.query]);
 
+  // indicates there is a movie deleted
   const onDeletedMovie = (movieId) => {
     setDeletedMovieId(movieId);
   };
 
   let movieList;
-  if (props.watchlist && movies && movies.length > 0 && !error) {
+  if (props.watchlist && filteredMovies.length > 0 && !error) {
     movieList = (
       <TransitionGroup component={null}>
-        {movies.map((movie) => {
+        {filteredMovies.map((movie) => {
           return (
             <CSSTransition
               key={movie._id}
@@ -96,8 +103,8 @@ const MovieList = (props) => {
         })}
       </TransitionGroup>
     );
-  } else if (props.watched && movies && movies.length > 0 && !error) {
-    movieList = movies.map((movie) => {
+  } else if (props.watched && filteredMovies.length > 0 && !error) {
+    movieList = filteredMovies.map((movie) => {
       return (
         <WatchedMovieCard
           key={movie._id}
@@ -114,8 +121,7 @@ const MovieList = (props) => {
   } else if (
     !props.watchlist &&
     !props.watched &&
-    movies &&
-    movies.length > 0 &&
+    filteredMovies.length > 0 &&
     !error
   ) {
     movieList = filteredMovies.map((movie) => {
@@ -132,7 +138,7 @@ const MovieList = (props) => {
 
   if (isLoading) {
     return <Loader />;
-  } else if (movies && movies.length > 0 && !error) {
+  } else if (filteredMovies && filteredMovies.length > 0 && !error) {
     return (
       <div
         component="div"
@@ -143,9 +149,11 @@ const MovieList = (props) => {
         {movieList}
       </div>
     );
-  } else if (error && !movies) {
+  } else if (error && movies.length === 0) {
     return <p>{error}</p>;
-  } else if (movies && movies.length === 0 && !error) {
+  } else if (filteredMovies.length === 0 && !error && movies.length > 0) {
+    return <p>No movies found!</p>;
+  } else if (movies.length === 0 && !error) {
     return <p>No movies in this list yet!</p>;
   } else {
     return null;

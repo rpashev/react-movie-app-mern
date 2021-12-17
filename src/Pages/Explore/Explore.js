@@ -11,8 +11,6 @@ const ExplorePage = () => {
     setSearchQuery(query);
   };
 
-  console.log(searchQuery)
-
   return (
     <div className={styles["explore-page"]}>
       <h1 className={styles.title}>What our users are watching...</h1>

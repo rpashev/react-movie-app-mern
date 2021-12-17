@@ -14,3 +14,9 @@
     background-color: $gray-light;
   }
 }
+
+@media (max-width: 1024px) {
+    .search-container {
+        width: 70%;
+    }
+  }
