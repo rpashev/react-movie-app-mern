@@ -10,7 +10,7 @@ const SearchInput = (props) => {
     <div className={styles["search-container"]}>
       <input
         onChange={searchQueryHandler}
-        placeholder="Search for movies..."
+        placeholder="Search for movies in this list..."
       ></input>
     </div>
   );

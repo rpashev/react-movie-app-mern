@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Loader from "../../components/UI/Loader";
 import MovieCard from "../../components/movie-components/MovieCard/MovieCard";
+import OmdbPromo from "../../components/database-page/Omdb";
 import { useAxios } from "../../custom-hooks/use-axios";
 import styles from "./Database.module.scss";
 
@@ -70,6 +71,7 @@ const Database = (props) => {
           })}
         </div>
       )}
+      {!isLoading && !movies && !error && <OmdbPromo />}
     </div>
   );
 };
