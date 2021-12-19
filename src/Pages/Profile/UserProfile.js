@@ -35,7 +35,7 @@ const UserProfile = (props) => {
       response = await axios.post(url, formData);
 
       updatedImage = await updateProfile({
-        url: "/user-profiles",
+        url: "/user-profile",
         method: "POST",
         data: { image: response.data.url },
         headers: { Authorization: "Bearer " + token },

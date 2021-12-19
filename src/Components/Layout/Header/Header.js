@@ -6,10 +6,11 @@ import getNavigation from "../../../utils/nav-links";
 import MobileNav from "../../MobileNav/MobileNav";
 import Backdrop from "../../UI/Backdrop";
 import Badge from "../../UI/Badge";
+import UserBadge from "../../UI/UserBadge";
 import styles from "./Header.module.scss";
 
 const Header = (props) => {
-  const { isLoggedIn, watchlist, username } = useContext(userContext);
+  const { isLoggedIn, watchlist, username, image } = useContext(userContext);
   const [showMobileNav, setShowMobileNav] = useState(false);
   const links = getNavigation(isLoggedIn, username);
   const location = useLocation();
@@ -42,22 +43,33 @@ const Header = (props) => {
       {showMobileNav && <Backdrop onClose={toggleShowMobileNav} />}
       <nav className={styles["nav__links"]}>
         {links.map((el) => {
-          
-          const watchlistContent = (
-            <Fragment>
-              {el.title}
-              {watchlist ? <Badge count={watchlist.length} /> : null}
-            </Fragment>
-          );
+          let displayedLink = el.title;
+          if (el.title === "Watchlist") {
+            displayedLink = (
+              <Fragment>
+                {el.title}
+                {watchlist ? <Badge count={watchlist.length} /> : null}
+              </Fragment>
+            );
+          }
+
+          if (el.title === "Profile") {
+            displayedLink = <UserBadge image={image} />;
+          }
+
           return (
             <NavLink
+              title={el.title}
               onClick={() => toggleShowMobileNav}
-              className={(navData) => navData.isActive ? `${styles.active} ${styles.link}` : styles.link}
-              
+              className={(navData) =>
+                navData.isActive
+                  ? `${styles.active} ${styles.link}`
+                  : styles.link
+              }
               key={el.title}
               to={el.link}
             >
-              {el.title === "Watchlist" ? watchlistContent : el.title}
+              {displayedLink}
             </NavLink>
           );
         })}
