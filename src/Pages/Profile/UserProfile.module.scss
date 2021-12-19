@@ -5,23 +5,68 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
+  // margin: 0 auto;
 
-  .avatar {
-    width: 300px;
+  .content {
+    display: flex;
+    margin-top: 2rem;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 40%;
 
-    img {
-      height: 100%;
-      width: 100%;
+    .user-image {
+      margin-right: 2rem;
+      .fileinput {
+        font-size: 1.2rem;
+      }
+      .avatar {
+        width: 300px;
+
+        img {
+          height: 100%;
+          width: 100%;
+          border-radius: 8px;
+        }
+      }
+      .controls {
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+      }
+      .error {
+        text-align: left;
+        color: red;
+      }
+    }
+
+    .info {
+      h2 {
+        margin-top: 0;
+      }
     }
   }
-  .controls {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
+}
+
+@media (max-width: 1024px) {
+  .profile-page .content {
+    width: 70%;
   }
-  .error {
-    text-align: left;
-    color: red;
+}
+
+@media (max-width: 40rem) {
+  .profile-page .content {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    .user-image {
+      margin-right: 0;
+    }
+    .info {
+      margin: 3rem 0;
+
+      // text-align: center;
+    }
   }
 }

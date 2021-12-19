@@ -9,7 +9,8 @@ import { useAxios } from "../../custom-hooks/use-axios";
 
 const UserProfile = (props) => {
   const [selectedImage, setSelectedImage] = useState();
-  const { image, token, updateImage } = useContext(AuthContext);
+  const { image, token, updateImage, email, watchlist, seenlist, username } =
+    useContext(AuthContext);
 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -67,15 +68,25 @@ const UserProfile = (props) => {
   return (
     <div className={styles["profile-page"]}>
       <h1>User Profile</h1>
-      <div className={styles.avatar}>
-        <img src={preview || image} alt="avatar"></img>
+      <div className={styles.content}>
+        <div className={styles["user-image"]}>
+          <div className={styles.avatar}>
+            <img src={preview || image} alt="avatar"></img>
+          </div>
+          <div className={styles.controls}>
+            <input type="file" onChange={imageChangeHandler} className={styles.fileinput}></input>
+            <Button onClick={uploadAvatar}>Save changes</Button>
+          </div>
+          {error && !isLoading && <p className={styles.error}>{error}</p>}
+          {isLoading && <p>Saving...</p>}
+        </div>
+        <div className={styles.info}>
+          <h2>Username: {username}</h2>
+          <p>Your email: {email} </p>
+          <p>Movies in watchlist: {watchlist.length}</p>
+          <p>Movies marked as watched: {seenlist.length}</p>
+        </div>
       </div>
-      <div className={styles.controls}>
-        <input type="file" onChange={imageChangeHandler}></input>
-        <Button onClick={uploadAvatar}>Save changes</Button>
-      </div>
-      {error && !isLoading && <p className={styles.error}>{error}</p>}
-      {isLoading && <p>Saving...</p>}
     </div>
   );
 };
