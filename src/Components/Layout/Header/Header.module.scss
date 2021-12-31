@@ -42,6 +42,8 @@
     padding-top: 0;
     padding-bottom: 0;
     vertical-align: middle;
+    position: absolute;
+    left: 0;
 
     .toggle-button__bar {
       width: 100%;
@@ -66,7 +68,7 @@
 
 @media (max-width: 53rem) {
   .header {
-    justify-content: inline-block;
+    // justify-content: inline-block;
     .logo-container {
       margin: 0 auto;
     }
@@ -75,6 +77,14 @@
     }
     .nav__links {
       display: none;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .header {
+    .toggle-button {
+      position: static;
     }
   }
 }
