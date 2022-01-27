@@ -11,12 +11,12 @@
   .mobile-nav__items {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     list-style: none;
     height: 100%;
     width: 90%;
-    margin: 0 auto;
+    margin: 20% auto;
     padding: 0;
 
     .mobile-nav__item {

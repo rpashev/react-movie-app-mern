@@ -11,7 +11,7 @@ const UserFeedback = (props) => {
             <img
               src="https://randomuser.me/api/portraits/women/9.jpg"
               alt=""
-              class="rounded-circle mb-3"
+              className="rounded-circle mb-3"
             />
           </div>
           <h3>Jane Doe</h3>
@@ -27,7 +27,7 @@ const UserFeedback = (props) => {
             <img
               src="https://randomuser.me/api/portraits/men/3.jpg"
               alt=""
-              class="rounded-circle mb-3"
+              className="rounded-circle mb-3"
             />
           </div>
           <h3>John Doe Doe</h3>
@@ -43,7 +43,7 @@ const UserFeedback = (props) => {
             <img
               src="https://randomuser.me/api/portraits/women/14.jpg"
               alt=""
-              class="rounded-circle mb-3"
+              className="rounded-circle mb-3"
             />
           </div>
           <h3>Rebecca James</h3>
@@ -59,7 +59,7 @@ const UserFeedback = (props) => {
             <img
               src="https://randomuser.me/api/portraits/men/19.jpg"
               alt=""
-              class="rounded-circle mb-3"
+              className="rounded-circle mb-3"
             />
           </div>
           <h3>Ted Mosby</h3>

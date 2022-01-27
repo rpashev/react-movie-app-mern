@@ -24,8 +24,7 @@
 
 .button:hover,
 .button:active {
-  background: $gray-darkest;
-  color: $gray-light;
+  background: yellow;
 }
 
 .button--danger {
@@ -82,6 +81,6 @@
 }
 @media (max-width: 40rem) {
   .button {
-    width: 95%;
+    width: 100%;
   }
 }

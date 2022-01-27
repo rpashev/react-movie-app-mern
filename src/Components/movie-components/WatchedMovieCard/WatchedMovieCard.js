@@ -5,7 +5,7 @@ const WatchedMovieCard = (props) => {
   return (
     <Link to={`/details/${props.movieID}`} style={{ textDecoration: "none", color: "inherit" }}>
       <div className={styles.card}>
-        <img src={props.imgLink} />
+        <img src={props.imgLink} alt="poster"/>
         <div className={styles.info}>
           <h4>{props.title}</h4>
           <div>
