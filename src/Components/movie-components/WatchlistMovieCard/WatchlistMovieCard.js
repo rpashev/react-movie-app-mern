@@ -16,6 +16,7 @@ const WatchlistMovieCard = (props) => {
   const { token, removeFromList, seenlist, addToList } =
     useContext(AuthContext);
   const [isInSeenlist, setIsInSeenlist] = useState(false);
+  const [movieWasAdded, setMovieWasAdded] = useState(false);
 
   useEffect(() => {
     if (props.movieID) {
@@ -27,13 +28,13 @@ const WatchlistMovieCard = (props) => {
 
   const {
     error: errorRemoving,
-    // isLoading: isLoadingRemoving,
+    isLoading: isLoadingRemoving,
     sendRequest: removeFromWatchlist,
   } = useAxios();
 
   const {
     error: errorAdding,
-    // isLoading: isLoadingAdding,
+    isLoading: isLoadingAdding,
     sendRequest: addToUserlist,
   } = useAxios();
 
@@ -51,6 +52,8 @@ const WatchlistMovieCard = (props) => {
 
     setIsInSeenlist(true);
     addToList(props.movieID, "seenlist");
+    setMovieWasAdded(true);
+    setTimeout(() => setMovieWasAdded(false), 1200);
   };
 
   const removeFromUserList = async () => {
@@ -75,6 +78,10 @@ const WatchlistMovieCard = (props) => {
     >
       {errorRemoving && <p className={styles.error}>{errorRemoving}</p>}
       {errorAdding && <p className={styles.error}>{errorAdding}</p>}
+      {(isLoadingAdding || isLoadingRemoving) && (
+        <p className={styles.loading}>Loading...</p>
+      )}
+      {movieWasAdded && <p className={styles.success}>Marked as watched!</p>}
       <div className={styles["actions-mobile"]}>
         <button
           className={styles["remove-button-mobile"]}

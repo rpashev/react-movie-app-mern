@@ -31,7 +31,7 @@ const MovieCard = (props) => {
 
   const {
     error: errorListOperation,
-    // isLoading: isLoadingListOperation,
+    isLoading: isLoadingListOperation,
     sendRequest: add,
   } = useAxios();
 
@@ -64,6 +64,7 @@ const MovieCard = (props) => {
       {errorListOperation && showActions && (
         <p className={styles.error}>{errorListOperation}</p>
       )}
+      {isLoadingListOperation && <p className={styles.loading}>Adding...</p>}
       {isLoggedIn && (
         <div className={styles["actions-mobile"]}>
           {!isInWatchlist && (

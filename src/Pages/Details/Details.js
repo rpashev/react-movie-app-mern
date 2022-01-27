@@ -44,7 +44,7 @@ const Details = () => {
 
   const {
     error: errorListOperation,
-    // isLoading: isLoadingListOperation,
+    isLoading: isLoadingListOperation,
     sendRequest: listOperation,
   } = useAxios();
 
@@ -86,7 +86,7 @@ const Details = () => {
   if (isLoading) {
     return <Loader />;
   } else if (error) {
-    return <p>{error}</p>;
+    return <p className={styles.error}>{error}</p>;
   } else if (!error && !isLoading && movie) {
     return (
       <div className={styles.details}>
@@ -172,7 +172,8 @@ const Details = () => {
               )}
             </div>
           )}
-          {errorListOperation && <p>{errorListOperation}</p>}
+          {errorListOperation && <p className={styles.error}>{errorListOperation}</p>}
+          {isLoadingListOperation && <p>Loading...</p>}
         </div>
       </div>
     );

@@ -25,10 +25,14 @@ const MovieList = (props) => {
           Authorization: props.withAuth && token ? `Bearer ${token}` : null,
         },
       });
-      setMovies(response);
-      setFilteredMovies(response);
+
+      if (response) {
+        setMovies(response);
+        setFilteredMovies(response);
+      }
     };
     loadMovies();
+    console.log(error)
   }, [props.url, token, props.withAuth, loadList]);
 
   //updating lists locally on deleted movie
@@ -149,9 +153,9 @@ const MovieList = (props) => {
         {movieList}
       </div>
     );
-  } else if (error && movies.length === 0) {
-    return <p>{error}</p>;
-  } else if (filteredMovies.length === 0 && !error && movies.length > 0) {
+  } else if (error) {
+    return <p className={styles.error}>{error}</p>;
+  } else if (filteredMovies?.length === 0 && !error && movies.length > 0) {
     return <p>No movies found!</p>;
   } else if (movies.length === 0 && !error) {
     return <p>No movies in this list yet!</p>;

@@ -16,6 +16,10 @@
 .watchlist, .seenlist {
   justify-content: center;
 }
+.error {
+  color: red;
+  text-align: center;
+}
 
 @media (max-width: 40rem) {
   .list {

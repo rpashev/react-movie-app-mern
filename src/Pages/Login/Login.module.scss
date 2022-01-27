@@ -1,12 +1,16 @@
 @import "../../utils/_colors.scss";
 .login-page {
   margin: 0 auto;
-  width: 20%;
+  width: 100%;
   display: flex;
   flex-direction: column;
 
   .loginForm {
     display: flex;
+    width: 20%;
+    min-width: 15rem;
+    max-width: 20rem;
+    margin: 0 auto;
     justify-content: center;
     align-items: center;
     flex-flow: column;
@@ -17,17 +21,16 @@
       border: none;
       display: flex;
       flex-flow: column;
-      min-width: 15rem;
 
       .input {
         display: block;
         margin: 0.5rem 0;
-        // width: 100%;
-        padding: 4px;
+        padding: 8px 6px;
+        border: none;
+        border-radius: 2px;
       }
       input:focus {
-        border: 3px solid $color-primary;
-        background-color: $gray-light;
+        background-color: $gray-darker;
         outline: none;
       }
       .input-error,
@@ -45,19 +48,22 @@
         font-size: 0.8rem;
       }
     }
+    .http-error {
+      color: red;
+      width: 100%;
+    }
   }
   .title {
     margin-bottom: 3rem;
     margin-top: 4rem;
     text-align: center;
   }
-  .http-error {
-    color: red;
-  }
 }
 
 @media (max-width: 40rem) {
   .login-page {
-    width: 80%;
+    .login-form {
+      width: 80%;
+    }
   }
 }

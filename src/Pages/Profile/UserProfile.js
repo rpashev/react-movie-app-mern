@@ -74,8 +74,12 @@ const UserProfile = (props) => {
             <img src={preview || image} alt="avatar"></img>
           </div>
           <div className={styles.controls}>
-            <input type="file" onChange={imageChangeHandler} className={styles.fileinput}></input>
-            <Button onClick={uploadAvatar}>Save changes</Button>
+            <input
+              type="file"
+              onChange={imageChangeHandler}
+              className={styles.fileinput}
+            ></input>
+            <Button onClick={uploadAvatar}>Upload avatar</Button>
           </div>
           {error && !isLoading && <p className={styles.error}>{error}</p>}
           {isLoading && <p>Saving...</p>}
@@ -83,8 +87,12 @@ const UserProfile = (props) => {
         <div className={styles.info}>
           <h2>Username: {username}</h2>
           <p>Your email: {email} </p>
-          <p>Movies in watchlist: {watchlist.length}</p>
-          <p>Movies marked as watched: {seenlist.length}</p>
+          <p>
+            Movies in watchlist: <span>{watchlist.length}</span>
+          </p>
+          <p>
+            Movies marked as watched: <span>{seenlist.length}</span>
+          </p>
         </div>
       </div>
     </div>

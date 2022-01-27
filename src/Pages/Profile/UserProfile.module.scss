@@ -5,17 +5,17 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  // margin: 0 auto;
+  width: 100%;
 
   .content {
     display: flex;
+    flex-wrap: wrap;
     margin-top: 2rem;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-start;
-    width: 40%;
 
     .user-image {
-      margin-right: 2rem;
+      margin-right: 3rem;
       .fileinput {
         font-size: 1.2rem;
         margin: 0.25rem 0;
@@ -26,7 +26,7 @@
         img {
           height: 100%;
           width: 100%;
-          border-radius: 8px;
+          border-radius: 4px;
         }
       }
       .controls {
@@ -41,16 +41,22 @@
     }
 
     .info {
+      min-width: 240px;
+      max-width: 300px;
+      word-wrap: break-word;
+
       h2 {
         margin-top: 0;
       }
-    }
-  }
-}
+      p {
+        font-size: 1.1rem;
 
-@media (max-width: 1024px) {
-  .profile-page .content {
-    width: 70%;
+        span {
+          color: yellow;
+          font-size: 1.5rem;
+        }
+      }
+    }
   }
 }
 
@@ -59,15 +65,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%;
 
     .user-image {
       margin-right: 0;
     }
     .info {
       margin: 3rem 0;
-
-      // text-align: center;
     }
   }
 }
