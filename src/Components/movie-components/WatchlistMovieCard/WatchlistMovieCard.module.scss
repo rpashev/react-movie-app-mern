@@ -125,7 +125,7 @@
       cursor: default;
     }
     .seenlist-button-mobile {
-      background: $color-primary-darker;
+      background: $color-primary;
       color: $gray-darkest;
     }
   }
@@ -154,7 +154,7 @@
     margin: 0;
     position: absolute;
     top: -1.5rem;
-    height: 1rem;
+    height: 1.5rem;
     width: 100%;
     text-align: center;
     background-color: $danger;

@@ -3,9 +3,12 @@ import styles from "./WatchedMovieCard.module.scss";
 
 const WatchedMovieCard = (props) => {
   return (
-    <Link to={`/details/${props.movieID}`} style={{ textDecoration: "none", color: "inherit" }}>
-      <div className={styles.card}>
-        <img src={props.imgLink} alt="poster"/>
+    <div className={styles.card}>
+      <Link
+        to={`/details/${props.movieID}`}
+        style={{ textDecoration: "none", color: "inherit" }}
+      >
+        <img src={props.imgLink} alt="poster" />
         <div className={styles.info}>
           <h4>{props.title}</h4>
           <div>
@@ -14,8 +17,8 @@ const WatchedMovieCard = (props) => {
             <span>{props.genre}</span>
           </div>
         </div>
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 };
 

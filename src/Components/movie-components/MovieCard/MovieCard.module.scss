@@ -15,7 +15,7 @@
     margin: 0;
     position: absolute;
     top: -3.5rem;
-    height: 1rem;
+    height: 1.5rem;
     width: 100%;
     text-align: center;
     background-color: $danger;
@@ -84,13 +84,22 @@
       opacity: 0.9;
       font: inherit;
       font-size: 1rem;
-      background-color: $gray-darkest;
       outline: none;
       border: none;
-      color: $gray-light;
+    }
+    .mobile-seenlist--btn {
+      background-color: $gray-light;
+    }
+    .mobile-seenlist--checked-btn {
+      background-color: $gray-darker;
+      opacity: 0.5;
+    }
+    .mobile-watchlist--checked-btn {
+      color: $gray-darkest;
+      background-color: #413a3a;
     }
     .mobile-watchlist--btn {
-      background-color: #413a3a;
+      background-color: $color-primary;
     }
   }
 
@@ -152,7 +161,9 @@
     .actions {
       display: none;
     }
-    .success {
+    .success,
+    .loading,
+    .error {
       top: -1.5rem;
     }
   }

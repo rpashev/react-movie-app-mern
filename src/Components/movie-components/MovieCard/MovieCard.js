@@ -72,20 +72,20 @@ const MovieCard = (props) => {
               onClick={addToUserList.bind(null, "watchlist")}
               className={styles["mobile-watchlist--btn"]}
             >
-              + Watchlist
+              Add To Watchlist
             </button>
           )}
           {isInWatchlist && (
-            <button className={styles["mobile-watchlist--btn"]}>
+            <button className={styles["mobile-watchlist--checked-btn"]}>
               Already in watchlist
             </button>
           )}
           {!isInSeenlist && (
-            <button onClick={addToUserList.bind(null, "seenlist")}>
+            <button  className={styles["mobile-seenlist--btn"]} onClick={addToUserList.bind(null, "seenlist")}>
               Mark as watched
             </button>
           )}
-          {isInSeenlist && <button>Already watched</button>}
+          {isInSeenlist && <button className={styles["mobile-seenlist--checked-btn"]}>Already watched</button>}
         </div>
       )}
       <CSSTransition
