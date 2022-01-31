@@ -107,8 +107,8 @@
       font-family: inherit;
       width: 100%;
       min-width: 12%;
-      background: $gray-light;
-      color: $gray-darkest;
+      background: $danger;
+      color: $gray-light;
       cursor: pointer;
       font-weight: bold;
       padding: 0.5rem;
@@ -119,12 +119,14 @@
     }
 
     .seenlist-button-mobile-checked {
-      background-color: $color-primary-darker;
+      background-color: $gray-darker;
+      color: $gray-darkest;
+      opacity: 0.4;
       cursor: default;
     }
     .seenlist-button-mobile {
-      background: #413a3a;
-      color: $gray-light;
+      background: $color-primary-darker;
+      color: $gray-darkest;
     }
   }
 
@@ -146,7 +148,9 @@
     transform: scale(0.6);
     transition: all 300ms;
   }
-  .error, .loading, .success {
+  .error,
+  .loading,
+  .success {
     margin: 0;
     position: absolute;
     top: -1.5rem;
@@ -171,35 +175,44 @@
   transform: scale(1.04);
 }
 
-@media (max-width: 40rem) {
-  .card {
-    width: 100%;
-    margin: 1rem 0;
-    height: 280px;
-
-    a .img-container {
-      height: 100%;
-      width: 250px;
-      margin-right: 1rem;
-    }
-    a .movie-info {
-      font-size: 0.75rem;
-    }
-  }
-}
 @media (max-width: 1024px) {
   .card {
-    margin-bottom: 6rem;
-
+    margin-bottom: 4rem;
     .actions-mobile {
       display: flex !important;
       position: absolute;
-      flex-direction: column;
       width: 100%;
       top: 100%;
     }
     .action-icons {
       display: none;
+    }
+  }
+}
+
+@media (max-width: 40rem) {
+  .card {
+    width: 90%;
+    height: 200px;
+    margin: 0 auto 6rem auto;
+
+    a .img-container {
+      height: 100%;
+      width: 210px;
+      margin-right: 1rem;
+    }
+    a .movie-info {
+      font-size: 0.75rem;
+    }
+    .plot {
+      display: none;
+    }
+    .actions-mobile {
+      .remove-button-mobile,
+      .seenlist-button-mobile,
+      .seenlist-button-mobile-checked {
+        font-size: 0.8rem;
+      }
     }
   }
 }

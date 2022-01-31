@@ -120,9 +120,6 @@ const Details = () => {
               {ratings[1] && (
                 <p className={styles.rating}>Rotten Tomatoes: {ratings[1]}</p>
               )}
-              {ratings[2] && (
-                <p className={styles.rating}>Metacritic: {ratings[2]}</p>
-              )}
             </div>
           ) : null}
           <p>{movie.Plot}</p>
@@ -172,7 +169,9 @@ const Details = () => {
               )}
             </div>
           )}
-          {errorListOperation && <p className={styles.error}>{errorListOperation}</p>}
+          {errorListOperation && (
+            <p className={styles.error}>{errorListOperation}</p>
+          )}
           {isLoadingListOperation && <p>Loading...</p>}
         </div>
       </div>
