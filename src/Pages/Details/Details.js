@@ -12,6 +12,7 @@ const Details = () => {
   const params = useParams();
   const { movieID } = params;
   const [movie, setMovie] = useState();
+
   const { error, isLoading, sendRequest: getMovie } = useAxios();
   const { isLoggedIn, token, addToList, removeFromList } =
     useContext(AuthContext);
@@ -31,12 +32,12 @@ const Details = () => {
     };
     loadMovie();
   }, [movieID, getMovie, token]);
-  console.log(movie);
 
   let ratings;
   if (movie && movie.Ratings) {
     ratings = movie.Ratings.map((el) => el.Value);
   }
+  
   let imgLink;
   if (movie) {
     imgLink = movie.Poster === "N/A" ? noPoster : movie.Poster;

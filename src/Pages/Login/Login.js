@@ -66,7 +66,7 @@ const Login = (props) => {
         userData.seenlist,
         userData.image
       );
-      navigate("/", { replace: true });
+      navigate("/watchlist", { replace: true });
     }
   };
 

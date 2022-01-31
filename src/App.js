@@ -5,7 +5,6 @@ import AuthContext from "./context/user-context";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
-import NotFound from "./pages/NotFound/NotFound";
 import Watchlist from "./pages/Watchlist/Watchlist";
 import Seenlist from "./pages/Seenlist/Seenlist";
 import Details from "./pages/Details/Details";
@@ -23,16 +22,23 @@ const App = (props) => {
     <BrowserRouter>
       <Layout>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route
+            path="/"
+            element={!isLoggedIn ? <Home /> : <Navigate to="/watchlist" />}
+          />
 
           <Route
             path="/login"
-            element={!isLoggedIn ? <Login /> : <Navigate replace to="/" />}
+            element={
+              !isLoggedIn ? <Login /> : <Navigate replace to="/watchlist" />
+            }
           />
 
           <Route
             path="/register"
-            element={!isLoggedIn ? <Register /> : <Navigate replace to="/" />}
+            element={
+              !isLoggedIn ? <Register /> : <Navigate replace to="/watchlist" />
+            }
           />
 
           <Route
@@ -66,12 +72,18 @@ const App = (props) => {
             path="/explore"
             element={isLoggedIn ? <ExplorePage /> : <Navigate replace to="/" />}
           ></Route>
+          
           <Route
             path="/profile"
             element={isLoggedIn ? <UserProfile /> : <Navigate replace to="/" />}
           ></Route>
 
-          <Route path="*" element={<NotFound />} />
+          <Route
+            path="*"
+            element={
+              isLoggedIn ? <Navigate to="/watchlist" /> : <Navigate to="/" />
+            }
+          />
         </Routes>
       </Layout>
     </BrowserRouter>

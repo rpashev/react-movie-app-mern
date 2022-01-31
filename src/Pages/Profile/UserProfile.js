@@ -65,6 +65,7 @@ const UserProfile = (props) => {
     const previewUrl = URL.createObjectURL(event.target.files[0]);
     setPreview(previewUrl);
   };
+  
   return (
     <div className={styles["profile-page"]}>
       <h1>User Profile</h1>

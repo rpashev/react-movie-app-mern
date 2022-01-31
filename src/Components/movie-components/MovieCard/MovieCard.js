@@ -11,8 +11,10 @@ const MovieCard = (props) => {
   if (imgLink === "N/A") {
     imgLink = noPoster;
   }
+
   const { isLoggedIn, watchlist, seenlist, addToList, token } =
     useContext(AuthContext);
+    
   const [showActions, setShowActions] = useState(false);
   const [movieWasAdded, setMovieWasAdded] = useState(false);
   const [isInWatchlist, setIsInWatchlist] = useState(false);

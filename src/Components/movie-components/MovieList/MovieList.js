@@ -32,7 +32,6 @@ const MovieList = (props) => {
       }
     };
     loadMovies();
-    console.log(error)
   }, [props.url, token, props.withAuth, loadList]);
 
   //updating lists locally on deleted movie
@@ -64,7 +63,6 @@ const MovieList = (props) => {
     const updatedMovies = movies.filter((movie) =>
       movie.title.toLowerCase().includes(props.query.toLowerCase())
     );
-    // console.log(updatedMovies);
 
     setFilteredMovies(updatedMovies || []);
   }, [props.query]);
