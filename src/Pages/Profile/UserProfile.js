@@ -1,9 +1,8 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Button from "../../components/UI/Button";
 import styles from "./UserProfile.module.scss";
 
 import axios from "axios";
-import { useContext } from "react/cjs/react.development";
 import AuthContext from "../../context/user-context";
 import { useAxios } from "../../custom-hooks/use-axios";
 
