@@ -21,17 +21,33 @@ This app is the second version of an app I made for the software academy I atten
 
 ## Challenges
 - working with an external api such as [OMDB Api](https://www.omdbapi.com/) was challenging as the API had limitations which I had to consider
-- the combination of front end + external api + my own api meant that I had to think hard about the data flow of the app
+- the combination of front end + external api + my own api made it challenging to come up with a solution that optimizes the data flow of the app
 - the first time I used SASS/SCSS was in this app so I had to get used to nesting - something that I now greatly appreciate 
 - first time I dealt with file upload for the feature allowing users to upload images to Cloudinary
 - error handling was challenging
 - coming up with a design was a struggle and I am still not happy about the way the application looks
 
 
-## Technologies Used
-- Tech 1 - version 1.0
-- Tech 2 - version 2.0
-- Tech 3 - version 3.0
+## Technologies Used  
+
+### Front End
+- React 17.0.2
+- Context API
+- SASS/SCSS
+- CSS/SCSS Modules
+- Axios
+- React Transition Group  
+  
+ ### Back End
+ - Node
+ - Express 4.17.1
+ - MongoDB 4.1.3
+ - Mongo Atlas
+ - Mongoose 6.0.11
+ - JWT
+ - Axios
+ - Cloudinary
+ - [OMDB Api](https://www.omdbapi.com/)
 
 
 ## Features
