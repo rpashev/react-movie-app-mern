@@ -1,6 +1,7 @@
-# Project Name
-> Outline a brief description of your project.
-> Live demo [_here_](https://www.example.com). <!-- If you have the project hosted somewhere, include the link here. -->
+# Movie App 
+An app allowing registered users to search for movies in an external database and organize the movies in userlists.
+This app is build with the MERN stack - Mongo/Express/React/Node and also uses [OMDB Api](https://www.omdbapi.com/) as a movie database.
+> Live demo [_here_](https://www.example.com). 
 
 ## Table of Contents
 * [General Info](#general-information)
