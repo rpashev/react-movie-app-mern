@@ -1,26 +1,31 @@
 # Movie App 
 An app allowing registered users to search for movies in an external database and organize the movies in userlists.  
-This app is build with the MERN stack - Mongo/Express/React/Node. Here you can find the [REST API](https://github.com/rpashev/rest-movie-apps) that I have built.
-It uses [OMDB Api](https://www.omdbapi.com/) as a movie database.  
+This app is built with the MERN stack - Mongo/Express/React/Node. Here you can find the [REST API](https://github.com/rpashev/rest-movie-apps) that I have created.  
+The application also uses [OMDB Api](https://www.omdbapi.com/) as a movie database.  
 > Live demo coming soon
 
 ## Table of Contents
 * [General Info](#general-information)
+* [Challenges](#challenges)
 * [Technologies Used](#technologies-used)
 * [Features](#features)
 * [Screenshots](#screenshots)
 * [Setup](#setup)
 * [Room for Improvement](#room-for-improvement)
 * [Contact](#contact)
-<!-- * [License](#license) -->
 
 
 ## General Information
-This app is the second version of an app I made for the software academy I attended. As a person that often watches movies it was an easy choice for me to make such an application. I wanted to confirm and build upon my React skills while working on a topic that greatly interests me. This was also the first application in which I used SASS/SCSS and that with combination with CSS/SCSS modules helped me to improve the way I organize the code responsible for styling. 
-- What problem does it (intend to) solve?
-- What is the purpose of your project?
-- Why did you undertake it?
-<!-- You don't have to answer all the questions - just the ones relevant to your project. -->
+This app is the second version of an app I made for the software academy I attended. As a person that often watches movies it was an easy choice for me to make such an application. I wanted to confirm and build upon my React skills while working on a topic that greatly interests me. 
+
+
+## Challenges
+- working with an external api such as [OMDB Api](https://www.omdbapi.com/) was challenging as the API had limitations which I had to consider
+- the combination of front end + external api + my own api meant that I had to think hard about the data flow of the app
+- the first time I used SASS/SCSS was in this app so I had to get used to nesting - something that I now greatly appreciate 
+- first time I dealt with file upload for the feature allowing users to upload images to Cloudinary
+- error handling was challenging
+- coming up with a design was a struggle and I am still not happy about the way the application looks
 
 
 ## Technologies Used
