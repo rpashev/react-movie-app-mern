@@ -1,7 +1,8 @@
 # Movie App 
-An app allowing registered users to search for movies in an external database and organize the movies in userlists.
-This app is build with the MERN stack - Mongo/Express/React/Node and also uses [OMDB Api](https://www.omdbapi.com/) as a movie database.
-> Live demo [_here_](https://www.example.com). 
+An app allowing registered users to search for movies in an external database and organize the movies in userlists.  
+This app is build with the MERN stack - Mongo/Express/React/Node. Here you can find the [REST API](https://github.com/rpashev/rest-movie-apps) that I have built.
+It uses [OMDB Api](https://www.omdbapi.com/) as a movie database.  
+> Live demo coming soon
 
 ## Table of Contents
 * [General Info](#general-information)
@@ -9,16 +10,13 @@ This app is build with the MERN stack - Mongo/Express/React/Node and also uses [
 * [Features](#features)
 * [Screenshots](#screenshots)
 * [Setup](#setup)
-* [Usage](#usage)
-* [Project Status](#project-status)
 * [Room for Improvement](#room-for-improvement)
-* [Acknowledgements](#acknowledgements)
 * [Contact](#contact)
 <!-- * [License](#license) -->
 
 
 ## General Information
-- Provide general information about your project here.
+This app is the second version of an app I made for the software academy I attended. As a person that often watches movies it was an easy choice for me to make such an application. I wanted to confirm and build upon my React skills while working on a topic that greatly interests me. This was also the first application in which I used SASS/SCSS and that with combination with CSS/SCSS modules helped me to improve the way I organize the code responsible for styling. 
 - What problem does it (intend to) solve?
 - What is the purpose of your project?
 - Why did you undertake it?
