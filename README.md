@@ -1,6 +1,7 @@
 # Movie App 
-An app allowing registered users to search for movies in an external database and organize the movies in userlists.  
-This app is built with the MERN stack - Mongo/Express/React/Node. Here you can find the [REST API](https://github.com/rpashev/rest-movie-apps) that I have created.  
+A single page application allowing registered users to search for movies in an external database and organize the movies in userlists.  
+This app is built with the MERN stack - Mongo/Express/React/Node.  
+Here you can find the [REST API](https://github.com/rpashev/rest-movie-apps) that I have created.  
 The application also uses [OMDB Api](https://www.omdbapi.com/) as a movie database.  
 > Live demo coming soon
 
@@ -16,7 +17,7 @@ The application also uses [OMDB Api](https://www.omdbapi.com/) as a movie databa
 
 
 ## General Information
-This app is the second version of an app I made for the software academy I attended. As a person that often watches movies it was an easy choice for me to make such an application. I wanted to confirm and build upon my React skills while working on a topic that greatly interests me. 
+This app is the second version of an app I made for the [software academy](https://softuni.bg/) I attended. As a person that often watches movies it was an easy choice for me to make such an application. My goal was to confirm and build upon my React skills while working on a topic that greatly interests me. Building a [REST API](https://github.com/rpashev/rest-movie-apps) was also something I strived to do as I want to be able to create full-stack applications.
 
 
 ## Challenges
@@ -32,6 +33,7 @@ This app is the second version of an app I made for the software academy I atten
 
 ### Front End
 - React 17.0.2
+- React Router 6.0.2
 - Context API
 - SASS/SCSS
 - CSS/SCSS Modules
@@ -40,10 +42,10 @@ This app is the second version of an app I made for the software academy I atten
   
  ### Back End
  - Node
- - Express 4.17.1
- - MongoDB 4.1.3
+ - Express 
+ - MongoDB
  - Mongo Atlas
- - Mongoose 6.0.11
+ - Mongoose
  - JWT
  - Axios
  - Cloudinary
@@ -69,15 +71,13 @@ Proceed to describe how to install / setup one's local environment / get started
 
 
 ## Room for Improvement
-Include areas you believe need improvement / could be improved. Also add TODOs for future development.
-
-Room for improvement:
-- Improvement to be done 1
-- Improvement to be done 2
-
-To do:
-- Feature to be added 1
-- Feature to be added 2
+- create and implement a more professional design, especially for the User Profile page
+- implement an "Add Review" feature on the front end which already exists on the [backend](https://github.com/rpashev/rest-movie-apps)
+- implement an "Auto Logout" functionality on JWT expiration
+- improve user feedback when adding/removing movies from user lists from Details page
+- spend more time on refactoring repetitive code
+- break up some of the bigger components into smaller ones
+- change webpack configuration so SCSS variables are auto imported in every SCSS file instead of manually importing it
 
 
 ## Contact
