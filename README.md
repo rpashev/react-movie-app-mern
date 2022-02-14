@@ -1,8 +1,8 @@
 # Movie App 
-A responsive single page application allowing registered users to search for movies in an external database and organize the movies in userlists.  
-This app is built with the MERN stack - Mongo/Express/React/Node.  
-Here you can find the [REST API](https://github.com/rpashev/rest-movie-apps) that I have created.  
-The application uses [OMDB Api](https://www.omdbapi.com/) as a movie database.  
+A responsive single page application allowing registered users to search for movies in an external database and organize the movies in userlists. This app is built with the MERN stack - Mongo/Express/React/Node.  
+
+Here you can find the **[REST API](https://github.com/rpashev/rest-movie-apps)** that I have created for the app.  
+The application uses **[OMDB Api](https://www.omdbapi.com/)** as a movie database.  
 > Live demo coming soon
 
 ## Table of Contents
@@ -77,23 +77,23 @@ This app is the second version of an app I made for the [software academy](https
 
 
 ## Setup
-**To get a local copy up and running follow these simple steps:**
+### To get a local copy up and running follow these simple steps:
 
-1. Make sure you have `node` and `npm` installed globally on your machine.  
+1. Make sure you have **`node`** and **`npm`** installed globally on your machine.  
 
 3. Clone the repo  
-`git clone https://github.com/rpashev/react-movie-app-mern.git`  
+    ### `git clone https://github.com/rpashev/react-movie-app-mern.git`  
 
 3. Install NPM packages  
-  `npm install`    
+    ### `npm install`    
   
 4. Run the app in development mode with hot reloading  
-`npm start`  
+    ### `npm start`  
 
 5. You can view the app on [http://localhost:3000](http://localhost:3000)  
  
 7. To build for production run the following command  
-`npm run build`
+    ### `npm run build`
 
 
 ## Room for Improvement
