@@ -79,15 +79,20 @@ This app is the second version of an app I made for the [software academy](https
 ## Setup
 **To get a local copy up and running follow these simple steps:**
 
-1. Make sure you have `node` and `npm` installed globally on your machine.
-2. Clone the repo  
-`git clone https://github.com/rpashev/react-movie-app-mern.git`
+1. Make sure you have `node` and `npm` installed globally on your machine.  
+
+3. Clone the repo  
+`git clone https://github.com/rpashev/react-movie-app-mern.git`  
+
 3. Install NPM packages  
-`npm install`  
-4. Run the app in development mode with hot reloading
+  `npm install`    
+  
+4. Run the app in development mode with hot reloading  
 `npm start`  
-5. You can view the app on [http://localhost:3000](http://localhost:3000) 
-6. To build for production run the following command
+
+5. You can view the app on [http://localhost:3000](http://localhost:3000)  
+ 
+7. To build for production run the following command  
 `npm run build`
 
 
