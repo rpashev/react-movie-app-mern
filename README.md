@@ -99,6 +99,9 @@ This app is the second version of an app I made for the [software academy](https
 ## Room for Improvement
 - create and implement a more professional design, especially for the User Profile page
 - implement an "Add Review" feature on the front end which already exists on the [backend](https://github.com/rpashev/rest-movie-apps)
+- front end pagination for "Watchlist" and "Watched"
+- backend pagination for "Exlore" page as the list can practically consist of limitless items
+- filters based on movie genre, IMDB rating and user rating for the Explore page (once Review feature which includes user rating is done)
 - implement an "Auto Logout" functionality on JWT expiration
 - improve user feedback when adding/removing movies from user lists from Details page
 - spend more time on refactoring repetitive code
