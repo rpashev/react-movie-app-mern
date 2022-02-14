@@ -1,8 +1,8 @@
 # Movie App 
-A single page application allowing registered users to search for movies in an external database and organize the movies in userlists.  
+A responsive single page application allowing registered users to search for movies in an external database and organize the movies in userlists.  
 This app is built with the MERN stack - Mongo/Express/React/Node.  
 Here you can find the [REST API](https://github.com/rpashev/rest-movie-apps) that I have created.  
-The application also uses [OMDB Api](https://www.omdbapi.com/) as a movie database.  
+The application uses [OMDB Api](https://www.omdbapi.com/) as a movie database.  
 > Live demo coming soon
 
 ## Table of Contents
@@ -53,10 +53,26 @@ This app is the second version of an app I made for the [software academy](https
 
 
 ## Features
-List the ready features here:
-- Awesome feature 1
-- Awesome feature 2
-- Awesome feature 3
+### Unauthenticated User Features
+
+**Unauthenticated users can:**
+- view the homepage
+- register
+- login
+
+### Authenticated User Features
+
+**Authenticated users can:**
+- search for any movie/tv series by name from the "Database" page
+- add movies to their "Watchlist" and "Watched" lists
+- remove movies from their "Watchlist" and "Watched" lists
+- view their "Watchlist" and "Watched" lists
+- view a list of movies that other users have in their user lists from the "Explore" page
+- view a "Details" page for each movie
+- search movies by name in all lists
+- view their "Profile Page" 
+- upload an avatar
+- logout
 
 
 ## Screenshots
