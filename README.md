@@ -53,12 +53,12 @@ This app is the second version of an app I made for the [software academy](https
 
 
 ## Features
-#### Anonymous users are able to:
+### Anonymous users are able to:
 - view the homepage
 - register
 - login
 
-#### Authenticated users are able to:
+### Authenticated users are able to:
 - search for any movie/tv series by name from the "Database" page
 - add movies to their "Watchlist" and "Watched" lists
 - remove movies from their "Watchlist" and "Watched" lists
@@ -77,9 +77,18 @@ This app is the second version of an app I made for the [software academy](https
 
 
 ## Setup
-What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?
+**To get a local copy up and running follow these simple steps:**
 
-Proceed to describe how to install / setup one's local environment / get started with the project.
+1. Make sure you have `node` and `npm` installed globally on your machine.
+2. Clone the repo  
+`git clone https://github.com/rpashev/react-movie-app-mern.git`
+3. Install NPM packages  
+`npm install`  
+4. Run the app in development mode with hot reloading
+`npm start`  
+5. You can view the app on [http://localhost:3000](http://localhost:3000) 
+6. To build for production run the following command
+`npm run build`
 
 
 ## Room for Improvement
@@ -94,49 +103,3 @@ Proceed to describe how to install / setup one's local environment / get started
 
 ## Contact
 Created by me - feel free to contact me!
-
-
-
-
-
-
-
-
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
