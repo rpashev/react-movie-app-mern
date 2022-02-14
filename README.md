@@ -53,13 +53,12 @@ This app is the second version of an app I made for the [software academy](https
 
 
 ## Features
-
-**Anonymous users are able to:**
+#### Anonymous users are able to:
 - view the homepage
 - register
 - login
 
-**Authenticated users are able to:**
+#### Authenticated users are able to:
 - search for any movie/tv series by name from the "Database" page
 - add movies to their "Watchlist" and "Watched" lists
 - remove movies from their "Watchlist" and "Watched" lists
