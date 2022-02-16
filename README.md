@@ -35,7 +35,6 @@ This app is the second version of an app I made for the [software academy](https
 - React 17.0.2
 - React Router 6.0.2
 - Context API
-- SASS/SCSS
 - CSS/SCSS Modules
 - Axios
 - React Transition Group  
