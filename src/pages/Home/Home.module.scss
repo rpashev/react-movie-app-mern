@@ -1,0 +1,23 @@
+@import "../../utils/_colors.scss";
+
+.home-page {
+  // margin: 2rem 6rem;
+
+  .img {
+    height: 500px;
+    width: 100%;
+    background: url("https://res.cloudinary.com/rpashev/image/upload/v1643814818/movie-app/background_ct8pfj.webp") center/cover no-repeat;
+    filter: grayscale(50%);
+    padding-top: 4rem;
+  }
+}
+
+@media (max-width: 40rem) {
+  .home-page {
+    .img {
+      background: none;
+      height: auto;
+    }
+    // padding: 0 0.5rem;
+  }
+}

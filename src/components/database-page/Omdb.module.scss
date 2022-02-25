@@ -1,0 +1,36 @@
+@import "../../utils//colors";
+
+.omdb {
+  padding: 1.5rem;
+  min-width: 300px;
+  width: 50%;
+  background: $gray-darkest;
+  opacity: 0.92;
+  border-radius: 10px;
+  display: flex;
+  margin: 3rem auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgb(0, 0, 0);
+
+  p {
+    width: 90%;
+    opacity: 0.9;
+  }
+  a {
+    color: $color-primary;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  h2,
+  h3 {
+    text-align: center;
+  }
+}
+
+@media (max-width: 1024px) {
+  .omdb {
+    width: 80%;
+  }
+}

@@ -1,0 +1,28 @@
+@import "../../../utils/colors";
+.list {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  color: $gray-light;
+  .slide-exit {
+    transform: scale(0) !important;
+  }
+  .slide-exit-active {
+    transform: scale(0) !important;
+    transition: all 200ms ease-out;
+  }
+}
+.watchlist, .seenlist {
+  justify-content: center;
+}
+.error {
+  color: red;
+  text-align: center;
+}
+
+@media (max-width: 40rem) {
+  .list {
+    justify-content: center;
+  }
+}

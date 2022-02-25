@@ -1,0 +1,41 @@
+@import "../../utils/colors";
+.database-page {
+  padding-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+
+  .search-container {
+    width: 60%;
+    input {
+      font-size: 1.2rem;
+      width: 100%;
+      padding: 0.5rem;
+      border: none;
+      border: 2px;
+    }
+    input:focus {
+      outline: none;
+      background-color: $gray-darker;
+    }
+  }
+
+  .list {
+    display: flex;
+    margin-top: 2rem;
+    width: 85%;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    color: $gray-light;
+  }
+}
+
+@media (max-width: 1024px) {
+  .database-page .list {
+    widtH: 100%;
+    justify-content: center;
+  }
+}

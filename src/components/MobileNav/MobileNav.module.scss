@@ -1,0 +1,49 @@
+@import "../../utils/colors";
+
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 150;
+  background: $gray-darkest !important;
+  height: 100vh;
+  width: 80%;
+  .mobile-nav__items {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    list-style: none;
+    height: 100%;
+    width: 90%;
+    margin: 20% auto;
+    padding: 0;
+
+    .mobile-nav__item {
+      margin: 1rem 0;
+      font-size: 1.5rem;
+      color: $gray-light;
+      text-decoration: none;
+    }
+    .mobile-nav__item:hover,
+    .active {
+      color: $color-primary;
+      cursor: pointer;
+    }
+  }
+}
+
+.slide-enter {
+  transform: translateX(-100%);
+}
+.slide-enter-active {
+  transform: translateY(0);
+  transition: transform 200ms;
+}
+.slide-exit {
+  transform: translateY(0);
+}
+.slide-exit-active {
+  transform: translateX(-100%);
+  transition: transform 200ms;
+}

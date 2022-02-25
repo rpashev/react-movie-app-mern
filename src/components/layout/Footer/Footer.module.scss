@@ -1,0 +1,14 @@
+@import "../../../utils/colors";
+.footer {
+  position: absolute;
+  bottom: 0;
+  height: 4rem;
+  width: 100%;
+  background: $gray-darkest;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  p {
+      font-size: 0.85rem;
+  }
+}
