@@ -9,17 +9,13 @@ const HomeIntro = () => {
       </h1>
       <h3>Your personal movie management tool</h3>
       <p>Start building your custom lists today!</p>
-      <div className={styles["btn-container"]}>
-        <Button to="/register" primary>
-          Sign Up
-        </Button>
-      </div>
+      <Button to="/register" primary>
+        Sign Up
+      </Button>
       <p>Already have an account?</p>
-      <div className={styles["btn-container"]}>
-        <Button to="/login" primary>
-          Login
-        </Button>
-      </div>
+      <Button to="/login" primary>
+        Login
+      </Button>
     </div>
   );
 };

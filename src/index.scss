@@ -1,32 +1,28 @@
-@import "./utils//colors";
+@import "./utils/colors";
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 body {
-  margin: 0;
-  font-family: Helvetica, sans-sarif;
+  font-family: "Lato", sans-sarif;
   background: radial-gradient(
     circle,
     rgba(22, 66, 17, 1) 13%,
     rgba(0, 0, 0, 0.8802871490393032) 100%
   );
   line-height: 1.4;
-  color: $gray-light;
+  color: $gray-darker;
+
   #root {
     position: relative;
     min-height: 100vh;
+
     main {
       padding: 6rem 0 4rem 0;
-      margin: 0rem;
       min-width: 320px;
     }
-  }
-}
-
-@media (max-width: 52rem) {
-  body {
-    margin: 0;
-    padding: 0;
   }
 }

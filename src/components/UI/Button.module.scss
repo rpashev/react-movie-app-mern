@@ -4,18 +4,18 @@
   border: none;
   font: inherit;
   text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 500;
   color: $gray-darkest;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   text-align: center;
-  padding: 0.5rem 0.2rem;
-  border-radius: 4px;
+  padding: 0.5rem 2.5rem;
+  border-radius: 6px;
   background: $gray-light;
   min-width: 6rem;
-  width: 50%;
-  height: auto;
   cursor: pointer;
-  margin-top: 0.5rem;
   transition: all 0.2s ease-out;
+  letter-spacing: 0.5px;
 }
 
 .button:focus {
@@ -39,6 +39,7 @@
   border-color: #f34343;
   color: $gray-darkest;
 }
+
 .button--yellow {
   background: yellow;
   border-color: none;
@@ -47,18 +48,18 @@
 .button--yellow:active {
   background: $gray-light;
   color: $gray-darkest;
-  // border-color: #f34343;
 }
+
 .button--primary {
   background: $color-primary;
   border-color: none;
 }
 .button--primary:hover,
 .button--primary:active {
-  background: yellow;
+  background: lighten($color-primary, 25%);
   color: $gray-darkest;
-  // border-color: #f34343;
 }
+
 .button--dark {
   background: $gray-darkest;
   color: $gray-light;
@@ -68,7 +69,6 @@
 .button--dark:active {
   background: $gray-light;
   color: $gray-darkest;
-  // border-color: #f34343;
 }
 
 .button:disabled,
