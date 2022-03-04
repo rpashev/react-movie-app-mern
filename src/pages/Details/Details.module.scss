@@ -2,7 +2,7 @@
 
 .details {
   width: 100%;
-  max-width: 1800px;
+  max-width: 1200px;
   display: flex;
   color: $gray-light;
   font-size: 1.05rem;
@@ -67,6 +67,7 @@
 
       button {
         width: 50%;
+        min-width: 20rem;
         padding: 1rem 2rem;
       }
     }
@@ -86,6 +87,7 @@
         gap: 0.5rem;
         button {
           width: 90%;
+          min-width: none;
         }
       }
     }

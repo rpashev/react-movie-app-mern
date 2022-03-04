@@ -1,8 +1,8 @@
 @import "../../../utils/colors";
 .list {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  gap: 1.5rem;
+  justify-content: center;
   flex-wrap: wrap;
   color: $gray-light;
   .slide-exit {

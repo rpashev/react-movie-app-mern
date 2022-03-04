@@ -143,13 +143,12 @@ const WatchlistMovieCard = (props) => {
         </div>
       </CSSTransition>
       <Link to={`/details/${props.movieID}`}>
-        <div className={styles["img-container"]}>
-          <img
-            alt="No poster available"
-            className={styles.image}
-            src={imgLink}
-          ></img>
-        </div>
+        <img
+          alt="No poster available"
+          className={styles.image}
+          src={imgLink}
+        ></img>
+
         <div className={styles["movie-info"]}>
           <p className={styles.title}>{props.title}</p>
           <div>
