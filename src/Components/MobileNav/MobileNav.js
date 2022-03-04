@@ -30,7 +30,7 @@ const MobileNav = (props) => {
             const watchlistContent = (
               <Fragment>
                 {link.title}
-                {watchlist ? <Badge count={watchlist.length} mobile /> : null}
+                {watchlist ? <Badge count={watchlist.length}/> : null}
               </Fragment>
             );
 

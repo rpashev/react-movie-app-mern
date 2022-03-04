@@ -2,26 +2,34 @@
 
 .details {
   width: 100%;
+  max-width: 1800px;
   display: flex;
   color: $gray-light;
   font-size: 1.05rem;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 3rem;
   align-items: flex-start;
-  flex-wrap: wrap;
+  margin: 3rem auto;
+  padding: 0 1rem;
 
   .leftside {
-    margin: 5rem 0;
-    margin-right: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    width: 18rem;
   }
+
   .rightside {
-    width: 55%;
-    margin: 5rem 0;
-    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+
     h1 {
       text-align: left;
       margin-top: 0;
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
     }
+
     .ratings {
       width: 100%;
       display: flex;
@@ -34,8 +42,8 @@
         align-items: center;
         text-align: center;
         margin: 0 2rem;
-        // margin-left: 5rem;
       }
+
       .imdb-container {
         margin-left: 0;
         .imdb {
@@ -51,15 +59,15 @@
       }
     }
     .buttons {
-      // width: 80%;
-      height: 4.5rem;
       margin-top: 4rem;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
+      gap: 2rem;
       width: 100%;
 
       button {
-        width: 48%;
+        width: 50%;
+        padding: 1rem 2rem;
       }
     }
   }
@@ -70,36 +78,34 @@
   margin: 2rem 0;
 }
 
-@media (max-width: 40rem) {
+@media (max-width: 63em) {
   .details {
-    display: block;
-    font-size: 0.9rem;
-    margin: 0 auto;
-    // padding: 0 0.5rem;
+    .rightside {
+      .buttons {
+        flex-direction: column;
+        gap: 0.5rem;
+        button {
+          width: 90%;
+        }
+      }
+    }
+  }
+}
 
-    .leftside,
-    .rightside {
-      width: 80%;
-      .buttons button {
-        font-size: 0.9rem;
-      }
-    }
+@media (max-width: 45em) {
+  .details {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1.5rem;
     .leftside {
-      margin: 2rem auto 0rem auto;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      // align-items: center;
-      p {
-        margin: 0.4rem 0;
-      }
+      width: 19rem;
     }
     .rightside {
-      margin: 2rem auto;
-      .ratings {
-        justify-content: space-between;
-        .rating {
-          margin: 0;
+      gap: 1rem;
+      .buttons {
+        button {
+          width: 100%;
+          padding: 1rem 1rem;
         }
       }
     }

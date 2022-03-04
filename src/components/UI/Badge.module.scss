@@ -2,15 +2,10 @@
 
 .badge {
   display: inline-block;
-  width: 32px;
   background-color: yellow;
   color: $gray-darkest;
-  padding: 0.3rem;
-  border-radius: 35%;
+  padding: 0.3rem 0.6rem;
+  border-radius: 40%;
   text-align: center;
   margin-left: 0.3rem;
-}
-
-.mobile {
-  width: 2.5rem;
 }
