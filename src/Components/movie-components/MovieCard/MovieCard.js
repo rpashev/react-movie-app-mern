@@ -14,7 +14,7 @@ const MovieCard = (props) => {
 
   const { isLoggedIn, watchlist, seenlist, addToList, token } =
     useContext(AuthContext);
-    
+
   const [showActions, setShowActions] = useState(false);
   const [movieWasAdded, setMovieWasAdded] = useState(false);
   const [isInWatchlist, setIsInWatchlist] = useState(false);
@@ -83,11 +83,18 @@ const MovieCard = (props) => {
             </button>
           )}
           {!isInSeenlist && (
-            <button  className={styles["mobile-seenlist--btn"]} onClick={addToUserList.bind(null, "seenlist")}>
+            <button
+              className={styles["mobile-seenlist--btn"]}
+              onClick={addToUserList.bind(null, "seenlist")}
+            >
               Mark as watched
             </button>
           )}
-          {isInSeenlist && <button className={styles["mobile-seenlist--checked-btn"]}>Already watched</button>}
+          {isInSeenlist && (
+            <button className={styles["mobile-seenlist--checked-btn"]}>
+              Already watched
+            </button>
+          )}
         </div>
       )}
       <CSSTransition
@@ -154,9 +161,7 @@ const MovieCard = (props) => {
           className={styles.image}
           src={imgLink}
         ></img>
-        <div className={styles.title}>
-          <p>{props.title}</p>
-        </div>
+        <p className={styles.title}>{props.title}</p>
       </Link>
     </div>
   );

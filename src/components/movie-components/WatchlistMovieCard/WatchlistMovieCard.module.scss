@@ -5,10 +5,15 @@
   position: relative;
   flex-direction: row;
   width: 40%;
-  min-width: 300px;
+  min-width: 18.75rem;
   transition: all 0.3s ease-out;
   background-color: $gray-darkest;
   box-shadow: 0 0 10px rgb(0, 0, 0);
+  // will-change: transform;
+
+  &:hover {
+    transform: scale(1.04);
+  }
 
   a {
     text-decoration: none;
@@ -32,136 +37,140 @@
       color: $gray-light;
       font-size: 0.85rem;
       padding: 0.5rem;
+
       .title {
         margin-top: 0.5rem;
         font-size: 1rem;
       }
     }
   }
-  .action-icons {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    top: 0;
-    right: 0;
-    width: 6%;
+}
 
-    .seenlist-icon,
-    .seenlist-icon-checked {
-      background-color: $gray-light;
-      width: 100%;
-      height: 2rem;
-      font-size: 1.5rem;
-      text-align: center;
-      transition: all 0.3s ease-out;
-    }
+//icons desktop
+.action-icons {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  right: 0;
+  width: 6%;
 
-    .seenlist-icon {
-      background: url("../../../assets//eye2.png") center/contain no-repeat;
-      // background-color: rgba(100, 99, 99, 0.233);
-      background-color: $gray-darkest;
-    }
-    .seenlist-icon-checked {
-      background: url("../../../assets//eye-check.png") center/contain no-repeat;
-      background-color: $gray-darkest;
-      color: $gray-light !important;
-      right: 0;
-    }
-
-    .seenlist-icon:hover {
-      opacity: 1;
-      background-color: $color-primary-darker;
-      cursor: pointer;
-    }
-    .remove-icon {
-      width: 100%;
-      height: 2rem;
-      background: url("../../../assets//delete.png") center/contain no-repeat;
-      cursor: pointer;
-      transition: background-color 0.3s ease-out;
-    }
-    .remove-icon:hover {
-      background-color: rgb(243, 140, 140);
-    }
-  }
-
-  .actions-mobile {
+  .seenlist-icon,
+  .seenlist-icon-checked {
+    background-color: $gray-light;
     width: 100%;
-    margin-bottom: 3rem;
-    display: none;
-
-    .remove-button-mobile,
-    .seenlist-button-mobile,
-    .seenlist-button-mobile-checked {
-      font-family: inherit;
-      width: 100%;
-      min-width: 12%;
-      background: $danger;
-      color: $gray-light;
-      cursor: pointer;
-      font-weight: bold;
-      padding: 0.5rem;
-      outline: none;
-      border: none;
-      font-size: 1.1rem;
-      transition: all 0.3s ease-out;
-    }
-
-    .seenlist-button-mobile-checked {
-      background-color: $gray-darker;
-      color: $gray-darkest;
-      opacity: 0.4;
-      cursor: default;
-    }
-    .seenlist-button-mobile {
-      background: $color-primary;
-      color: $gray-darkest;
-    }
-  }
-
-  .slide-enter {
-    opacity: 0;
-    transform: scale(0.6);
-  }
-  .slide-enter-active {
-    opacity: 0.5;
-    transform: scale(1);
-    transition: all 300ms;
-  }
-  .slide-exit {
-    opacity: 0.5;
-    transform: scale(1);
-  }
-  .slide-exit-active {
-    opacity: 0;
-    transform: scale(0.6);
-    transition: all 300ms;
-  }
-  .error,
-  .loading,
-  .success {
-    margin: 0;
-    position: absolute;
-    top: -1.5rem;
-    height: 1.5rem;
-    width: 100%;
+    height: 2rem;
+    font-size: 1.5rem;
     text-align: center;
-    background-color: $danger;
-    padding: 0.25rem 0;
-    border-radius: 3px;
-    font-size: 0.8rem;
+    transition: all 0.3s ease-out;
   }
-  .loading {
-    background-color: yellow;
-    color: $gray-darkest;
+
+  .seenlist-icon {
+    background: url("../../../assets//eye2.png") center/contain no-repeat;
+    // background-color: rgba(100, 99, 99, 0.233);
+    background-color: $gray-darkest;
   }
-  .success {
-    background-color: green;
+  .seenlist-icon-checked {
+    background: url("../../../assets//eye-check.png") center/contain no-repeat;
+    background-color: $gray-darkest;
+    color: $gray-light !important;
+    right: 0;
+  }
+
+  .seenlist-icon:hover {
+    opacity: 1;
+    background-color: $color-primary-darker;
+    cursor: pointer;
+  }
+  .remove-icon {
+    width: 100%;
+    height: 2rem;
+    background: url("../../../assets//delete.png") center/contain no-repeat;
+    cursor: pointer;
+    transition: background-color 0.3s ease-out;
+  }
+  .remove-icon:hover {
+    background-color: rgb(243, 140, 140);
   }
 }
 
-.card:hover {
-  transform: scale(1.04);
+//mobile buttons
+.actions-mobile {
+  width: 100%;
+  margin-bottom: 3rem;
+  display: none;
+
+  .remove-button-mobile,
+  .seenlist-button-mobile,
+  .seenlist-button-mobile-checked {
+    font-family: inherit;
+    width: 100%;
+    min-width: 12%;
+    background: $danger;
+    color: $gray-light;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 0.5rem;
+    outline: none;
+    border: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease-out;
+  }
+
+  .seenlist-button-mobile-checked {
+    background-color: $gray-darker;
+    color: $gray-darkest;
+    opacity: 0.4;
+    cursor: default;
+  }
+  .seenlist-button-mobile {
+    background: $color-primary;
+    color: $gray-darkest;
+  }
+}
+
+//notifications
+.error,
+.loading,
+.success {
+  margin: 0;
+  position: absolute;
+  top: -1.5rem;
+  height: 1.5rem;
+  width: 100%;
+  text-align: center;
+  background-color: $danger;
+  padding: 0.25rem 0;
+  border-radius: 3px;
+  font-size: 0.8rem;
+}
+.loading {
+  background-color: yellow;
+  color: $gray-darkest;
+}
+.success {
+  background-color: green;
+}
+
+//animations
+
+.slide-enter {
+  opacity: 0;
+  transform: scale(0.6);
+}
+.slide-enter-active {
+  opacity: 0.5;
+  transform: scale(1);
+  transition: all 300ms;
+}
+.slide-exit {
+  opacity: 0.5;
+  transform: scale(1);
+}
+.slide-exit-active {
+  opacity: 0;
+  transform: scale(0.6);
+  transition: all 300ms;
 }
 
 @media (max-width: 81.5em) {
@@ -193,7 +202,6 @@
     .action-icons {
       display: none;
     }
-    
   }
 }
 
