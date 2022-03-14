@@ -52,6 +52,7 @@
   text-align: center;
   transition: all 0.3s ease-out;
 }
+
 .watchlist-icon {
   left: 0;
 }
@@ -61,18 +62,21 @@
   background-color: $gray-darkest;
   right: 0;
 }
+
 .seenlist-icon-checked {
   background: url("../../../assets//eye-check.png") center/contain no-repeat;
   background-color: $gray-darkest;
   color: $gray-light !important;
   right: 0;
 }
+
 .watchlist-icon:hover,
 .seenlist-icon:hover {
   opacity: 1;
   background-color: black;
   cursor: pointer;
 }
+
 .watchlist-icon-checked {
   left: 0;
   cursor: default;
@@ -93,17 +97,21 @@
     outline: none;
     border: none;
   }
+
   .mobile-seenlist--btn {
     background-color: $gray-light;
   }
+
   .mobile-seenlist--checked-btn {
     background-color: $gray-darker;
     opacity: 0.5;
   }
+
   .mobile-watchlist--checked-btn {
     color: $gray-darkest;
     background-color: #413a3a;
   }
+
   .mobile-watchlist--btn {
     background-color: $color-primary;
   }
@@ -125,9 +133,11 @@
   border-radius: 3px;
   font-size: 0.8rem;
 }
+
 .success {
   background-color: green;
 }
+
 .loading {
   background-color: yellow;
   color: $gray-darkest;
@@ -139,16 +149,20 @@
   opacity: 0;
   transition: opacity 0.4s ease-out;
 }
+
 .slide-enter {
   opacity: 0;
 }
+
 .slide-enter-active {
   opacity: 0.7;
   transition: opacity 300ms;
 }
+
 .slide-exit {
   opacity: 0.7;
 }
+
 .slide-exit-active {
   opacity: 0;
   transition: opacity 300ms;
@@ -157,15 +171,18 @@
 @media (max-width: 1024px) {
   .card {
     margin-bottom: 1.5rem;
+
     .actions-mobile {
       box-shadow: 0 0 10px rgb(0, 0, 0);
       display: flex;
       flex-direction: column;
       width: 100%;
     }
+
     .actions {
       display: none;
     }
+    
     .success,
     .loading,
     .error {

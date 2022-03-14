@@ -171,7 +171,7 @@ const Register = (props) => {
         {isLoading && <Loader />}
 
         {!isLoading && (
-          <div className={styles.formcontrol}>
+          <div className={`${styles.formcontrol} ${styles["button-div"]}`}>
             <Button type="submit">Sign Up</Button>
           </div>
         )}

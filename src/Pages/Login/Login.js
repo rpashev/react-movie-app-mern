@@ -109,7 +109,7 @@ const Login = (props) => {
         </div>
         {isLoading && <Loader />}
         {!isLoading && (
-          <div className={styles.formcontrol}>
+          <div className={`${styles.formcontrol} ${styles["button-div"]}`}>
             <Button type="submit">Login</Button>
           </div>
         )}

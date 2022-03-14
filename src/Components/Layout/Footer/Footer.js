@@ -4,7 +4,7 @@ const Footer = () => {
 
     return (
         <footer className={styles.footer}>
-            <p>Copyright MyMovies Inc. 2021</p>
+            <p>	&#169; Copyright MyMovies Inc. 2021</p>
         </footer>
     )
 };

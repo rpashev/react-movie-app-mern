@@ -29,11 +29,13 @@
         padding: 0.5rem;
         border: none;
         border-radius: 2px;
+
+        &:focus {
+          outline: none;
+          background-color: $gray-darker;
+        }
       }
-      input:focus {
-        outline: none;
-        background-color: $gray-darker;
-      }
+
       .input-error,
       .input-error:focus {
         border: 3px solid $danger;
@@ -49,6 +51,11 @@
         font-size: 0.8rem;
       }
     }
+
+    .button-div {
+      margin-top: 0.5rem;
+    }
+    
     .http-error {
       color: red;
       width: 100%;
