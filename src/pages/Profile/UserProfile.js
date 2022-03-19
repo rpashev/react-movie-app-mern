@@ -64,7 +64,7 @@ const UserProfile = (props) => {
     const previewUrl = URL.createObjectURL(event.target.files[0]);
     setPreview(previewUrl);
   };
-  
+
   return (
     <div className={styles["profile-page"]}>
       <h1>User Profile</h1>
@@ -74,12 +74,17 @@ const UserProfile = (props) => {
             <img src={preview || image} alt="avatar"></img>
           </div>
           <div className={styles.controls}>
+            <label for="file-upload" className={styles.customlabel}>
+              <span className={styles.field}>Upload avatar...</span>
+              <span className={styles.filebtn}>Browse</span>
+            </label>
             <input
               type="file"
               onChange={imageChangeHandler}
               className={styles.fileinput}
+              id="file-upload"
             ></input>
-            <Button onClick={uploadAvatar}>Upload avatar</Button>
+            <Button onClick={uploadAvatar}>Save changes</Button>
           </div>
           {error && !isLoading && <p className={styles.error}>{error}</p>}
           {isLoading && <p>Saving...</p>}

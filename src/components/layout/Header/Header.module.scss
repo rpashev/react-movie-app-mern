@@ -73,7 +73,7 @@
   }
 }
 
-@media (max-width: 53rem) {
+@media (max-width: 62.5em) {
   .header {
     .logo-container {
       margin: 0 auto;
@@ -85,14 +85,6 @@
 
     .nav__links {
       display: none;
-    }
-  }
-}
-
-@media (max-width: 576px) {
-  .header {
-    .toggle-button {
-      position: static;
     }
   }
 }

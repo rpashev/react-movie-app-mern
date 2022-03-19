@@ -37,7 +37,7 @@ const Details = () => {
   if (movie && movie.Ratings) {
     ratings = movie.Ratings.map((el) => el.Value);
   }
-  
+
   let imgLink;
   if (movie) {
     imgLink = movie.Poster === "N/A" ? noPoster : movie.Poster;
@@ -93,9 +93,18 @@ const Details = () => {
       <div className={styles.details}>
         <div className={styles.leftside}>
           <img src={imgLink} alt=""></img>
-          <p>Genre: {movie.Genre}</p>
-          <p>Runtime: {movie.Runtime}</p>
-          <p>Year: {movie.Year}</p>
+          <p>
+            <span className={styles.subtitle}>Genre: </span>
+            {movie.Genre}
+          </p>
+          <p>
+            <span className={styles.subtitle}>Runtime: </span>
+            {movie.Runtime}
+          </p>
+          <p>
+            <span className={styles.subtitle}>Year: </span>
+            {movie.Year}
+          </p>
         </div>
 
         <div className={styles.rightside}>
@@ -124,11 +133,26 @@ const Details = () => {
             </div>
           ) : null}
           <p>{movie.Plot}</p>
-          <p>Director: {movie.Director}</p>
-          <p>Writer: {movie.Writer}</p>
-          <p>Stars: {movie.Actors}</p>
-          <p>Boxoffice: {movie.BoxOffice}</p>
-          <p>Country: {movie.Country}</p>
+          <p>
+            <span className={styles.subtitle}>Director: </span>
+            {movie.Director}
+          </p>
+          <p>
+            <span className={styles.subtitle}>Writer: </span>
+            {movie.Writer}
+          </p>
+          <p>
+            <span className={styles.subtitle}>Stars: </span>
+            {movie.Actors}
+          </p>
+          <p>
+            <span className={styles.subtitle}>Boxoffice: </span>
+            {movie.BoxOffice}
+          </p>
+          <p>
+            <span className={styles.subtitle}>Country: </span>
+            {movie.Country}
+          </p>
           {isLoggedIn && (
             <div className={styles.buttons}>
               {!movie.isInWatchlist && (
