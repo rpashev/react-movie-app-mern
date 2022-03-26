@@ -9,7 +9,6 @@
   background-color: $gray-darkest;
   box-shadow: 0 0 10px rgb(0, 0, 0);
   border-radius: 4px;
-  overflow: hidden;
 
   &:hover {
     transform: scale(1.04);
@@ -27,6 +26,8 @@
       width: 10rem;
       height: 100%;
       display: block;
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
     }
 
     .movie-info {
@@ -138,16 +139,17 @@
 .error,
 .loading,
 .success {
-  margin: 0;
   position: absolute;
-  top: -1.5rem;
-  height: 1.5rem;
+  top: -1.75rem;
+  height: 1.75rem;
   width: 100%;
-  text-align: center;
   background-color: $danger;
-  padding: 0.25rem 0;
-  border-radius: 3px;
-  font-size: 0.8rem;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .loading {

@@ -72,6 +72,7 @@
   justify-content: center;
   gap: 2rem;
   width: 100%;
+  position: relative;
 
   button {
     width: 50%;
@@ -84,6 +85,12 @@
   color: red;
   text-align: center;
   margin: 2rem 0;
+}
+
+.loading {
+  color: yellow;
+  position: absolute;
+  bottom: -2rem;
 }
 
 @media (max-width: 63em) {

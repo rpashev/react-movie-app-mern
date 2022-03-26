@@ -1,8 +1,6 @@
 @import "../../utils/_colors.scss";
 
 .explore-page {
-  margin: 1rem 6rem;
-
   .title {
     text-align: center;
     color: $gray-light;
@@ -10,13 +8,7 @@
   }
 }
 
-@media (max-width: 1024px) {
-  .explore-page {
-    margin: 2rem 1.5rem;
-  }
-}
-
-@media (max-width: 40rem) {
+@media (max-width: 40em) {
   .explore-page {
     h1 {
       font-size: 1.5rem;

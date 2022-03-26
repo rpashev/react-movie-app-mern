@@ -14,8 +14,7 @@ const Details = () => {
   const [movie, setMovie] = useState();
 
   const { error, isLoading, sendRequest: getMovie } = useAxios();
-  const { isLoggedIn, token, addToList, removeFromList } =
-    useContext(AuthContext);
+  const { isLoggedIn, token, addToList, removeFromList } = useContext(AuthContext);
 
   useEffect(() => {
     const loadMovie = async () => {
@@ -117,19 +116,12 @@ const Details = () => {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <img
-                    title="View on IMDB"
-                    className={styles.img}
-                    alt="pic"
-                    src={imdbIcon}
-                  />
+                  <img title="View on IMDB" className={styles.img} alt="pic" src={imdbIcon} />
                 </a>
                 <p className={styles.imdb}>{ratings[0]}</p>
               </div>
 
-              {ratings[1] && (
-                <p className={styles.rating}>Rotten Tomatoes: {ratings[1]}</p>
-              )}
+              {ratings[1] && <p className={styles.rating}>Rotten Tomatoes: {ratings[1]}</p>}
             </div>
           ) : null}
           <p>{movie.Plot}</p>
@@ -156,48 +148,30 @@ const Details = () => {
           {isLoggedIn && (
             <div className={styles.buttons}>
               {!movie.isInWatchlist && (
-                <Button
-                  yellow
-                  type="button"
-                  onClick={addToUserList.bind(null, "watchlist")}
-                >
+                <Button yellow type="button" onClick={addToUserList.bind(null, "watchlist")}>
                   ADD TO WATCHLIST
                 </Button>
               )}
               {movie.isInWatchlist && (
-                <Button
-                  danger
-                  type="button"
-                  onClick={removeFromUserList.bind(null, "watchlist")}
-                >
+                <Button danger type="button" onClick={removeFromUserList.bind(null, "watchlist")}>
                   REMOVE FROM WATCHLIST
                 </Button>
               )}
 
               {!movie.isInSeenList && (
-                <Button
-                  dark
-                  type="button"
-                  onClick={addToUserList.bind(null, "seenlist")}
-                >
+                <Button dark type="button" onClick={addToUserList.bind(null, "seenlist")}>
                   ADD TO ALREADY WATCHED
                 </Button>
               )}
               {movie.isInSeenList && (
-                <Button
-                  danger
-                  type="button"
-                  onClick={removeFromUserList.bind(null, "seenlist")}
-                >
+                <Button danger type="button" onClick={removeFromUserList.bind(null, "seenlist")}>
                   REMOVE FROM WATCHED
                 </Button>
               )}
+              {isLoadingListOperation && <p className={styles.loading}>Loading...</p>}
             </div>
           )}
-          {errorListOperation && (
-            <p className={styles.error}>{errorListOperation}</p>
-          )}
-          {isLoadingListOperation && <p>Loading...</p>}
+          {errorListOperation && <p className={styles.error}>{errorListOperation}</p>}
         </div>
       </div>
     );

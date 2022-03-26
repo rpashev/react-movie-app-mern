@@ -75,6 +75,7 @@ const WatchlistMovieCard = (props) => {
       {errorAdding && <p className={styles.error}>{errorAdding}</p>}
       {(isLoadingAdding || isLoadingRemoving) && <p className={styles.loading}>Loading...</p>}
       {movieWasAdded && <p className={styles.success}>Marked as watched!</p>}
+
       <div className={styles["actions-mobile"]}>
         <button
           className={styles["remove-button-mobile"]}

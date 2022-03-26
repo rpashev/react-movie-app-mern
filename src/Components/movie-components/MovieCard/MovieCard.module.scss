@@ -117,16 +117,17 @@
 .error,
 .success,
 .loading {
-  margin: 0;
   position: absolute;
-  top: -3.5rem;
-  height: 1.5rem;
+  top: -3.75rem;
+  height: 1.75rem;
   width: 100%;
-  text-align: center;
   background-color: $danger;
-  padding: 0.25rem 0;
-  border-radius: 3px;
-  font-size: 0.8rem;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .success {
@@ -163,7 +164,7 @@
   transition: opacity 300ms;
 }
 
-@media (max-width: 1024px) {
+@media (hover: none), (max-width: 56.25em) {
   .card {
     margin-bottom: 1.5rem;
     a {
@@ -185,7 +186,7 @@
     .success,
     .loading,
     .error {
-      top: -1.5rem;
+      top: -1.75rem;
     }
   }
 }
