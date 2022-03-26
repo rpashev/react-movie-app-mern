@@ -13,8 +13,7 @@ const WatchlistMovieCard = (props) => {
     imgLink = noPoster;
   }
   const [showButton, setShowButton] = useState(false);
-  const { token, removeFromList, seenlist, addToList } =
-    useContext(AuthContext);
+  const { token, removeFromList, seenlist, addToList } = useContext(AuthContext);
   const [isInSeenlist, setIsInSeenlist] = useState(false);
   const [movieWasAdded, setMovieWasAdded] = useState(false);
 
@@ -32,11 +31,7 @@ const WatchlistMovieCard = (props) => {
     sendRequest: removeFromWatchlist,
   } = useAxios();
 
-  const {
-    error: errorAdding,
-    isLoading: isLoadingAdding,
-    sendRequest: addToUserlist,
-  } = useAxios();
+  const { error: errorAdding, isLoading: isLoadingAdding, sendRequest: addToUserlist } = useAxios();
 
   const addToSeenList = async () => {
     console.log("here");
@@ -78,9 +73,7 @@ const WatchlistMovieCard = (props) => {
     >
       {errorRemoving && <p className={styles.error}>{errorRemoving}</p>}
       {errorAdding && <p className={styles.error}>{errorAdding}</p>}
-      {(isLoadingAdding || isLoadingRemoving) && (
-        <p className={styles.loading}>Loading...</p>
-      )}
+      {(isLoadingAdding || isLoadingRemoving) && <p className={styles.loading}>Loading...</p>}
       {movieWasAdded && <p className={styles.success}>Marked as watched!</p>}
       <div className={styles["actions-mobile"]}>
         <button
@@ -104,7 +97,7 @@ const WatchlistMovieCard = (props) => {
             className={styles["seenlist-button-mobile-checked"]}
             title="Movie is marked as watched"
           >
-            Movie is marked as watched!
+            ✓&nbsp;&nbsp; Movie is marked as watched!
           </button>
         )}
       </div>
@@ -143,11 +136,7 @@ const WatchlistMovieCard = (props) => {
         </div>
       </CSSTransition>
       <Link to={`/details/${props.movieID}`}>
-        <img
-          alt="No poster available"
-          className={styles.image}
-          src={imgLink}
-        ></img>
+        <img alt="No poster available" className={styles.image} src={imgLink}></img>
 
         <div className={styles["movie-info"]}>
           <p className={styles.title}>{props.title}</p>

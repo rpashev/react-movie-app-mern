@@ -37,9 +37,7 @@ const MovieList = (props) => {
   //updating lists locally on deleted movie
   useEffect(() => {
     if (props.watchlist && movies && deletedMovieId !== null) {
-      const updateMovies = movies.filter(
-        (movie) => movie.IMDBId !== deletedMovieId
-      );
+      const updateMovies = movies.filter((movie) => movie.IMDBId !== deletedMovieId);
 
       setMovies(updateMovies);
       const updatedFilteredMovies = filteredMovies.filter(
@@ -120,12 +118,7 @@ const MovieList = (props) => {
         />
       );
     });
-  } else if (
-    !props.watchlist &&
-    !props.watched &&
-    filteredMovies.length > 0 &&
-    !error
-  ) {
+  } else if (!props.watchlist && !props.watched && filteredMovies.length > 0 && !error) {
     movieList = filteredMovies.map((movie) => {
       return (
         <MovieCard

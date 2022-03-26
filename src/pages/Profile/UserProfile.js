@@ -74,7 +74,7 @@ const UserProfile = (props) => {
             <img src={preview || image} alt="avatar"></img>
           </div>
           <div className={styles.controls}>
-            <label for="file-upload" className={styles.customlabel}>
+            <label htmlFor="file-upload" className={styles.customlabel}>
               <span className={styles.field}>Upload avatar...</span>
               <span className={styles.filebtn}>Browse</span>
             </label>

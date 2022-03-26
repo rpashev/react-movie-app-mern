@@ -25,12 +25,13 @@
   }
 
   .list {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 12.5rem);
+    grid-auto-rows: 1fr;
+    justify-content: center;
+    gap: 2rem 3rem;
     margin-top: 2rem;
     width: 85%;
-    justify-content: flex-start;
-    align-items: center;
-    flex-wrap: wrap;
     color: $gray-light;
   }
 }

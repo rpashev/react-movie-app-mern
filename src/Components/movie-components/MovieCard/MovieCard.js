@@ -12,8 +12,7 @@ const MovieCard = (props) => {
     imgLink = noPoster;
   }
 
-  const { isLoggedIn, watchlist, seenlist, addToList, token } =
-    useContext(AuthContext);
+  const { isLoggedIn, watchlist, seenlist, addToList, token } = useContext(AuthContext);
 
   const [showActions, setShowActions] = useState(false);
   const [movieWasAdded, setMovieWasAdded] = useState(false);
@@ -44,14 +43,17 @@ const MovieCard = (props) => {
       data: { IMDBId: props.movieID },
       headers: { Authorization: "Bearer " + token },
     });
+
     if (!response) {
       return;
     }
+
     if (list === "watchlist") {
       setIsInWatchlist(true);
     } else if (list === "seenlist") {
       setIsInSeenlist(true);
     }
+
     addToList(props.movieID, list);
     setMovieWasAdded(true);
     setTimeout(() => setMovieWasAdded(false), 1200);
@@ -63,36 +65,27 @@ const MovieCard = (props) => {
       onMouseOver={() => setShowActions(true)}
       onMouseLeave={() => setShowActions(false)}
     >
-      {errorListOperation && showActions && (
-        <p className={styles.error}>{errorListOperation}</p>
-      )}
+      {errorListOperation && showActions && <p className={styles.error}>{errorListOperation}</p>}
       {isLoadingListOperation && <p className={styles.loading}>Adding...</p>}
       {isLoggedIn && (
         <div className={styles["actions-mobile"]}>
           {!isInWatchlist && (
-            <button
-              onClick={addToUserList.bind(null, "watchlist")}
-              className={styles["mobile-watchlist--btn"]}
-            >
-              Add To Watchlist
-            </button>
+            <button onClick={addToUserList.bind(null, "watchlist")}>Add To Watchlist</button>
           )}
+
           {isInWatchlist && (
-            <button className={styles["mobile-watchlist--checked-btn"]}>
-              Already in watchlist
+            <button className={styles["btn-checked"]}>
+              <span>✓</span>Already in watchlist
             </button>
           )}
+
           {!isInSeenlist && (
-            <button
-              className={styles["mobile-seenlist--btn"]}
-              onClick={addToUserList.bind(null, "seenlist")}
-            >
-              Mark as watched
-            </button>
+            <button onClick={addToUserList.bind(null, "seenlist")}>Mark as watched</button>
           )}
+
           {isInSeenlist && (
-            <button className={styles["mobile-seenlist--checked-btn"]}>
-              Already watched
+            <button className={styles["btn-checked"]}>
+              <span>✓</span>already in watched
             </button>
           )}
         </div>
@@ -156,11 +149,7 @@ const MovieCard = (props) => {
       </CSSTransition>
 
       <Link to={`/details/${props.movieID}`}>
-        <img
-          alt="No poster available"
-          className={styles.image}
-          src={imgLink}
-        ></img>
+        <img alt="No poster available" className={styles.image} src={imgLink}></img>
         <p className={styles.title}>{props.title}</p>
       </Link>
     </div>
