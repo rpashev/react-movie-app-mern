@@ -22,31 +22,24 @@ const App = (props) => {
     <BrowserRouter>
       <Layout>
         <Routes>
-          <Route
-            path="/"
-            element={!isLoggedIn ? <Home /> : <Navigate to="/watchlist" />}
-          />
+          <Route path="/" element={!isLoggedIn ? <Home /> : <Navigate to="/watchlist" />} />
 
           <Route
             path="/login"
-            element={
-              !isLoggedIn ? <Login /> : <Navigate replace to="/watchlist" />
-            }
+            element={!isLoggedIn ? <Login /> : <Navigate replace to="/watchlist" />}
           />
 
           <Route
             path="/register"
-            element={
-              !isLoggedIn ? <Register /> : <Navigate replace to="/watchlist" />
-            }
+            element={!isLoggedIn ? <Register /> : <Navigate replace to="/watchlist" />}
           />
+
+          <Route path="/logout" element={isLoggedIn ? <Logout /> : <Navigate replace to="/" />} />
 
           <Route
-            path="/logout"
-            element={isLoggedIn ? <Logout /> : <Navigate replace to="/" />}
+            path="/details/:movieID"
+            element={isLoggedIn ? <Details /> : <Navigate replace to="/" />}
           />
-
-          <Route path="/details/:movieID" element={<Details />} />
 
           <Route
             path="/watchlist"
@@ -72,7 +65,7 @@ const App = (props) => {
             path="/explore"
             element={isLoggedIn ? <ExplorePage /> : <Navigate replace to="/" />}
           ></Route>
-          
+
           <Route
             path="/profile"
             element={isLoggedIn ? <UserProfile /> : <Navigate replace to="/" />}
@@ -80,9 +73,7 @@ const App = (props) => {
 
           <Route
             path="*"
-            element={
-              isLoggedIn ? <Navigate to="/watchlist" /> : <Navigate to="/" />
-            }
+            element={isLoggedIn ? <Navigate to="/watchlist" /> : <Navigate to="/" />}
           />
         </Routes>
       </Layout>
