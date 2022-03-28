@@ -15,7 +15,7 @@ const ExplorePage = () => {
     <div className={styles["explore-page"]}>
       <h1 className={styles.title}>What our users are watching...</h1>
       <SearchInput forwardQuery={getQuery} />
-      <MovieList url="public-library" query={searchQuery} />
+      <MovieList url="public-library" withAuth query={searchQuery} />
     </div>
   );
 };
