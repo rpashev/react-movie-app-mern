@@ -39,33 +39,8 @@
     }
   }
 
-  .toggle-button {
-    display: none;
-    width: 3rem;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding-top: 0;
-    padding-bottom: 0;
-    vertical-align: middle;
-    position: absolute;
-    left: 2%;
-
-    .toggle-button__bar {
-      width: 100%;
-      height: 0.2rem;
-      background: $gray-light;
-      display: block;
-      margin: 0.6rem 0;
-    }
-  }
-
-  .toggle-button:focus {
-    outline: none;
-  }
-
   .logo-container {
-    margin-left: 2rem;
+    margin-left: 3rem;
     height: 100%;
     width: 12rem;
     min-width: 6rem;
@@ -77,10 +52,7 @@
   .header {
     .logo-container {
       margin: 0 auto;
-    }
-
-    .toggle-button {
-      display: block;
+      width: 9rem;
     }
 
     .nav__links {

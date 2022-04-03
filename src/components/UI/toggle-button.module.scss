@@ -1,0 +1,51 @@
+@import "../../utils//colors";
+
+.toggle-button {
+  display: none;
+  width: 3rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  vertical-align: middle;
+  position: absolute;
+  left: 1.25rem;
+
+  .toggle-button__bar {
+    width: 100%;
+    height: 0.2rem;
+    background: $gray-light;
+    display: block;
+    margin: 0.6rem 0;
+  }
+}
+
+.toggle-button:focus {
+  outline: none;
+}
+
+.close {
+  top: 1.5rem;
+  left: 1.5rem;
+  height: 3.5rem;
+
+  .toggle-button__bar:nth-child(2) {
+    display: none;
+  }
+
+  .toggle-button__bar {
+    position: absolute;
+    top: 1rem;
+  }
+  .toggle-button__bar:nth-child(1) {
+    transform: rotate(45deg);
+  }
+  .toggle-button__bar:nth-child(3) {
+    transform: rotate(-45deg);
+  }
+}
+
+@media (max-width: 62.5em) {
+  .toggle-button {
+    display: block;
+  }
+}

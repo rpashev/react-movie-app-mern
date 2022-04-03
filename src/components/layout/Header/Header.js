@@ -8,6 +8,7 @@ import Backdrop from "../../UI/Backdrop";
 import Badge from "../../UI/Badge";
 import UserBadge from "../../UI/UserBadge";
 import styles from "./Header.module.scss";
+import ToggleButton from "../../UI/toggle-button";
 
 const Header = (props) => {
   const { isLoggedIn, watchlist, username, image } = useContext(userContext);
@@ -28,18 +29,9 @@ const Header = (props) => {
 
   return (
     <header className={styles.header}>
-      {!showMobileNav && (
-        <button
-          className={styles["toggle-button"]}
-          onClick={toggleShowMobileNav}
-        >
-          <span className={styles["toggle-button__bar"]}></span>
-          <span className={styles["toggle-button__bar"]}></span>
-          <span className={styles["toggle-button__bar"]}></span>
-        </button>
-      )}
+      {!showMobileNav && <ToggleButton toggleShowMobileNav={toggleShowMobileNav} />}
       <div className={styles["logo-container"]}></div>
-      <MobileNav opened={showMobileNav} />
+      <MobileNav opened={showMobileNav} toggleShowMobileNav={toggleShowMobileNav} />
       {showMobileNav && <Backdrop onClose={toggleShowMobileNav} />}
       <nav className={styles["nav__links"]}>
         {links.map((el) => {
@@ -62,9 +54,7 @@ const Header = (props) => {
               title={el.title}
               onClick={() => toggleShowMobileNav}
               className={(navData) =>
-                navData.isActive
-                  ? `${styles.active} ${styles.link}`
-                  : styles.link
+                navData.isActive ? `${styles.active} ${styles.link}` : styles.link
               }
               key={el.title}
               to={el.link}

@@ -6,6 +6,7 @@ import { NavLink } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 import { Fragment } from "react";
 import Badge from "../UI/Badge";
+import ToggleButton from "../UI/toggle-button";
 
 const MobileNav = (props) => {
   const { isLoggedIn, watchlist, username } = useContext(AuthContext);
@@ -25,12 +26,13 @@ const MobileNav = (props) => {
       }}
     >
       <nav className={styles["mobile-nav"]}>
+        <ToggleButton fromNav toggleShowMobileNav={props.toggleShowMobileNav} />
         <div className={styles["mobile-nav__items"]}>
           {navLinks.map((link) => {
             const watchlistContent = (
               <Fragment>
                 {link.title}
-                {watchlist ? <Badge count={watchlist.length}/> : null}
+                {watchlist ? <Badge count={watchlist.length} /> : null}
               </Fragment>
             );
 
