@@ -26,12 +26,12 @@
 
   .list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 12.5rem);
+    grid-template-columns: repeat(auto-fit, 16rem);
     grid-auto-rows: 1fr;
     justify-content: center;
     justify-items: center;
-    gap: 2rem 3rem;
-    margin-top: 3rem;
+    gap: 3.5rem;
+    margin-top: 4.5rem;
     width: 85%;
     color: $gray-light;
   }

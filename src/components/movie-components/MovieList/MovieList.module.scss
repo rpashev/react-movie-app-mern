@@ -1,25 +1,27 @@
 @import "../../../utils/colors";
 .list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 12.5rem);
+  grid-template-columns: repeat(auto-fit, 16rem);
   grid-auto-rows: 1fr;
   justify-items: center;
   justify-content: center;
-  gap: 2rem 3.5rem;
+  gap: 3.5rem;
   color: $gray-light;
   width: 85%;
-  margin: 3rem auto 0 auto;
+  margin: 4.5rem auto 0 auto;
 }
 
 .seenlist {
   grid-template-columns: repeat(auto-fit, minmax(20rem, 22rem));
   gap: 2rem;
   width: 100%;
+  margin-top: 3rem;
 }
 
 .watchlist {
   grid-template-columns: repeat(auto-fit, minmax(19rem, 37rem));
   width: 95%;
+  margin-top: 3rem;
 }
 
 .error {
