@@ -18,12 +18,14 @@
   flex-direction: column;
   gap: 0.6rem;
   width: 18rem;
+  max-width: 100%;
 }
 
 .rightside {
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
+  max-width: 100%;
 
   h1 {
     text-align: left;
@@ -80,6 +82,7 @@
     width: 50%;
     min-width: 20rem;
     padding: 1rem 2rem;
+    font-weight: 600;
   }
 }
 
@@ -115,7 +118,7 @@
   }
 
   .leftside {
-    width: 19rem;
+    width: 22rem;
   }
 
   .rightside {
@@ -125,7 +128,8 @@
   .buttons {
     button {
       width: 100%;
-      padding: 1rem;
+      padding: 1rem 0.75rem;
+      min-width: auto;
     }
   }
 }

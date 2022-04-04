@@ -124,7 +124,7 @@ const Details = () => {
               {ratings[1] && <p className={styles.rating}>Rotten Tomatoes: {ratings[1]}</p>}
             </div>
           ) : null}
-          <p>{movie.Plot}</p>
+          <p className={styles.plot}>{movie.Plot}</p>
           <p>
             <span className={styles.subtitle}>Director: </span>
             {movie.Director}
@@ -160,7 +160,7 @@ const Details = () => {
 
               {!movie.isInSeenList && (
                 <Button dark type="button" onClick={addToUserList.bind(null, "seenlist")}>
-                  ADD TO ALREADY WATCHED
+                  ADD TO WATCHED
                 </Button>
               )}
               {movie.isInSeenList && (
