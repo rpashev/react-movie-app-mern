@@ -3,7 +3,7 @@ import Button from "../../UI/Button";
 
 const HomeIntro = () => {
   return (
-    <div className={styles.prompt}>
+    <section className={styles.prompt}>
       <h1>
         Welcome to <span>MyMovies</span>
       </h1>
@@ -16,7 +16,7 @@ const HomeIntro = () => {
       <Button to="/login" primary>
         Login
       </Button>
-    </div>
+    </section>
   );
 };
 export default HomeIntro;

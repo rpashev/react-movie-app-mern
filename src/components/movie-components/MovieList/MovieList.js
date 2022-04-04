@@ -147,9 +147,9 @@ const MovieList = (props) => {
   } else if (error) {
     return <p className={styles.error}>{error}</p>;
   } else if (filteredMovies?.length === 0 && !error && movies.length > 0) {
-    return <p>No movies found!</p>;
+    return <p className={styles.notification}>No movies found!</p>;
   } else if (movies.length === 0 && !error) {
-    return <p>No movies in this list yet!</p>;
+    return <p className={styles.notification}>No movies in this list yet!</p>;
   } else {
     return null;
   }

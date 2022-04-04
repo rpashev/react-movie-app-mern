@@ -2,15 +2,24 @@
 
 .home-page {
   .img {
-    height: 500px;
+    height: calc(100vh - 6rem);
     width: 100%;
-    background: url("https://res.cloudinary.com/rpashev/image/upload/v1643814818/movie-app/background_ct8pfj.webp") center/cover no-repeat;
+    background: url("https://res.cloudinary.com/rpashev/image/upload/v1643814818/movie-app/background_ct8pfj.webp")
+      center/cover no-repeat;
     filter: grayscale(50%);
     padding-top: 4rem;
   }
 }
 
-@media (max-width: 40rem) {
+@media (max-width: 75em) {
+  .home-page {
+    .img {
+      height: 500px;
+    }
+  }
+}
+
+@media (max-width: 40em) {
   .home-page {
     .img {
       background: none;

@@ -48,6 +48,7 @@ const Database = (props) => {
 
   return (
     <div className={styles["database-page"]}>
+      <h1>Database</h1>
       <div className={styles["search-container"]}>
         <input
           onChange={searchQueryHandler}
@@ -56,7 +57,7 @@ const Database = (props) => {
         ></input>
       </div>
       {isLoading && <Loader />}
-      {!isLoading && error && <p>{error}</p>}
+      {!isLoading && error && <p className={styles.error}>{error}</p>}
       {!isLoading && !error && movies && movies.length > 0 && (
         <div className={styles.list}>
           {movies.map((movie) => {

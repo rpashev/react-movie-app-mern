@@ -2,7 +2,7 @@ import styles from "./UserFeedback.module.scss";
 
 const UserFeedback = (props) => {
   return (
-    <div className={styles.feedback}>
+    <section className={styles.feedback}>
       <h2>Our Happy Customers</h2>
       <p className={styles.subtitle}>
         Check out what our users are saying about the service we offer.
@@ -23,9 +23,8 @@ const UserFeedback = (props) => {
             </div>
           </div>
           <p>
-            &ldquo;Best app ever! 10/10 would use again. I am so much happier
-            now! Just kidding, this app ruined my life! I will sue the developer
-            and take everthing he owns.&rdquo;
+            &ldquo;Best app ever! 10/10 would use again. I am so much happier now! Just kidding,
+            this app ruined my life! I will sue the developer and take everthing he owns.&rdquo;
           </p>
         </div>
 
@@ -44,9 +43,8 @@ const UserFeedback = (props) => {
             </div>
           </div>
           <p>
-            &ldquo;Best app ever! 10/10 would use again. I am so much happier
-            now! Just kidding, this app ruined my life! I will sue the developer
-            and take everthing he owns.&rdquo;
+            &ldquo;Best app ever! 10/10 would use again. I am so much happier now! Just kidding,
+            this app ruined my life! I will sue the developer and take everthing he owns.&rdquo;
           </p>
         </div>
 
@@ -65,9 +63,8 @@ const UserFeedback = (props) => {
             </div>
           </div>
           <p>
-            &ldquo;Best app ever! 10/10 would use again. I am so much happier
-            now! Just kidding, this app ruined my life! I will sue the developer
-            and take everthing he owns.&rdquo;
+            &ldquo;Best app ever! 10/10 would use again. I am so much happier now! Just kidding,
+            this app ruined my life! I will sue the developer and take everthing he owns.&rdquo;
           </p>
         </div>
 
@@ -86,13 +83,12 @@ const UserFeedback = (props) => {
             </div>
           </div>
           <p>
-            &ldquo;Best app ever! 10/10 would use again. I am so much happier
-            now! Just kidding, this app ruined my life! I will sue the developer
-            and take everthing he owns.&rdquo;
+            &ldquo;Best app ever! 10/10 would use again. I am so much happier now! Just kidding,
+            this app ruined my life! I will sue the developer and take everthing he owns.&rdquo;
           </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

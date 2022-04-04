@@ -1,10 +1,9 @@
-import { Fragment } from "react/cjs/react.production.min";
 import styles from "./Features.module.scss";
 
 const Features = () => {
   return (
-    <Fragment>
-      <h2 className={styles.title}>Why choose our service?</h2>
+    <section className={styles.section}>
+      <h2>Why choose our service?</h2>
       <ul className={styles.features}>
         <li className={styles.feature}>
           <ion-icon name="search-outline"></ion-icon>
@@ -12,9 +11,7 @@ const Features = () => {
         </li>
         <li className={styles.feature}>
           <ion-icon name="build-outline"></ion-icon>
-          <p>
-            Build your own watchlist and keep track of movies you've watched
-          </p>
+          <p>Build your own watchlist and keep track of movies you've watched</p>
         </li>
         <li className={styles.feature}>
           <ion-icon name="eye-outline"></ion-icon>
@@ -33,7 +30,7 @@ const Features = () => {
           <p>Use the app from any device: desktop, tablet or mobile</p>
         </li>
       </ul>
-    </Fragment>
+    </section>
   );
 };
 
