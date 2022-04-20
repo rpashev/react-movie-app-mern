@@ -42,8 +42,9 @@ const Database = (props) => {
     if (searchQuery === "") {
       return;
     }
+    const timer = setTimeout(() => loadMovies(), 300);
 
-    loadMovies();
+    return () => clearTimeout(timer);
   }, [searchQuery]);
 
   return (

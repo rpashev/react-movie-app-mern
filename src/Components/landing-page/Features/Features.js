@@ -8,7 +8,7 @@ const Features = () => {
         <li className={styles.feature}>
           <ion-icon name="search-outline"></ion-icon>
           <h3>Large movie database</h3>
-          <p>Use the OMDB database to find any movie or tv series that you can think of.</p>
+          <p>Use the OMDB database to find any movie or tv series you can think of.</p>
         </li>
         <li className={styles.feature}>
           <ion-icon name="build-outline"></ion-icon>
@@ -18,7 +18,7 @@ const Features = () => {
         <li className={styles.feature}>
           <ion-icon name="eye-outline"></ion-icon>
           <h3>Movie details</h3>
-          <p>Choose a movie and view its most important details including a plot summary.</p>
+          <p>Choose a movie and view its details including a short plot summary.</p>
         </li>
         <li className={styles.feature}>
           <ion-icon name="people-outline"></ion-icon>
@@ -33,7 +33,7 @@ const Features = () => {
         <li className={styles.feature}>
           <ion-icon name="phone-portrait-outline"></ion-icon>
           <h3>Full accessibility</h3>
-          <p>Use the application from any device, be it desktop, tablet or mobile.</p>
+          <p>Use the application from any device: desktop, tablet or mobile.</p>
         </li>
       </ul>
     </section>
