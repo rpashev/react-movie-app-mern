@@ -52,8 +52,7 @@ const Register = (props) => {
 
   const showEmailError = emailError || (isSubmitting && !emailIsValid);
   const showPasswordError = passwordError || (isSubmitting && !passwordIsValid);
-  const showRepeatPasswordError =
-    repeatPasswordError || (isSubmitting && !repeatPasswordIsValid);
+  const showRepeatPasswordError = repeatPasswordError || (isSubmitting && !repeatPasswordIsValid);
   const showUsernameError = usernameError || (isSubmitting && !usernameIsValid);
 
   const repeatPasswordChangeHandler = (event) => {
@@ -70,12 +69,7 @@ const Register = (props) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    if (
-      emailIsValid &&
-      passwordIsValid &&
-      repeatPasswordIsValid &&
-      usernameIsValid
-    ) {
+    if (emailIsValid && passwordIsValid && repeatPasswordIsValid && usernameIsValid) {
       const userData = await register({
         url: "/auth/register",
         method: "POST",
@@ -106,67 +100,55 @@ const Register = (props) => {
         <div className={styles.formcontrol}>
           <label htmlFor="username">Username</label>
           <input
-            className={`${styles.input} ${
-              showUsernameError ? styles["input-error"] : ""
-            }`}
+            className={`${styles.input} ${showUsernameError ? styles["input-error"] : ""}`}
             type="text"
+            id="username"
             value={username}
             onChange={usernameChangeHandler}
             onBlur={usernameBlurHandler}
           />
-          {showUsernameError && (
-            <p className={styles.error}>Please enter a valid username!</p>
-          )}
+          {showUsernameError && <p className={styles.error}>Please enter a valid username!</p>}
         </div>
 
         <div className={styles.formcontrol}>
           <label htmlFor="email">Email</label>
           <input
-            className={`${styles.input} ${
-              showEmailError ? styles["input-error"] : ""
-            }`}
+            className={`${styles.input} ${showEmailError ? styles["input-error"] : ""}`}
             type="email"
+            id="email"
             value={email}
             onChange={emailChangeHandler}
             onBlur={emailBlurHandler}
           />
-          {showEmailError && (
-            <p className={styles.error}>Please enter a valid email!</p>
-          )}
+          {showEmailError && <p className={styles.error}>Please enter a valid email!</p>}
         </div>
 
         <div className={styles.formcontrol}>
           <label htmlFor="password">Password</label>
           <input
-            className={`${styles.input} ${
-              showPasswordError ? styles["input-error"] : ""
-            }`}
+            className={`${styles.input} ${showPasswordError ? styles["input-error"] : ""}`}
             type="password"
+            id="password"
             value={password}
             onChange={passwordChangeHandler}
             onBlur={passwordBlurHandler}
           />
           {showPasswordError && (
-            <p className={styles.error}>
-              Password should be at least 6 symbols!
-            </p>
+            <p className={styles.error}>Password should be at least 6 symbols!</p>
           )}
         </div>
 
         <div className={styles.formcontrol}>
           <label htmlFor="repeatPassword">Repeat password</label>
           <input
-            className={`${styles.input} ${
-              showRepeatPasswordError ? styles["input-error"] : ""
-            }`}
+            className={`${styles.input} ${showRepeatPasswordError ? styles["input-error"] : ""}`}
             type="password"
+            id="repeatPassword"
             value={repeatPassword}
             onChange={repeatPasswordChangeHandler}
             onBlur={repeatPasswordBlurHandler}
           />
-          {showRepeatPasswordError && (
-            <p className={styles.error}>Passwords should match!</p>
-          )}
+          {showRepeatPasswordError && <p className={styles.error}>Passwords should match!</p>}
         </div>
         {isLoading && <Loader />}
 

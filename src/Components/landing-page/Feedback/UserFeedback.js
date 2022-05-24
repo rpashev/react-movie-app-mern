@@ -24,7 +24,7 @@ const UserFeedback = (props) => {
           </div>
           <p>
             &ldquo;Best app ever! 10/10 would use again. I am so much happier now! Just kidding,
-            this app ruined my life! I will sue the developer and take everthing he owns.&rdquo;
+            this app ruined my life! I will sue the developer and take everything he owns.&rdquo;
           </p>
         </div>
 
@@ -44,7 +44,7 @@ const UserFeedback = (props) => {
           </div>
           <p>
             &ldquo;Best app ever! 10/10 would use again. I am so much happier now! Just kidding,
-            this app ruined my life! I will sue the developer and take everthing he owns.&rdquo;
+            this app ruined my life! I will sue the developer and take everything he owns.&rdquo;
           </p>
         </div>
 
@@ -64,7 +64,7 @@ const UserFeedback = (props) => {
           </div>
           <p>
             &ldquo;Best app ever! 10/10 would use again. I am so much happier now! Just kidding,
-            this app ruined my life! I will sue the developer and take everthing he owns.&rdquo;
+            this app ruined my life! I will sue the developer and take everything he owns.&rdquo;
           </p>
         </div>
 
@@ -84,7 +84,7 @@ const UserFeedback = (props) => {
           </div>
           <p>
             &ldquo;Best app ever! 10/10 would use again. I am so much happier now! Just kidding,
-            this app ruined my life! I will sue the developer and take everthing he owns.&rdquo;
+            this app ruined my life! I will sue the developer and take everything he owns.&rdquo;
           </p>
         </div>
       </div>
