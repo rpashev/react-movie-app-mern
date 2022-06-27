@@ -103,4 +103,4 @@ This app is the second version of an app I made for the [software academy](https
 
 
 ## Contact
-Created by me - feel free to contact me!
+Created by rpashev - feel free to [contact me](https://www.rpashev.com/).
