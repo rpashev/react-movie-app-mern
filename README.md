@@ -3,7 +3,7 @@ A responsive single page application allowing registered users to search for mov
 
 Here you can find the **[REST API](https://github.com/rpashev/rest-movie-apps)** that I have created for the app.  
 The application uses **[OMDB Api](https://www.omdbapi.com/)** as a movie database.  
-> Live demo **[HERE](https://www.my-movies.live/)**
+> Live demo **[HERE](https://movies-app-react-rp.netlify.app)**
 
 ## Table of Contents
 * [General Info](#general-information)
