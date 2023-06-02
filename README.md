@@ -74,7 +74,7 @@ This app is the second version of an app I made for the [software academy](https
 
 1. Make sure you have **`node`** and **`npm`** installed globally on your machine.  
 
-3. Clone the repo  
+2. Clone the repo  
     ### `git clone https://github.com/rpashev/react-movie-app-mern.git`  
 
 3. Install NPM packages  
@@ -85,8 +85,10 @@ This app is the second version of an app I made for the [software academy](https
 
 5. You can view the app on [http://localhost:3000](http://localhost:3000)  
  
-7. To build for production run the following command  
+6. To build for production run the following command  
     ### `npm run build`
+
+7. If you want to connect to the backend follow the instructions [here](https://github.com/rpashev/rest-movie-apps/#readme)
 
 
 ## Room for Improvement
